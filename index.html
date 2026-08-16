@@ -1155,9 +1155,11 @@ const filtered =
 items.filter(item => {
 
 const searchMatch =
-item.name
-.toLowerCase()
-.includes(search);
+item.name.toLowerCase().includes(search) ||
+(item.aliases &&
+ item.aliases.some(alias =>
+     alias.toLowerCase().includes(search)
+ ));
 
 
 const categoryMatch =
