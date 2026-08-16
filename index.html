@@ -1468,7 +1468,11 @@ item.change.startsWith("-")
 
 return `
 
-<article class="item">
+<article
+class="item"
+onclick="openItem('${item.name.toLowerCase().replaceAll(" ","-")}')"
+style="cursor:pointer"
+>
 
 <div class="item-top">
 
