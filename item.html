@@ -472,9 +472,10 @@ h1{
 
 <div class="container">
 
-<a
+<<a
     href="index.html"
     class="back"
+    id="backButton"
 >
     ← Retour au PriceCheck
 </a>
@@ -491,7 +492,20 @@ h1{
 
 
 <script>
+/* =========================================
+   RETOUR À LA POSITION PRÉCÉDENTE
+========================================= */
 
+document
+    .getElementById("backButton")
+    .addEventListener("click", function(){
+
+        sessionStorage.setItem(
+            "pricecheckReturn",
+            "true"
+        );
+
+    });
 /* ==================================================
    BASE DES ITEMS
    Même base que l'index.html
