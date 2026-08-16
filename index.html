@@ -1,12 +1,1304 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paladium V12 PriceCheck</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+
+<title>Paladium V12 PriceCheck</title>
+
+<style>
+
+:root{
+    --bg:#080b12;
+    --card:#111827;
+    --card2:#151d2d;
+    --border:#29354a;
+    --text:#f8fafc;
+    --muted:#94a3b8;
+    --purple:#8b5cf6;
+    --cyan:#22d3ee;
+    --green:#34d399;
+    --red:#fb7185;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            #35205f 0%,
+            #080b12 45%
+        );
+    color:var(--text);
+    font-family:
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+header,
+main,
+footer{
+    max-width:1100px;
+    margin:auto;
+    padding-left:18px;
+    padding-right:18px;
+}
+
+/* HEADER */
+
+header{
+    padding-top:30px;
+    padding-bottom:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple),
+            var(--cyan)
+        );
+
+    font-weight:900;
+    font-size:22px;
+}
+
+.eyebrow{
+    color:#c4b5fd;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.brand strong{
+    font-size:15px;
+}
+
+h1{
+    margin:28px 0 12px;
+
+    font-size:
+        clamp(
+            40px,
+            9vw,
+            72px
+        );
+
+    line-height:.95;
+}
+
+.hero-text{
+    max-width:720px;
+
+    color:var(--muted);
+
+    line-height:1.6;
+}
+
+.notice{
+    margin-top:20px;
+
+    padding:14px 16px;
+
+    border:
+        1px solid
+        var(--border);
+
+    background:#111827cc;
+
+    border-radius:14px;
+
+    font-size:13px;
+
+    color:#cbd5e1;
+}
+
+/* MAIN */
+
+main{
+    padding-bottom:60px;
+}
+
+/* SEARCH */
+
+.tools{
+    display:grid;
+
+    grid-template-columns:
+        1fr
+        230px;
+
+    gap:10px;
+
+    margin-bottom:16px;
+}
+
+input,
+select{
+    width:100%;
+
+    padding:15px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:13px;
+
+    background:#0d131f;
+
+    color:var(--text);
+
+    font-size:15px;
+
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:var(--purple);
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.stat{
+    padding:16px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:15px;
+
+    background:var(--card);
+}
+
+.stat b{
+    font-size:24px;
+}
+
+.stat span{
+    display:block;
+
+    margin-top:4px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+/* ITEMS */
+
+.items{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fill,
+            minmax(
+                230px,
+                1fr
+            )
+        );
+
+    gap:13px;
+}
+
+.item{
+    padding:17px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:17px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--card),
+            #0e141e
+        );
+
+    transition:
+        transform .18s,
+        border-color .18s;
+}
+
+.item:hover{
+    transform:translateY(-3px);
+
+    border-color:
+        var(--purple);
+}
+
+.item-top{
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:center;
+}
+
+.item-icon{
+    font-size:34px;
+}
+
+.category{
+    padding:6px 9px;
+
+    border-radius:99px;
+
+    background:#202b3d;
+
+    color:#cbd5e1;
+
+    font-size:10px;
+}
+
+.item h2{
+    margin:
+        13px 0 4px;
+
+    font-size:19px;
+}
+
+.description{
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.price{
+    margin-top:16px;
+
+    font-size:26px;
+
+    font-weight:900;
+}
+
+.range{
+    margin-top:6px;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+.change{
+    margin-top:8px;
+
+    font-size:12px;
+
+    font-weight:700;
+}
+
+.up{
+    color:var(--green);
+}
+
+.down{
+    color:var(--red);
+}
+
+/* SECTION */
+
+.section{
+    margin-top:45px;
+}
+
+.section-title{
+    display:flex;
+
+    justify-content:
+        space-between;
+
+    align-items:center;
+}
+
+.section h2{
+    font-size:28px;
+}
+
+.section-subtitle{
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* VIDEOS */
+
+.videos{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                230px,
+                1fr
+            )
+        );
+
+    gap:13px;
+}
+
+.video{
+    padding:18px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:16px;
+
+    background:var(--card);
+}
+
+.video-icon{
+    font-size:32px;
+}
+
+.video h3{
+    margin:
+        11px 0 5px;
+}
+
+.video p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.5;
+}
+
+.video a{
+    display:inline-block;
+
+    margin-top:6px;
+
+    padding:
+        10px 13px;
+
+    border-radius:10px;
+
+    background:#ef4444;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:13px;
+}
+
+/* BEST DEALS */
+
+.deals{
+    display:grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(
+                230px,
+                1fr
+            )
+        );
+
+    gap:13px;
+}
+
+.deal{
+    padding:18px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #151c2c,
+            #101622
+        );
+}
+
+.deal strong{
+    font-size:18px;
+}
+
+.deal-price{
+    margin-top:10px;
+
+    color:var(--green);
+
+    font-size:24px;
+
+    font-weight:900;
+}
+
+/* EMPTY */
+
+.empty{
+    grid-column:
+        1 / -1;
+
+    padding:40px;
+
+    border:
+        1px dashed
+        var(--border);
+
+    border-radius:16px;
+
+    text-align:center;
+
+    color:var(--muted);
+}
+
+/* FOOTER */
+
+footer{
+    padding-top:24px;
+    padding-bottom:30px;
+
+    border-top:
+        1px solid
+        var(--border);
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+    .tools{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+    }
+
+    .stats
+    .stat:last-child{
+        display:none;
+    }
+
+    h1{
+        font-size:45px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
-    <h1>🟣 Paladium V12 PriceCheck</h1>
-    <p>Le site fonctionne ! 🚀</p>
+
+<header>
+
+<div class="brand">
+
+<div class="logo">
+P
+</div>
+
+<div>
+
+<div class="eyebrow">
+PALADIUM V12
+</div>
+
+<strong>
+PriceCheck
+</strong>
+
+</div>
+
+</div>
+
+<h1>
+Prix des items<br>
+Paladium V12
+</h1>
+
+<p class="hero-text">
+
+🔎 Recherche un item, regarde son prix approximatif
+et compare rapidement les différentes catégories.
+
+</p>
+
+<div class="notice">
+
+⚠️ <strong>Attention :</strong>
+les prix affichés actuellement sont des estimations
+de démonstration. Ils ne sont pas officiels.
+
+</div>
+
+</header>
+
+
+<main>
+
+<!-- RECHERCHE -->
+
+<div class="tools">
+
+<input
+id="search"
+type="search"
+placeholder="🔎 Rechercher un item..."
+autocomplete="off"
+>
+
+<select id="category">
+
+<option value="all">
+Toutes les catégories
+</option>
+
+<option value="Minerais">
+Minerais
+</option>
+
+<option value="Ressources">
+Ressources
+</option>
+
+<option value="Machines">
+Machines
+</option>
+
+<option value="Outils">
+Outils
+</option>
+
+<option value="Armures">
+Armures
+</option>
+
+<option value="Nourriture">
+Nourriture
+</option>
+
+</select>
+
+</div>
+
+
+<!-- STATISTIQUES -->
+
+<div class="stats">
+
+<div class="stat">
+
+<b id="count">
+0
+</b>
+
+<span>
+Items affichés
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+V12
+</b>
+
+<span>
+Version
+</span>
+
+</div>
+
+
+<div class="stat">
+
+<b>
+💰
+</b>
+
+<span>
+Prix indicatifs
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ITEMS -->
+
+<section>
+
+<div class="section-title">
+
+<h2>
+💰 Items
+</h2>
+
+<div class="section-subtitle">
+Prix approximatifs
+</div>
+
+</div>
+
+<div
+id="items"
+class="items"
+></div>
+
+</section>
+
+
+<!-- MEILLEURES AFFAIRES -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+🔥 À surveiller
+</h2>
+
+</div>
+
+<div class="deals">
+
+<div class="deal">
+
+<strong>
+💎 Améthyste
+</strong>
+
+<div class="deal-price">
+500 $
+</div>
+
+<div class="description">
+Prix indicatif actuel
+</div>
+
+</div>
+
+
+<div class="deal">
+
+<strong>
+🔷 Titane
+</strong>
+
+<div class="deal-price">
+850 $
+</div>
+
+<div class="description">
+Prix indicatif actuel
+</div>
+
+</div>
+
+
+<div class="deal">
+
+<strong>
+💜 Paladium
+</strong>
+
+<div class="deal-price">
+1 200 $
+</div>
+
+<div class="description">
+Prix indicatif actuel
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VIDEOS -->
+
+<section class="section">
+
+<div class="section-title">
+
+<h2>
+🎥 Paladium V12
+</h2>
+
+</div>
+
+<div class="videos">
+
+
+<div class="video">
+
+<div class="video-icon">
+▶️
+</div>
+
+<h3>
+Découverte V12
+</h3>
+
+<p>
+Trouve les dernières vidéos
+sur Paladium V12.
+</p>
+
+<a
+href="https://www.youtube.com/results?search_query=Paladium+V12"
+target="_blank"
+rel="noopener"
+>
+
+YouTube
+
+</a>
+
+</div>
+
+
+<div class="video">
+
+<div class="video-icon">
+💰
+</div>
+
+<h3>
+Gagner de l'argent
+</h3>
+
+<p>
+Guides et astuces pour gagner
+de l'argent sur Paladium.
+</p>
+
+<a
+href="https://www.youtube.com/results?search_query=Paladium+V12+argent"
+target="_blank"
+rel="noopener"
+>
+
+Rechercher
+
+</a>
+
+</div>
+
+
+<div class="video">
+
+<div class="video-icon">
+⛏️
+</div>
+
+<h3>
+Farm & minerais
+</h3>
+
+<p>
+Vidéos sur les minerais,
+le farm et les ressources.
+</p>
+
+<a
+href="https://www.youtube.com/results?search_query=Paladium+V12+minerais"
+target="_blank"
+rel="noopener"
+>
+
+Rechercher
+
+</a>
+
+</div>
+
+
+<div class="video">
+
+<div class="video-icon">
+⚙️
+</div>
+
+<h3>
+Machines
+</h3>
+
+<p>
+Guides sur les machines
+et l'automatisation.
+</p>
+
+<a
+href="https://www.youtube.com/results?search_query=Paladium+V12+machines"
+target="_blank"
+rel="noopener"
+>
+
+Rechercher
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+Paladium V12 PriceCheck
+
+<br>
+
+Projet communautaire non officiel
+
+</footer>
+
+
+<script>
+
+/*
+========================================
+BASE DE DONNÉES V1
+========================================
+
+Nom
+Catégorie
+Icône
+Prix moyen
+Minimum
+Maximum
+Variation
+*/
+
+const items = [
+
+{
+name:"Paladium",
+category:"Minerais",
+icon:"💜",
+price:1200,
+min:900,
+max:1600,
+change:"+8%"
+},
+
+{
+name:"Titane",
+category:"Minerais",
+icon:"🔷",
+price:850,
+min:650,
+max:1100,
+change:"+3%"
+},
+
+{
+name:"Améthyste",
+category:"Minerais",
+icon:"💎",
+price:500,
+min:350,
+max:700,
+change:"-4%"
+},
+
+{
+name:"Émeraude",
+category:"Minerais",
+icon:"🟢",
+price:450,
+min:300,
+max:650,
+change:"+5%"
+},
+
+{
+name:"Rubis",
+category:"Minerais",
+icon:"🔴",
+price:700,
+min:500,
+max:900,
+change:"+6%"
+},
+
+{
+name:"Saphir",
+category:"Minerais",
+icon:"🔵",
+price:650,
+min:450,
+max:850,
+change:"-2%"
+},
+
+{
+name:"Obsidienne",
+category:"Ressources",
+icon:"⬛",
+price:180,
+min:120,
+max:250,
+change:"+2%"
+},
+
+{
+name:"Perle de l'End",
+category:"Ressources",
+icon:"🟣",
+price:900,
+min:650,
+max:1200,
+change:"+6%"
+},
+
+{
+name:"Machine industrielle",
+category:"Machines",
+icon:"⚙️",
+price:25000,
+min:18000,
+max:35000,
+change:"+10%"
+},
+
+{
+name:"Four amélioré",
+category:"Machines",
+icon:"🔥",
+price:9000,
+min:7000,
+max:12000,
+change:"+1%"
+},
+
+{
+name:"Pioche Paladium",
+category:"Outils",
+icon:"⛏️",
+price:18000,
+min:13000,
+max:25000,
+change:"+7%"
+},
+
+{
+name:"Épée Paladium",
+category:"Outils",
+icon:"⚔️",
+price:22000,
+min:16000,
+max:30000,
+change:"+4%"
+},
+
+{
+name:"Casque Paladium",
+category:"Armures",
+icon:"🪖",
+price:16000,
+min:12000,
+max:22000,
+change:"-1%"
+},
+
+{
+name:"Plastron Paladium",
+category:"Armures",
+icon:"🛡️",
+price:30000,
+min:24000,
+max:40000,
+change:"+9%"
+},
+
+{
+name:"Pomme dorée",
+category:"Nourriture",
+icon:"🍎",
+price:2500,
+min:1800,
+max:3500,
+change:"+2%"
+},
+
+{
+name:"Pain",
+category:"Nourriture",
+icon:"🍞",
+price:80,
+min:50,
+max:120,
+change:"-3%"
+}
+
+];
+
+
+/*
+========================================
+FORMAT PRIX
+========================================
+*/
+
+function money(number){
+
+return number.toLocaleString(
+"fr-FR"
+) + " $";
+
+}
+
+
+/*
+========================================
+AFFICHAGE
+========================================
+*/
+
+function renderItems(){
+
+const search =
+document
+.getElementById("search")
+.value
+.toLowerCase()
+.trim();
+
+
+const category =
+document
+.getElementById("category")
+.value;
+
+
+const filtered =
+items.filter(item => {
+
+const searchMatch =
+item.name
+.toLowerCase()
+.includes(search);
+
+
+const categoryMatch =
+category === "all" ||
+item.category === category;
+
+
+return searchMatch &&
+categoryMatch;
+
+});
+
+
+document
+.getElementById("count")
+.textContent =
+filtered.length;
+
+
+const container =
+document.getElementById("items");
+
+
+if(filtered.length === 0){
+
+container.innerHTML = `
+
+<div class="empty">
+
+😅 Aucun item trouvé.
+
+<br><br>
+
+Essaie une autre recherche.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+container.innerHTML =
+filtered
+.map(item => {
+
+const changeClass =
+item.change.startsWith("-")
+? "down"
+: "up";
+
+
+return `
+
+<article class="item">
+
+<div class="item-top">
+
+<div class="item-icon">
+${item.icon}
+</div>
+
+<div class="category">
+${item.category}
+</div>
+
+</div>
+
+
+<h2>
+${item.name}
+</h2>
+
+
+<div class="description">
+
+Prix communautaire approximatif
+
+</div>
+
+
+<div class="price">
+
+${money(item.price)}
+
+</div>
+
+
+<div class="range">
+
+Fourchette :
+
+${money(item.min)}
+
+→
+
+${money(item.max)}
+
+</div>
+
+
+<div class="change ${changeClass}">
+
+📈 Variation :
+
+${item.change}
+
+</div>
+
+</article>
+
+`;
+
+})
+.join("");
+
+}
+
+
+/*
+========================================
+ÉVÉNEMENTS
+========================================
+*/
+
+document
+.getElementById("search")
+.addEventListener(
+"input",
+renderItems
+);
+
+
+document
+.getElementById("category")
+.addEventListener(
+"change",
+renderItems
+);
+
+
+/*
+========================================
+LANCEMENT
+========================================
+*/
+
+renderItems();
+
+</script>
+
 </body>
 </html>
