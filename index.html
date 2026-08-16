@@ -1316,7 +1316,21 @@ function renderItems(){
                     decodeURIComponent(
                         card.dataset.item
                     );
+/* =========================================
+   MÉMORISER LA POSITION
+========================================= */
 
+window.addEventListener(
+    "scroll",
+    function(){
+
+        sessionStorage.setItem(
+            "pricecheckScroll",
+            window.scrollY
+        );
+
+    }
+);
                 openItem(name);
 
             }
@@ -1356,7 +1370,39 @@ document
 ===================================================== */
 
 renderItems();
+/* =========================================
+   RESTAURER LA POSITION APRÈS RETOUR
+========================================= */
 
+window.addEventListener("load", function(){
+
+    if(
+        sessionStorage.getItem(
+            "pricecheckReturn"
+        ) === "true"
+    ){
+
+        sessionStorage.removeItem(
+            "pricecheckReturn"
+        );
+
+        setTimeout(function(){
+
+            window.scrollTo({
+                top:
+                    Number(
+                        sessionStorage.getItem(
+                            "pricecheckScroll"
+                        )
+                    ) || 0,
+                behavior:"instant"
+            });
+
+        },100);
+
+    }
+
+});
 </script>
 
 </body>
