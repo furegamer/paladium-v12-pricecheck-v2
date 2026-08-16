@@ -520,9 +520,9 @@ footer{
 <main>
 
 
-    <!-- RECHERCHE -->
+<!-- RECHERCHE -->
 
-    <div class="tools">
+<div class="tools">
 
     <input
         id="search"
@@ -1102,6 +1102,24 @@ function getRarityClass(rarity){
 
 function openItem(name){
 
+    // Mémorise l'item sur lequel on vient de cliquer
+    sessionStorage.setItem(
+        "pricecheckSelectedItem",
+        name
+    );
+
+    // Mémorise également la position actuelle
+    sessionStorage.setItem(
+        "pricecheckScroll",
+        window.scrollY
+    );
+
+    // Indique qu'on vient de l'index
+    sessionStorage.setItem(
+        "pricecheckReturn",
+        "true"
+    );
+
     window.location.href =
         "item.html?item=" +
         encodeURIComponent(name);
@@ -1379,28 +1397,108 @@ window.addEventListener("load", function(){
     if(
         sessionStorage.getItem(
             "pricecheckReturn"
-        ) === "true"
+        ) !== "true"
     ){
 
-        sessionStorage.removeItem(
-            "pricecheckReturn"
+        return;
+
+    }
+
+    sessionStorage.removeItem(
+        "pricecheckReturn"
+    );
+
+
+    const selectedName =
+        sessionStorage.getItem(
+            "pricecheckSelectedItem"
         );
 
-        setTimeout(function(){
+
+    // On attend que les cartes soient affichées
+    setTimeout(function(){
+
+        const cards =
+            document.querySelectorAll(".item");
+
+
+        let selectedCard = null;
+
+
+        cards.forEach(card => {
+
+            const encodedName =
+                card.dataset.item;
+
+            const name =
+                decodeURIComponent(
+                    encodedName
+                );
+
+
+            if(name === selectedName){
+
+                selectedCard = card;
+
+            }
+
+        });
+
+
+        if(selectedCard){
+
+            // Place l'item au milieu de l'écran
+            selectedCard.scrollIntoView({
+
+                behavior:"instant",
+
+                block:"center"
+
+            });
+
+
+            // Petit effet visuel
+            selectedCard.style.transition =
+                "transform .2s, border-color .2s, box-shadow .2s";
+
+            selectedCard.style.borderColor =
+                "var(--purple)";
+
+            selectedCard.style.boxShadow =
+                "0 0 35px rgba(139,92,246,.35)";
+
+
+            setTimeout(function(){
+
+                selectedCard.style.borderColor =
+                    "";
+
+                selectedCard.style.boxShadow =
+                    "";
+
+            },1200);
+
+        }else{
+
+            // Si l'item n'est plus affiché,
+            // on revient simplement à la position précédente
 
             window.scrollTo({
+
                 top:
                     Number(
                         sessionStorage.getItem(
                             "pricecheckScroll"
                         )
                     ) || 0,
+
                 behavior:"instant"
+
             });
 
-        },100);
+        }
 
-    }
+    },100);
 
 });
 </script>
