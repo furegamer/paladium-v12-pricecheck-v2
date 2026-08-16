@@ -1426,8 +1426,31 @@ function renderItems(){
         .value;
 
 
-    const filtered =
-        items.filter(item => {
+    const filtered = items.filter(item => {
+
+    const name = (item.name || "").toLowerCase();
+
+    const aliases = item.aliases || [];
+
+    const nameMatch =
+        search === "" ||
+        name.includes(search);
+
+    const aliasMatch =
+        search === "" ||
+        aliases.some(alias =>
+            String(alias)
+                .toLowerCase()
+                .includes(search)
+        );
+
+    const categoryMatch =
+        category === "all" ||
+        item.category === category;
+
+    return (nameMatch || aliasMatch) && categoryMatch;
+
+});
 
             const nameMatch =
                 item.name
