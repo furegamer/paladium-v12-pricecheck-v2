@@ -1374,11 +1374,52 @@ FORMAT PRIX
 
 function money(number){
 
-return number.toLocaleString(
-"fr-FR"
-) + " $";
+    if(number === 0){
+        return "À déterminer";
+    }
+
+    return number.toLocaleString("fr-FR") + " $";
 
 }
+
+
+function getRarityClass(rarity){
+
+    switch(rarity){
+
+        case "Peu commun":
+            return "rarity-uncommon";
+
+        case "Rare":
+            return "rarity-rare";
+
+        case "Épique":
+            return "rarity-epic";
+
+        case "Légendaire":
+            return "rarity-legendary";
+
+        case "Unique":
+            return "rarity-unique";
+
+        default:
+            return "rarity-common";
+
+    }
+
+}
+
+
+function openItem(itemName){
+
+    window.location.href =
+        "item.html?item=" +
+        encodeURIComponent(itemName);
+
+}
+
+
+renderItems();
 
 
 /*
