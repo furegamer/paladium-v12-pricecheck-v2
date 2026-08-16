@@ -514,15 +514,32 @@ CHERCHER L'ITEM
 */
 
 const item =
-items.find(
-x =>
+items.find(x => {
 
-x.name
-.toLowerCase()
-.replaceAll(" ","-")
-=== requested
+    const name =
+        x.name
+        .toLowerCase()
+        .trim();
 
-);
+    const slug =
+        name
+        .replaceAll(" ", "-");
+
+    const aliases =
+        (x.aliases || [])
+        .map(alias =>
+            alias
+            .toLowerCase()
+            .trim()
+        );
+
+    return (
+        requested === slug ||
+        requested === name ||
+        aliases.includes(requested)
+    );
+
+});
 
 
 /*
