@@ -1387,7 +1387,166 @@ AFFICHAGE
 ========================================
 */
 
-function renderItems(){
+    function renderItems(){
+
+    const search =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const category =
+        document
+        .getElementById("category")
+        .value;
+
+    const filtered =
+        items.filter(item => {
+
+            const searchMatch =
+                item.name
+                .toLowerCase()
+                .includes(search)
+                ||
+                (
+                    item.aliases &&
+                    item.aliases.some(alias =>
+                        alias
+                        .toLowerCase()
+                        .includes(search)
+                    )
+                );
+
+            const categoryMatch =
+                category === "all" ||
+                item.category === category;
+
+            return searchMatch && categoryMatch;
+
+        });
+
+
+    document
+        .getElementById("count")
+        .textContent = filtered.length;
+
+
+    const container =
+        document.getElementById("items");
+
+
+    if(filtered.length === 0){
+
+        container.innerHTML = `
+
+            <div class="empty">
+
+                😅 Aucun item trouvé.
+
+                <br><br>
+
+                Essaie une autre recherche.
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML =
+        filtered
+        .map(item => {
+
+            const changeClass =
+                item.change.startsWith("-")
+                ? "down"
+                : "up";
+
+
+            return `
+
+                <article
+                    class="item"
+                    onclick="openItem('${item.name.replace(/'/g, "\\'")}')"
+                    style="cursor:pointer"
+                >
+
+                    <div class="item-top">
+
+                        <div class="item-icon">
+                            ${item.icon}
+                        </div>
+
+                        <div class="category">
+                            ${item.category}
+                        </div>
+
+                    </div>
+
+
+                    <h2>
+                        ${item.name}
+                    </h2>
+
+
+                    <div class="rarity ${getRarityClass(item.rarity)}">
+
+                        ⭐ ${item.rarity || "Commun"}
+
+                    </div>
+
+
+                    <div class="description">
+
+                        Prix communautaire approximatif
+
+                    </div>
+
+
+                    <div class="price">
+
+                        ${
+                            item.price === 0
+                            ? "À déterminer"
+                            : money(item.price)
+                        }
+
+                    </div>
+
+
+                    <div class="range">
+
+                        ${
+                            item.price === 0
+                            ? "Prix V12 à déterminer"
+                            :
+                            "Fourchette : "
+                            + money(item.min)
+                            + " → "
+                            + money(item.max)
+                        }
+
+                    </div>
+
+
+                    <div class="change ${changeClass}">
+
+                        📈 Variation :
+                        ${item.change}
+
+                    </div>
+
+                </article>
+
+            `;
+
+        })
+        .join("");
+
+}
 
 const search =
 document
