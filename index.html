@@ -1096,176 +1096,272 @@ Variation
 
 const items = [
 
-{
-name:"Paladium",
-category:"Minerais",
-icon:"💜",
-price:1200,
-min:900,
-max:1600,
-change:"+8%"
-},
+    // =========================
+    // 💎 MINERAIS
+    // =========================
 
-{
-name:"Titane",
-category:"Minerais",
-icon:"🔷",
-price:850,
-min:650,
-max:1100,
-change:"+3%"
-},
+    {
+        name: "Paladium",
+        aliases: ["Pala", "Paladium Ore"],
+        category: "Minerais",
+        rarity: "Légendaire",
+        icon: "💜",
+        price: 1200,
+        min: 900,
+        max: 1600,
+        change: "+8%"
+    },
 
-{
-name:"Améthyste",
-category:"Minerais",
-icon:"💎",
-price:500,
-min:350,
-max:700,
-change:"-4%"
-},
+    {
+        name: "Titane",
+        aliases: ["Titanium"],
+        category: "Minerais",
+        rarity: "Épique",
+        icon: "🔷",
+        price: 850,
+        min: 650,
+        max: 1100,
+        change: "+3%"
+    },
 
-{
-name:"Émeraude",
-category:"Minerais",
-icon:"🟢",
-price:450,
-min:300,
-max:650,
-change:"+5%"
-},
+    {
+        name: "Améthyste",
+        aliases: ["Ame", "Amé"],
+        category: "Minerais",
+        rarity: "Rare",
+        icon: "💎",
+        price: 500,
+        min: 350,
+        max: 700,
+        change: "-4%"
+    },
 
-{
-name:"Rubis",
-category:"Minerais",
-icon:"🔴",
-price:700,
-min:500,
-max:900,
-change:"+6%"
-},
+    {
+        name: "Rubis",
+        aliases: ["Ruby"],
+        category: "Minerais",
+        rarity: "Rare",
+        icon: "🔴",
+        price: 700,
+        min: 500,
+        max: 900,
+        change: "+6%"
+    },
 
-{
-name:"Saphir",
-category:"Minerais",
-icon:"🔵",
-price:650,
-min:450,
-max:850,
-change:"-2%"
-},
+    {
+        name: "Saphir",
+        aliases: ["Saph"],
+        category: "Minerais",
+        rarity: "Rare",
+        icon: "🔵",
+        price: 650,
+        min: 450,
+        max: 850,
+        change: "-2%"
+    },
 
-{
-name:"Obsidienne",
-category:"Ressources",
-icon:"⬛",
-price:180,
-min:120,
-max:250,
-change:"+2%"
-},
+    {
+        name: "Émeraude",
+        aliases: ["Emerald", "Emer"],
+        category: "Minerais",
+        rarity: "Peu commun",
+        icon: "🟢",
+        price: 450,
+        min: 300,
+        max: 650,
+        change: "+5%"
+    },
 
-{
-name:"Perle de l'End",
-category:"Ressources",
-icon:"🟣",
-price:900,
-min:650,
-max:1200,
-change:"+6%"
-},
 
-{
-name:"Machine industrielle",
-category:"Machines",
-icon:"⚙️",
-price:25000,
-min:18000,
-max:35000,
-change:"+10%"
-},
+    // =========================
+    // ⛏️ OUTILS
+    // =========================
 
-{
-name:"Four amélioré",
-category:"Machines",
-icon:"🔥",
-price:9000,
-min:7000,
-max:12000,
-change:"+1%"
-},
+    {
+        name: "Pickaxe of the God",
+        aliases: [
+            "Pog",
+            "POG",
+            "Pickaxe Of God",
+            "Pickaxe of God"
+        ],
+        category: "Outils",
+        rarity: "Unique",
+        icon: "⛏️",
+        price: 0,
+        min: 0,
+        max: 0,
+        change: "—"
+    },
 
-{
-name:"Pioche Paladium",
-category:"Outils",
-icon:"⛏️",
-price:18000,
-min:13000,
-max:25000,
-change:"+7%"
-},
+    {
+        name: "Pioche Paladium",
+        aliases: [
+            "Pioche Pala",
+            "Pioch Paladium"
+        ],
+        category: "Outils",
+        rarity: "Légendaire",
+        icon: "⛏️",
+        price: 18000,
+        min: 13000,
+        max: 25000,
+        change: "+7%"
+    },
 
-{
-name:"Pickaxe of the God",
-aliases:["Pog","POG","Pickaxe of God"],
-category:"Outils",
-icon:"⛏️",
-price:0,
-min:0,
-max:0,
-change:"—"
-},
+    {
+        name: "Épée Paladium",
+        aliases: [
+            "Sword Paladium",
+            "Épée Pala"
+        ],
+        category: "Outils",
+        rarity: "Légendaire",
+        icon: "⚔️",
+        price: 22000,
+        min: 16000,
+        max: 30000,
+        change: "+4%"
+    },
 
-{
-name:"Épée Paladium",
-category:"Outils",
-icon:"⚔️",
-price:22000,
-min:16000,
-max:30000,
-change:"+4%"
-},
 
-{
-name:"Casque Paladium",
-category:"Armures",
-icon:"🪖",
-price:16000,
-min:12000,
-max:22000,
-change:"-1%"
-},
+    // =========================
+    // ⚙️ MACHINES
+    // =========================
 
-{
-name:"Plastron Paladium",
-category:"Armures",
-icon:"🛡️",
-price:30000,
-min:24000,
-max:40000,
-change:"+9%"
-},
+    {
+        name: "Machine industrielle",
+        aliases: [
+            "Machine",
+            "Machine Industrie"
+        ],
+        category: "Machines",
+        rarity: "Épique",
+        icon: "⚙️",
+        price: 25000,
+        min: 18000,
+        max: 35000,
+        change: "+10%"
+    },
 
-{
-name:"Pomme dorée",
-category:"Nourriture",
-icon:"🍎",
-price:2500,
-min:1800,
-max:3500,
-change:"+2%"
-},
+    {
+        name: "Four amélioré",
+        aliases: [
+            "Four",
+            "Four Upgrade"
+        ],
+        category: "Machines",
+        rarity: "Rare",
+        icon: "🔥",
+        price: 9000,
+        min: 7000,
+        max: 12000,
+        change: "+1%"
+    },
 
-{
-name:"Pain",
-category:"Nourriture",
-icon:"🍞",
-price:80,
-min:50,
-max:120,
-change:"-3%"
-}
+
+    // =========================
+    // 🛡️ ARMURES
+    // =========================
+
+    {
+        name: "Casque Paladium",
+        aliases: [
+            "Casque Pala",
+            "Helmet Paladium"
+        ],
+        category: "Armures",
+        rarity: "Légendaire",
+        icon: "🪖",
+        price: 16000,
+        min: 12000,
+        max: 22000,
+        change: "-1%"
+    },
+
+    {
+        name: "Plastron Paladium",
+        aliases: [
+            "Plastron Pala",
+            "Chestplate Paladium"
+        ],
+        category: "Armures",
+        rarity: "Légendaire",
+        icon: "🛡️",
+        price: 30000,
+        min: 24000,
+        max: 40000,
+        change: "+9%"
+    },
+
+
+    // =========================
+    // 🧱 RESSOURCES
+    // =========================
+
+    {
+        name: "Obsidienne",
+        aliases: [
+            "Obsi",
+            "Obsidian"
+        ],
+        category: "Ressources",
+        rarity: "Peu commun",
+        icon: "⬛",
+        price: 180,
+        min: 120,
+        max: 250,
+        change: "+2%"
+    },
+
+    {
+        name: "Perle de l'End",
+        aliases: [
+            "Perle",
+            "Ender Pearl"
+        ],
+        category: "Ressources",
+        rarity: "Rare",
+        icon: "🟣",
+        price: 900,
+        min: 650,
+        max: 1200,
+        change: "+6%"
+    },
+
+
+    // =========================
+    // 🍎 NOURRITURE
+    // =========================
+
+    {
+        name: "Pomme dorée",
+        aliases: [
+            "Pomme",
+            "Golden Apple"
+        ],
+        category: "Nourriture",
+        rarity: "Rare",
+        icon: "🍎",
+        price: 2500,
+        min: 1800,
+        max: 3500,
+        change: "+2%"
+    },
+
+    {
+        name: "Pain",
+        aliases: [
+            "Bread"
+        ],
+        category: "Nourriture",
+        rarity: "Commun",
+        icon: "🍞",
+        price: 80,
+        min: 50,
+        max: 120,
+        change: "-3%"
+    }
 
 ];
 
