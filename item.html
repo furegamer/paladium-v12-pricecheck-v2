@@ -4,56 +4,31 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="theme-color"
-    content="#080b12"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
 
 <title>Item • Paladium V12 PriceCheck</title>
-
 
 <style>
 
 :root{
-
     --bg:#080b12;
-
     --card:#111827;
-
     --border:#29354a;
-
     --text:#f8fafc;
-
     --muted:#94a3b8;
-
     --purple:#8b5cf6;
-
     --cyan:#22d3ee;
-
     --green:#34d399;
-
     --red:#fb7185;
-
 }
-
 
 *{
-
     box-sizing:border-box;
-
 }
 
-
 body{
-
     margin:0;
-
     min-height:100vh;
 
     color:var(--text);
@@ -64,7 +39,6 @@ body{
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-
 
     background:
 
@@ -84,7 +58,6 @@ body{
 
 }
 
-
 .container{
 
     width:
@@ -99,7 +72,6 @@ body{
         25px 0 60px;
 
 }
-
 
 .back{
 
@@ -128,7 +100,6 @@ body{
 
 }
 
-
 .back:hover{
 
     border-color:var(--purple);
@@ -136,7 +107,6 @@ body{
     transform:translateY(-2px);
 
 }
-
 
 .item-header{
 
@@ -161,21 +131,26 @@ body{
 
 }
 
+.icon{
 
-.item-image{
+    width:130px;
+    height:130px;
 
-    width:110px;
+    display:grid;
+    place-items:center;
 
-    height:110px;
-
-    object-fit:contain;
-
-    display:block;
-
-    margin-bottom:15px;
+    margin-bottom:12px;
 
 }
 
+.icon img{
+
+    width:120px;
+    height:120px;
+
+    object-fit:contain;
+
+}
 
 .category{
 
@@ -196,7 +171,6 @@ body{
 
 }
 
-
 h1{
 
     margin:
@@ -213,7 +187,6 @@ h1{
 
 }
 
-
 .description{
 
     color:var(--muted);
@@ -225,9 +198,7 @@ h1{
 }
 
 
-/* =====================================================
-   RARETÉS
-===================================================== */
+/* RARETÉS */
 
 .rarity{
 
@@ -250,71 +221,56 @@ h1{
 
 }
 
-
 .rarity-common{
 
     background:#374151;
-
     color:#e5e7eb;
 
 }
 
-
 .rarity-uncommon{
 
     background:#14532d;
-
     color:#86efac;
 
 }
 
-
 .rarity-rare{
 
     background:#1e3a8a;
-
     color:#93c5fd;
 
 }
 
-
 .rarity-epic{
 
     background:#581c87;
-
     color:#d8b4fe;
 
 }
 
-
 .rarity-legendary{
 
     background:#78350f;
-
     color:#fcd34d;
 
 }
 
-
 .rarity-unique{
 
     background:#7f1d1d;
-
     color:#fca5a5;
 
 }
 
 
-/* =====================================================
-   SECTIONS
-===================================================== */
+/* PRIX */
 
 .section{
 
     margin-top:32px;
 
 }
-
 
 .section h2{
 
@@ -323,11 +279,6 @@ h1{
     margin-bottom:14px;
 
 }
-
-
-/* =====================================================
-   PRIX
-===================================================== */
 
 .price-box{
 
@@ -343,7 +294,6 @@ h1{
 
 }
 
-
 .price{
 
     padding:20px;
@@ -358,7 +308,6 @@ h1{
 
 }
 
-
 .price span{
 
     display:block;
@@ -368,7 +317,6 @@ h1{
     font-size:12px;
 
 }
-
 
 .price strong{
 
@@ -381,9 +329,7 @@ h1{
 }
 
 
-/* =====================================================
-   INFORMATIONS
-===================================================== */
+/* INFORMATIONS */
 
 .info-grid{
 
@@ -402,7 +348,6 @@ h1{
 
 }
 
-
 .info{
 
     padding:17px;
@@ -417,7 +362,6 @@ h1{
 
 }
 
-
 .info span{
 
     display:block;
@@ -427,7 +371,6 @@ h1{
     font-size:12px;
 
 }
-
 
 .info strong{
 
@@ -440,9 +383,7 @@ h1{
 }
 
 
-/* =====================================================
-   ALIAS
-===================================================== */
+/* ALIAS */
 
 .alias-box{
 
@@ -459,7 +400,6 @@ h1{
     background:#0d131f;
 
 }
-
 
 .alias{
 
@@ -482,9 +422,7 @@ h1{
 }
 
 
-/* =====================================================
-   NOT FOUND
-===================================================== */
+/* NOT FOUND */
 
 .not-found{
 
@@ -494,17 +432,13 @@ h1{
 
 }
 
+.not-found .icon{
 
-.not-found-icon{
+    margin:auto;
 
-    width:90px;
-
-    height:90px;
-
-    object-fit:contain;
+    font-size:60px;
 
 }
-
 
 .not-found h1{
 
@@ -513,9 +447,7 @@ h1{
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* MOBILE */
 
 @media(max-width:600px){
 
@@ -525,26 +457,15 @@ h1{
 
     }
 
-
     .item-header{
 
         padding:20px;
 
     }
 
-
     .price-box{
 
         grid-template-columns:1fr;
-
-    }
-
-
-    .item-image{
-
-        width:90px;
-
-        height:90px;
 
     }
 
@@ -574,9 +495,7 @@ h1{
     id="item"
     class="item-header"
 >
-
     Chargement...
-
 </div>
 
 
@@ -585,22 +504,19 @@ h1{
 
 <script>
 
-/* =====================================================
+/* ==================================================
    BASE DES ITEMS
-===================================================== */
+================================================== */
 
 const items = [
 
     {
         name:"Pickaxe of the God",
-        aliases:[
-            "Pog",
-            "POG",
-            "Pickaxe of God"
-        ],
+        aliases:["Pog","POG","Pickaxe of God"],
         category:"Outils",
         rarity:"Unique",
-        image:"images/pog.png",
+        icon:"⛏️",
+        image:"pog.png",
         price:0,
         min:0,
         max:0,
@@ -614,15 +530,13 @@ const items = [
             "La célèbre Pickaxe of the God, souvent appelée POG."
     },
 
-
     {
         name:"Paladium",
-        aliases:[
-            "Pala"
-        ],
+        aliases:["Pala"],
         category:"Minerais",
         rarity:"Légendaire",
-        image:"images/paladium.png",
+        icon:"💜",
+        image:"paladium.png",
         price:1200,
         min:900,
         max:1600,
@@ -636,15 +550,13 @@ const items = [
             "Un minerai précieux utilisé dans différents crafts."
     },
 
-
     {
         name:"Titane",
-        aliases:[
-            "Titanium"
-        ],
+        aliases:["Titanium"],
         category:"Minerais",
         rarity:"Épique",
-        image:"images/titane.png",
+        icon:"🔷",
+        image:"titane.png",
         price:850,
         min:650,
         max:1100,
@@ -658,16 +570,13 @@ const items = [
             "Une ressource minérale importante pour la progression."
     },
 
-
     {
         name:"Améthyste",
-        aliases:[
-            "Ame",
-            "Amé"
-        ],
+        aliases:["Ame","Amé"],
         category:"Minerais",
         rarity:"Rare",
-        image:"images/amethyste.png",
+        icon:"💎",
+        image:"amethyste.png",
         price:500,
         min:350,
         max:700,
@@ -681,15 +590,13 @@ const items = [
             "Une ressource minérale rare."
     },
 
-
     {
         name:"Rubis",
-        aliases:[
-            "Ruby"
-        ],
+        aliases:["Ruby"],
         category:"Minerais",
         rarity:"Rare",
-        image:"images/rubis.png",
+        icon:"🔴",
+        image:"rubis.png",
         price:700,
         min:500,
         max:900,
@@ -703,15 +610,13 @@ const items = [
             "Un minerai précieux de couleur rouge."
     },
 
-
     {
         name:"Saphir",
-        aliases:[
-            "Saph"
-        ],
+        aliases:["Saph"],
         category:"Minerais",
         rarity:"Rare",
-        image:"images/saphir.png",
+        icon:"🔵",
+        image:"saphir.png",
         price:650,
         min:450,
         max:850,
@@ -725,16 +630,13 @@ const items = [
             "Une ressource minérale bleue."
     },
 
-
     {
         name:"Émeraude",
-        aliases:[
-            "Emerald",
-            "Emer"
-        ],
+        aliases:["Emerald","Emer"],
         category:"Minerais",
         rarity:"Peu commun",
-        image:"images/emeraude.png",
+        icon:"🟢",
+        image:"emeraude.png",
         price:450,
         min:300,
         max:650,
@@ -748,15 +650,13 @@ const items = [
             "Une ressource verte utilisée dans plusieurs crafts."
     },
 
-
     {
         name:"Obsidienne",
-        aliases:[
-            "Obsi"
-        ],
+        aliases:["Obsi"],
         category:"Ressources",
         rarity:"Peu commun",
-        image:"images/obsidienne.png",
+        icon:"⬛",
+        image:"obsidienne.png",
         price:180,
         min:120,
         max:250,
@@ -770,16 +670,13 @@ const items = [
             "Une ressource sombre et résistante."
     },
 
-
     {
         name:"Perle de l'End",
-        aliases:[
-            "Perle",
-            "Ender Pearl"
-        ],
+        aliases:["Perle","Ender Pearl"],
         category:"Ressources",
         rarity:"Rare",
-        image:"images/perle-end.png",
+        icon:"🟣",
+        image:"perle-end.png",
         price:900,
         min:650,
         max:1200,
@@ -793,15 +690,13 @@ const items = [
             "Une perle mystérieuse provenant de l'End."
     },
 
-
     {
         name:"Machine industrielle",
-        aliases:[
-            "Machine"
-        ],
+        aliases:["Machine"],
         category:"Machines",
         rarity:"Épique",
-        image:"images/machine.png",
+        icon:"⚙️",
+        image:"machine.png",
         price:25000,
         min:18000,
         max:35000,
@@ -815,15 +710,13 @@ const items = [
             "Une machine destinée à automatiser certaines productions."
     },
 
-
     {
         name:"Four amélioré",
-        aliases:[
-            "Four"
-        ],
+        aliases:["Four"],
         category:"Machines",
         rarity:"Rare",
-        image:"images/four.png",
+        icon:"🔥",
+        image:"four.png",
         price:9000,
         min:7000,
         max:12000,
@@ -837,15 +730,13 @@ const items = [
             "Un four amélioré permettant une production plus efficace."
     },
 
-
     {
         name:"Pioche Paladium",
-        aliases:[
-            "Pioche Pala"
-        ],
+        aliases:["Pioche Pala"],
         category:"Outils",
         rarity:"Légendaire",
-        image:"images/pioche-paladium.png",
+        icon:"⛏️",
+        image:"pioche-paladium.png",
         price:18000,
         min:13000,
         max:25000,
@@ -859,15 +750,13 @@ const items = [
             "Une pioche fabriquée à partir de Paladium."
     },
 
-
     {
         name:"Épée Paladium",
-        aliases:[
-            "Épée Pala"
-        ],
+        aliases:["Épée Pala"],
         category:"Outils",
         rarity:"Légendaire",
-        image:"images/epee-paladium.png",
+        icon:"⚔️",
+        image:"epee-paladium.png",
         price:22000,
         min:16000,
         max:30000,
@@ -881,15 +770,13 @@ const items = [
             "Une épée puissante fabriquée à partir de Paladium."
     },
 
-
     {
         name:"Casque Paladium",
-        aliases:[
-            "Casque Pala"
-        ],
+        aliases:["Casque Pala"],
         category:"Armures",
         rarity:"Légendaire",
-        image:"images/casque-paladium.png",
+        icon:"🪖",
+        image:"casque-paladium.png",
         price:16000,
         min:12000,
         max:22000,
@@ -903,15 +790,13 @@ const items = [
             "Un casque d'armure en Paladium."
     },
 
-
     {
         name:"Plastron Paladium",
-        aliases:[
-            "Plastron Pala"
-        ],
+        aliases:["Plastron Pala"],
         category:"Armures",
         rarity:"Légendaire",
-        image:"images/plastron-paladium.png",
+        icon:"🛡️",
+        image:"plastron-paladium.png",
         price:30000,
         min:24000,
         max:40000,
@@ -925,16 +810,13 @@ const items = [
             "Un plastron puissant en Paladium."
     },
 
-
     {
         name:"Pomme dorée",
-        aliases:[
-            "Pomme",
-            "Golden Apple"
-        ],
+        aliases:["Pomme","Golden Apple"],
         category:"Nourriture",
         rarity:"Rare",
-        image:"images/pomme-doree.png",
+        icon:"🍎",
+        image:"pomme-doree.png",
         price:2500,
         min:1800,
         max:3500,
@@ -948,15 +830,13 @@ const items = [
             "Une nourriture précieuse aux propriétés spéciales."
     },
 
-
     {
         name:"Pain",
-        aliases:[
-            "Bread"
-        ],
+        aliases:["Bread"],
         category:"Nourriture",
         rarity:"Commun",
-        image:"images/pain.png",
+        icon:"🍞",
+        image:"pain.png",
         price:80,
         min:50,
         max:120,
@@ -973,9 +853,9 @@ const items = [
 ];
 
 
-/* =====================================================
+/* ==================================================
    RARETÉ
-===================================================== */
+================================================== */
 
 function getRarityClass(rarity){
 
@@ -1004,49 +884,39 @@ function getRarityClass(rarity){
 }
 
 
-/* =====================================================
+/* ==================================================
    PRIX
-===================================================== */
+================================================== */
 
 function money(value){
 
     if(value === 0){
-
         return "À déterminer";
-
     }
 
-    return value.toLocaleString("fr-FR")
-        + " $";
+    return value.toLocaleString("fr-FR") + " $";
 
 }
 
 
-/* =====================================================
+/* ==================================================
    NORMALISATION
-===================================================== */
+================================================== */
 
 function normalize(value){
 
     return String(value || "")
-
         .toLowerCase()
-
         .trim()
-
         .normalize("NFD")
-
-        .replace(
-            /[\u0300-\u036f]/g,
-            ""
-        );
+        .replace(/[\u0300-\u036f]/g,"");
 
 }
 
 
-/* =====================================================
-   RÉCUPÉRER L'ITEM DE L'URL
-===================================================== */
+/* ==================================================
+   ITEM DEMANDÉ
+================================================== */
 
 const params =
     new URLSearchParams(
@@ -1058,46 +928,35 @@ const requested =
     params.get("item");
 
 
-/* =====================================================
-   CHERCHER L'ITEM
-===================================================== */
-
 const normalizedRequested =
     normalize(requested);
 
 
+/* ==================================================
+   RECHERCHE
+================================================== */
+
 const item =
-    items.find(function(x){
+    items.find(x => {
 
         const name =
             normalize(x.name);
 
-
         const slug =
-            name.replace(
-                /\s+/g,
-                "-"
-            );
-
+            name.replace(/\s+/g,"-");
 
         const aliases =
             (x.aliases || [])
-            .map(function(alias){
-
-                return normalize(alias);
-
-            });
+            .map(alias =>
+                normalize(alias)
+            );
 
 
         return (
 
-            normalizedRequested === name
+            normalizedRequested === name ||
 
-            ||
-
-            normalizedRequested === slug
-
-            ||
+            normalizedRequested === slug ||
 
             aliases.includes(
                 normalizedRequested
@@ -1108,17 +967,13 @@ const item =
     });
 
 
-/* =====================================================
-   CONTAINER
-===================================================== */
+/* ==================================================
+   AFFICHAGE
+================================================== */
 
 const container =
     document.getElementById("item");
 
-
-/* =====================================================
-   ITEM INTROUVABLE
-===================================================== */
 
 if(!item){
 
@@ -1126,18 +981,13 @@ if(!item){
 
         <div class="not-found">
 
-
-            <img
-                class="not-found-icon"
-                src="images/default.png"
-                alt="Item introuvable"
-            >
-
+            <div class="icon">
+                ❌
+            </div>
 
             <h1>
                 Item introuvable
             </h1>
-
 
             <p class="description">
 
@@ -1154,38 +1004,33 @@ if(!item){
 
             </p>
 
-
         </div>
 
     `;
 
-}
-
-
-/* =====================================================
-   AFFICHER L'ITEM
-===================================================== */
-
-else{
+}else{
 
 
     container.innerHTML = `
 
-        <img
-            class="item-image"
-            src="${item.image}"
-            alt="${item.name}"
-            onerror="this.onerror=null;this.src='images/default.png';"
-        >
+        <div class="icon">
+
+            <img
+                src="images/${item.image}"
+                alt="${item.name}"
+                onerror="
+                    this.onerror=null;
+                    this.src='images/default.png';
+                "
+            >
+
+        </div>
 
 
         <div>
 
-
             <span class="category">
-
                 ${item.category}
-
             </span>
 
 
@@ -1200,30 +1045,20 @@ else{
 
             </span>
 
-
         </div>
 
 
         <h1>
-
             ${item.name}
-
         </h1>
 
 
         <p class="description">
-
             ${item.description}
-
         </p>
 
 
-        <!-- =========================================
-             PRIX
-        ========================================== -->
-
         <div class="section">
-
 
             <h2>
                 💰 Prix
@@ -1239,7 +1074,6 @@ else{
                         Prix moyen
                     </span>
 
-
                     <strong>
                         ${money(item.price)}
                     </strong>
@@ -1252,7 +1086,6 @@ else{
                     <span>
                         Prix minimum
                     </span>
-
 
                     <strong>
                         ${money(item.min)}
@@ -1267,7 +1100,6 @@ else{
                         Prix maximum
                     </span>
 
-
                     <strong>
                         ${money(item.max)}
                     </strong>
@@ -1277,16 +1109,10 @@ else{
 
             </div>
 
-
         </div>
 
 
-        <!-- =========================================
-             INFORMATIONS
-        ========================================== -->
-
         <div class="section">
-
 
             <h2>
                 📊 Informations
@@ -1302,7 +1128,6 @@ else{
                         ⚔️ Dégâts
                     </span>
 
-
                     <strong>
                         ${item.damage}
                     </strong>
@@ -1315,7 +1140,6 @@ else{
                     <span>
                         🛡️ Durabilité
                     </span>
-
 
                     <strong>
                         ${item.durability}
@@ -1330,7 +1154,6 @@ else{
                         ⚡ Vitesse
                     </span>
 
-
                     <strong>
                         ${item.speed}
                     </strong>
@@ -1343,7 +1166,6 @@ else{
                     <span>
                         ⭐ Niveau
                     </span>
-
 
                     <strong>
                         ${item.level}
@@ -1358,7 +1180,6 @@ else{
                         🧱 Matériau
                     </span>
 
-
                     <strong>
                         ${item.material}
                     </strong>
@@ -1372,7 +1193,6 @@ else{
                         📈 Variation
                     </span>
 
-
                     <strong>
                         ${item.change}
                     </strong>
@@ -1382,40 +1202,27 @@ else{
 
             </div>
 
-
         </div>
 
 
-        <!-- =========================================
-             ALIAS
-        ========================================== -->
-
         <div class="alias-box">
-
 
             <strong>
                 🔎 Aussi appelé :
             </strong>
-
 
             <br>
 
 
             ${
                 item.aliases
-                .map(function(alias){
+                .map(alias => `
 
-                    return `
+                    <span class="alias">
+                        ${alias}
+                    </span>
 
-                        <span class="alias">
-
-                            ${alias}
-
-                        </span>
-
-                    `;
-
-                })
+                `)
                 .join("")
             }
 
@@ -1425,25 +1232,6 @@ else{
     `;
 
 }
-
-
-/* =====================================================
-   BOUTON RETOUR
-===================================================== */
-
-document
-    .getElementById("backButton")
-    .addEventListener(
-        "click",
-        function(){
-
-            /*
-               On ne supprime PAS la position.
-               index.html la récupérera.
-            */
-
-        }
-    );
 
 </script>
 
