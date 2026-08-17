@@ -2,7 +2,6 @@
 <html lang="fr">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b12">
@@ -10,7 +9,6 @@
 <title>Paladium V12 PriceCheck</title>
 
 <style>
-
 :root{
     --bg:#080b12;
     --card:#111827;
@@ -23,45 +21,25 @@
     --red:#fb7185;
 }
 
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
-html{
-    scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
     margin:0;
     min-height:100vh;
     color:var(--text);
-
-    font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 
     background:
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(139,92,246,.30),
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 80% 40%,
-            rgba(34,211,238,.20),
-            transparent 35%
-        ),
+        radial-gradient(circle at 20% 10%,rgba(139,92,246,.30),transparent 35%),
+        radial-gradient(circle at 80% 40%,rgba(34,211,238,.20),transparent 35%),
         #080b12;
 
     background-attachment:fixed;
 }
 
-header,
-main,
-footer{
+header,main,footer{
     max-width:1100px;
     margin:auto;
     padding-left:18px;
@@ -82,19 +60,10 @@ header{
 .logo{
     width:48px;
     height:48px;
-
     display:grid;
     place-items:center;
-
     border-radius:15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--cyan)
-        );
-
+    background:linear-gradient(135deg,var(--purple),var(--cyan));
     font-weight:900;
     font-size:22px;
 }
@@ -104,19 +73,11 @@ header{
     font-size:11px;
     font-weight:800;
     letter-spacing:2px;
-    text-transform:uppercase;
 }
 
 h1{
     margin:28px 0 12px;
-
-    font-size:
-        clamp(
-            40px,
-            9vw,
-            72px
-        );
-
+    font-size:clamp(40px,9vw,72px);
     line-height:.95;
 }
 
@@ -129,123 +90,74 @@ h1{
 .notice{
     margin-top:20px;
     padding:14px 16px;
-
     border:1px solid var(--border);
     border-radius:14px;
-
     background:#111827cc;
-
     font-size:13px;
 }
 
-
-/* =========================
-   OUTILS
-========================= */
+/* OUTILS */
 
 .tools{
     display:grid;
-
-    grid-template-columns:
-        1fr
-        230px
-        210px
-        250px;
-
+    grid-template-columns:1fr 230px 230px 230px;
     gap:10px;
-
     margin-bottom:16px;
 }
 
-input,
-select{
+input,select{
     width:100%;
-
     padding:15px;
-
     border:1px solid var(--border);
     border-radius:13px;
-
     background:#0d131f;
     color:var(--text);
-
     font-size:15px;
     outline:none;
 }
 
-input:focus,
-select:focus{
+input:focus,select:focus{
     border-color:var(--purple);
 }
 
-
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
-
     margin-bottom:25px;
 }
 
 .stat{
     padding:16px;
-
     border:1px solid var(--border);
     border-radius:15px;
-
     background:var(--card);
 }
 
-.stat b{
-    font-size:24px;
-}
+.stat b{font-size:24px;}
 
 .stat span{
     display:block;
-
     margin-top:4px;
-
     color:var(--muted);
     font-size:12px;
 }
 
-
-/* =========================
-   ITEMS
-========================= */
+/* ITEMS */
 
 .items{
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fill,
-            minmax(230px,1fr)
-        );
-
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
     gap:13px;
 }
 
 .item{
     padding:17px;
-
     border:1px solid var(--border);
     border-radius:17px;
-
-    background:
-        linear-gradient(
-            180deg,
-            var(--card),
-            #0e141e
-        );
-
+    background:linear-gradient(180deg,var(--card),#0e141e);
     cursor:pointer;
 
     transition:
@@ -256,107 +168,73 @@ select:focus{
 
 .item:hover{
     transform:translateY(-3px);
-
     border-color:var(--purple);
-
-    box-shadow:
-        0 10px 30px
-        rgba(139,92,246,.12);
+    box-shadow:0 10px 30px rgba(139,92,246,.12);
 }
 
 .item-top{
     display:flex;
-
     justify-content:space-between;
     align-items:center;
+    gap:10px;
 }
 
 .item-image{
-
     width:70px;
     height:70px;
-
     object-fit:contain;
-
-    image-rendering:auto;
-
-    filter:
-        drop-shadow(
-            0 5px 10px
-            rgba(0,0,0,.35)
-        );
-
+    display:block;
 }
 
 .category{
     padding:6px 9px;
-
     border-radius:99px;
-
     background:#202b3d;
     color:#cbd5e1;
-
     font-size:10px;
+    white-space:nowrap;
 }
 
 .item h2{
     margin:13px 0 4px;
-
     font-size:19px;
 }
 
 .description{
     color:var(--muted);
-
     font-size:12px;
 }
 
 .price{
     margin-top:16px;
-
     font-size:26px;
     font-weight:900;
 }
 
 .range{
     margin-top:6px;
-
     color:var(--muted);
-
     font-size:12px;
 }
 
 .change{
     margin-top:8px;
-
     font-size:12px;
     font-weight:700;
 }
 
-.up{
-    color:var(--green);
-}
+.up{color:var(--green);}
+.down{color:var(--red);}
 
-.down{
-    color:var(--red);
-}
-
-
-/* =========================
-   RARETÉS
-========================= */
+/* RARETÉS */
 
 .rarity{
     display:inline-block;
-
     margin-top:7px;
     padding:5px 9px;
-
     border-radius:999px;
-
     font-size:10px;
     font-weight:800;
-
     text-transform:uppercase;
 }
 
@@ -390,10 +268,7 @@ select:focus{
     color:#fca5a5;
 }
 
-
-/* =========================
-   SECTIONS
-========================= */
+/* SECTIONS */
 
 .section{
     margin-top:45px;
@@ -403,29 +278,18 @@ select:focus{
     font-size:28px;
 }
 
-
-/* =========================
-   VIDEOS
-========================= */
+/* VIDEOS */
 
 .videos{
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(230px,1fr)
-        );
-
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:13px;
 }
 
 .video{
     padding:18px;
-
     border:1px solid var(--border);
     border-radius:16px;
-
     background:var(--card);
 }
 
@@ -433,172 +297,104 @@ select:focus{
     font-size:32px;
 }
 
-.video h3{
-    margin:11px 0 5px;
-}
+.video h3{margin:11px 0 5px;}
 
 .video p{
     color:var(--muted);
-
     font-size:13px;
     line-height:1.5;
 }
 
 .video a{
     display:inline-block;
-
     margin-top:6px;
     padding:10px 13px;
-
     border-radius:10px;
-
     background:#ef4444;
     color:white;
-
     text-decoration:none;
-
     font-size:13px;
 }
 
-
-/* =========================
-   EMPTY
-========================= */
+/* EMPTY */
 
 .empty{
-    grid-column:1 / -1;
-
+    grid-column:1/-1;
     padding:40px;
-
     border:1px dashed var(--border);
     border-radius:16px;
-
     text-align:center;
-
     color:var(--muted);
 }
 
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
     margin-top:50px;
-
     padding-top:25px;
     padding-bottom:30px;
-
     border-top:1px solid var(--border);
-
     text-align:center;
-
     color:var(--muted);
-
     font-size:12px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:900px){
-
     .tools{
-
-        grid-template-columns:
-            1fr
-            1fr;
-
+        grid-template-columns:1fr 1fr;
     }
-
 }
 
 @media(max-width:650px){
-
     .tools{
-
         grid-template-columns:1fr;
-
     }
 
     .stats{
-
-        grid-template-columns:
-            repeat(2,1fr);
-
+        grid-template-columns:repeat(2,1fr);
     }
 
     .stats .stat:last-child{
-
         display:none;
-
     }
-
 }
-
 </style>
-
 </head>
 
-
 <body>
-
 
 <header>
 
     <div class="brand">
-
-        <div class="logo">
-            P
-        </div>
+        <div class="logo">P</div>
 
         <div>
-
-            <div class="eyebrow">
-                PALADIUM V12
-            </div>
-
-            <strong>
-                PriceCheck
-            </strong>
-
+            <div class="eyebrow">PALADIUM V12</div>
+            <strong>PriceCheck</strong>
         </div>
-
     </div>
 
-
     <h1>
-
         Prix des items
         <br>
         Paladium V12
-
     </h1>
 
-
     <p class="hero-text">
-
         🔎 Recherche un item et clique dessus
         pour consulter toutes ses informations.
-
     </p>
 
-
     <div class="notice">
-
-        ⚠️ Les prix affichés sont actuellement
-        indicatifs et pourront être remplacés
-        par les vrais prix V12.
-
+        ⚠️ Les prix affichés sont actuellement indicatifs
+        et pourront être remplacés par les vrais prix V12.
     </div>
 
 </header>
 
-
 <main>
-
 
     <div class="tools">
 
@@ -608,168 +404,72 @@ footer{
             placeholder="🔎 Rechercher un item..."
         >
 
-
         <select id="category">
-
-            <option value="all">
-                Toutes les catégories
-            </option>
-
-            <option value="Minerais">
-                ⛏️ Minerais
-            </option>
-
-            <option value="Ressources">
-                📦 Ressources
-            </option>
-
-            <option value="Machines">
-                ⚙️ Machines
-            </option>
-
-            <option value="Outils">
-                🛠️ Outils
-            </option>
-
-            <option value="Armures">
-                🛡️ Armures
-            </option>
-
-            <option value="Nourriture">
-                🍎 Nourriture
-            </option>
-
+            <option value="all">Toutes les catégories</option>
+            <option value="Minerais">⛏️ Minerais</option>
+            <option value="Ressources">📦 Ressources</option>
+            <option value="Machines">⚙️ Machines</option>
+            <option value="Outils">🛠️ Outils</option>
+            <option value="Armures">🛡️ Armures</option>
+            <option value="Nourriture">🍎 Nourriture</option>
         </select>
-
 
         <select id="rarity">
-
-            <option value="all">
-                ⭐ Toutes les raretés
-            </option>
-
-            <option value="Commun">
-                ⚪ Commun
-            </option>
-
-            <option value="Peu commun">
-                🟢 Peu commun
-            </option>
-
-            <option value="Rare">
-                🔵 Rare
-            </option>
-
-            <option value="Épique">
-                🟣 Épique
-            </option>
-
-            <option value="Légendaire">
-                🟠 Légendaire
-            </option>
-
-            <option value="Unique">
-                🔴 Unique
-            </option>
-
+            <option value="all">⭐ Toutes les raretés</option>
+            <option value="Commun">⚪ Commun</option>
+            <option value="Peu commun">🟢 Peu commun</option>
+            <option value="Rare">🔵 Rare</option>
+            <option value="Épique">🟣 Épique</option>
+            <option value="Légendaire">🟠 Légendaire</option>
+            <option value="Unique">🔴 Unique</option>
         </select>
 
-
         <select id="raritySort">
-
-            <option value="none">
-                ⭐ Trier par rareté
-            </option>
-
-            <option value="asc">
-                ⬆️ Du moins rare au plus rare
-            </option>
-
-            <option value="desc">
-                ⬇️ Du plus rare au moins rare
-            </option>
-
+            <option value="none">⭐ Trier par rareté</option>
+            <option value="asc">⬆️ Du moins rare au plus rare</option>
+            <option value="desc">⬇️ Du plus rare au moins rare</option>
         </select>
 
     </div>
-
 
     <div class="stats">
 
         <div class="stat">
-
-            <b id="count">
-                0
-            </b>
-
-            <span>
-                Items affichés
-            </span>
-
+            <b id="count">0</b>
+            <span>Items affichés</span>
         </div>
 
-
         <div class="stat">
-
-            <b>
-                V12
-            </b>
-
-            <span>
-                Version
-            </span>
-
+            <b>V12</b>
+            <span>Version</span>
         </div>
 
-
         <div class="stat">
-
-            <b>
-                💰
-            </b>
-
-            <span>
-                Prix
-            </span>
-
+            <b>💰</b>
+            <span>Prix</span>
         </div>
 
     </div>
 
-
     <section>
 
-        <h2>
-            💰 Items
-        </h2>
+        <h2>💰 Items</h2>
 
-        <div
-            id="items"
-            class="items"
-        ></div>
+        <div id="items" class="items"></div>
 
     </section>
 
-
     <section class="section">
 
-        <h2>
-            🎥 Paladium V12
-        </h2>
-
+        <h2>🎥 Paladium V12</h2>
 
         <div class="videos">
 
-
             <div class="video">
 
-                <div class="video-icon">
-                    ▶️
-                </div>
+                <div class="video-icon">▶️</div>
 
-                <h3>
-                    Découverte V12
-                </h3>
+                <h3>Découverte V12</h3>
 
                 <p>
                     Découvre les vidéos Paladium V12.
@@ -785,16 +485,11 @@ footer{
 
             </div>
 
-
             <div class="video">
 
-                <div class="video-icon">
-                    💰
-                </div>
+                <div class="video-icon">💰</div>
 
-                <h3>
-                    Argent & Farm
-                </h3>
+                <h3>Argent & Farm</h3>
 
                 <p>
                     Guides pour gagner de l'argent.
@@ -810,28 +505,19 @@ footer{
 
             </div>
 
-
         </div>
 
     </section>
 
-
 </main>
 
-
 <footer>
-
     Paladium V12 PriceCheck
-
     <br>
-
     Projet communautaire non officiel
-
 </footer>
 
-
 <script>
-
 
 /* =====================================================
    BASE DES ITEMS
@@ -839,215 +525,215 @@ footer{
 
 const items = [
 
-{
-name:"Pickaxe of the God",
-aliases:["Pog","POG","Pickaxe of God"],
-category:"Outils",
-rarity:"Unique",
-image:"images/pog.png",
-price:0,
-min:0,
-max:0,
-change:"—"
-},
+    {
+        name:"Pickaxe of the God",
+        aliases:["Pog","POG","Pickaxe of God"],
+        category:"Outils",
+        rarity:"Unique",
+        image:"pog.png",
+        price:0,
+        min:0,
+        max:0,
+        change:"—"
+    },
 
-{
-name:"Paladium",
-aliases:["Pala"],
-category:"Minerais",
-rarity:"Légendaire",
-image:"images/paladium.png",
-price:1200,
-min:900,
-max:1600,
-change:"+8%"
-},
+    {
+        name:"Paladium",
+        aliases:["Pala"],
+        category:"Minerais",
+        rarity:"Légendaire",
+        image:"paladium.png",
+        price:1200,
+        min:900,
+        max:1600,
+        change:"+8%"
+    },
 
-{
-name:"Titane",
-aliases:["Titanium"],
-category:"Minerais",
-rarity:"Épique",
-image:"images/titane.png",
-price:850,
-min:650,
-max:1100,
-change:"+3%"
-},
+    {
+        name:"Titane",
+        aliases:["Titanium"],
+        category:"Minerais",
+        rarity:"Épique",
+        image:"titane.png",
+        price:850,
+        min:650,
+        max:1100,
+        change:"+3%"
+    },
 
-{
-name:"Améthyste",
-aliases:["Ame","Amé"],
-category:"Minerais",
-rarity:"Rare",
-image:"images/amethyste.png",
-price:500,
-min:350,
-max:700,
-change:"-4%"
-},
+    {
+        name:"Améthyste",
+        aliases:["Ame","Amé"],
+        category:"Minerais",
+        rarity:"Rare",
+        image:"amethyste.png",
+        price:500,
+        min:350,
+        max:700,
+        change:"-4%"
+    },
 
-{
-name:"Rubis",
-aliases:["Ruby"],
-category:"Minerais",
-rarity:"Rare",
-image:"images/rubis.png",
-price:700,
-min:500,
-max:900,
-change:"+6%"
-},
+    {
+        name:"Rubis",
+        aliases:["Ruby"],
+        category:"Minerais",
+        rarity:"Rare",
+        image:"rubis.png",
+        price:700,
+        min:500,
+        max:900,
+        change:"+6%"
+    },
 
-{
-name:"Saphir",
-aliases:["Saph"],
-category:"Minerais",
-rarity:"Rare",
-image:"images/saphir.png",
-price:650,
-min:450,
-max:850,
-change:"-2%"
-},
+    {
+        name:"Saphir",
+        aliases:["Saph"],
+        category:"Minerais",
+        rarity:"Rare",
+        image:"saphir.png",
+        price:650,
+        min:450,
+        max:850,
+        change:"-2%"
+    },
 
-{
-name:"Émeraude",
-aliases:["Emerald","Emer"],
-category:"Minerais",
-rarity:"Peu commun",
-image:"images/emeraude.png",
-price:450,
-min:300,
-max:650,
-change:"+5%"
-},
+    {
+        name:"Émeraude",
+        aliases:["Emerald","Emer"],
+        category:"Minerais",
+        rarity:"Peu commun",
+        image:"emeraude.png",
+        price:450,
+        min:300,
+        max:650,
+        change:"+5%"
+    },
 
-{
-name:"Obsidienne",
-aliases:["Obsi"],
-category:"Ressources",
-rarity:"Peu commun",
-image:"images/obsidienne.png",
-price:180,
-min:120,
-max:250,
-change:"+2%"
-},
+    {
+        name:"Obsidienne",
+        aliases:["Obsi"],
+        category:"Ressources",
+        rarity:"Peu commun",
+        image:"obsidienne.png",
+        price:180,
+        min:120,
+        max:250,
+        change:"+2%"
+    },
 
-{
-name:"Perle de l'End",
-aliases:["Perle","Ender Pearl"],
-category:"Ressources",
-rarity:"Rare",
-image:"images/perle-end.png",
-price:900,
-min:650,
-max:1200,
-change:"+6%"
-},
+    {
+        name:"Perle de l'End",
+        aliases:["Perle","Ender Pearl"],
+        category:"Ressources",
+        rarity:"Rare",
+        image:"perle-end.png",
+        price:900,
+        min:650,
+        max:1200,
+        change:"+6%"
+    },
 
-{
-name:"Machine industrielle",
-aliases:["Machine"],
-category:"Machines",
-rarity:"Épique",
-image:"images/machine.png",
-price:25000,
-min:18000,
-max:35000,
-change:"+10%"
-},
+    {
+        name:"Machine industrielle",
+        aliases:["Machine"],
+        category:"Machines",
+        rarity:"Épique",
+        image:"machine.png",
+        price:25000,
+        min:18000,
+        max:35000,
+        change:"+10%"
+    },
 
-{
-name:"Four amélioré",
-aliases:["Four"],
-category:"Machines",
-rarity:"Rare",
-image:"images/four.png",
-price:9000,
-min:7000,
-max:12000,
-change:"+1%"
-},
+    {
+        name:"Four amélioré",
+        aliases:["Four"],
+        category:"Machines",
+        rarity:"Rare",
+        image:"four.png",
+        price:9000,
+        min:7000,
+        max:12000,
+        change:"+1%"
+    },
 
-{
-name:"Pioche Paladium",
-aliases:["Pioche Pala"],
-category:"Outils",
-rarity:"Légendaire",
-image:"images/pioche-paladium.png",
-price:18000,
-min:13000,
-max:25000,
-change:"+7%"
-},
+    {
+        name:"Pioche Paladium",
+        aliases:["Pioche Pala"],
+        category:"Outils",
+        rarity:"Légendaire",
+        image:"pioche-paladium.png",
+        price:18000,
+        min:13000,
+        max:25000,
+        change:"+7%"
+    },
 
-{
-name:"Épée Paladium",
-aliases:["Épée Pala"],
-category:"Outils",
-rarity:"Légendaire",
-image:"images/epee-paladium.png",
-price:22000,
-min:16000,
-max:30000,
-change:"+4%"
-},
+    {
+        name:"Épée Paladium",
+        aliases:["Épée Pala"],
+        category:"Outils",
+        rarity:"Légendaire",
+        image:"epee-paladium.png",
+        price:22000,
+        min:16000,
+        max:30000,
+        change:"+4%"
+    },
 
-{
-name:"Casque Paladium",
-aliases:["Casque Pala"],
-category:"Armures",
-rarity:"Légendaire",
-image:"images/casque-paladium.png",
-price:16000,
-min:12000,
-max:22000,
-change:"-1%"
-},
+    {
+        name:"Casque Paladium",
+        aliases:["Casque Pala"],
+        category:"Armures",
+        rarity:"Légendaire",
+        image:"casque-paladium.png",
+        price:16000,
+        min:12000,
+        max:22000,
+        change:"-1%"
+    },
 
-{
-name:"Plastron Paladium",
-aliases:["Plastron Pala"],
-category:"Armures",
-rarity:"Légendaire",
-image:"images/plastron-paladium.png",
-price:30000,
-min:24000,
-max:40000,
-change:"+9%"
-},
+    {
+        name:"Plastron Paladium",
+        aliases:["Plastron Pala"],
+        category:"Armures",
+        rarity:"Légendaire",
+        image:"plastron-paladium.png",
+        price:30000,
+        min:24000,
+        max:40000,
+        change:"+9%"
+    },
 
-{
-name:"Pomme dorée",
-aliases:["Pomme","Golden Apple"],
-category:"Nourriture",
-rarity:"Rare",
-image:"images/pomme-doree.png",
-price:2500,
-min:1800,
-max:3500,
-change:"+2%"
-},
+    {
+        name:"Pomme dorée",
+        aliases:["Pomme","Golden Apple"],
+        category:"Nourriture",
+        rarity:"Rare",
+        image:"pomme-doree.png",
+        price:2500,
+        min:1800,
+        max:3500,
+        change:"+2%"
+    },
 
-{
-name:"Pain",
-aliases:["Bread"],
-category:"Nourriture",
-rarity:"Commun",
-image:"images/pain.png",
-price:80,
-min:50,
-max:120,
-change:"-3%"
-}
+    {
+        name:"Pain",
+        aliases:["Bread"],
+        category:"Nourriture",
+        rarity:"Commun",
+        image:"pain.png",
+        price:80,
+        min:50,
+        max:120,
+        change:"-3%"
+    }
 
 ];
 
 
 /* =====================================================
-   PRIX
+   OUTILS
 ===================================================== */
 
 function money(value){
@@ -1057,13 +743,8 @@ function money(value){
     }
 
     return value.toLocaleString("fr-FR") + " $";
-
 }
 
-
-/* =====================================================
-   RARETÉ
-===================================================== */
 
 function getRarityClass(rarity){
 
@@ -1086,14 +767,22 @@ function getRarityClass(rarity){
 
         default:
             return "rarity-common";
-
     }
-
 }
 
 
+const rarityOrder = {
+    "Commun":1,
+    "Peu commun":2,
+    "Rare":3,
+    "Épique":4,
+    "Légendaire":5,
+    "Unique":6
+};
+
+
 /* =====================================================
-   OUVRIR ITEM
+   OUVERTURE
 ===================================================== */
 
 function openItem(name){
@@ -1111,49 +800,32 @@ function openItem(name){
     window.location.href =
         "item.html?item=" +
         encodeURIComponent(name);
-
 }
 
 
 /* =====================================================
-   AFFICHER
+   AFFICHAGE
 ===================================================== */
 
 function renderItems(){
 
     const search =
-        document
-        .getElementById("search")
+        document.getElementById("search")
         .value
         .toLowerCase()
         .trim();
 
-
     const category =
-        document
-        .getElementById("category")
-        .value;
-
+        document.getElementById("category").value;
 
     const rarity =
-        document
-        .getElementById("rarity")
-        .value;
+        document.getElementById("rarity").value;
 
-
-    const raritySort =
-        document
-        .getElementById("raritySort")
-        .value;
-
+    const sort =
+        document.getElementById("raritySort").value;
 
     const container =
         document.getElementById("items");
-
-
-    const count =
-        document.getElementById("count");
-
 
     let filtered =
         items.filter(item => {
@@ -1163,103 +835,62 @@ function renderItems(){
                 .toLowerCase()
                 .includes(search);
 
-
             const aliasMatch =
-                item.aliases
-                .some(alias =>
-                    alias
-                    .toLowerCase()
-                    .includes(search)
+                item.aliases.some(alias =>
+                    alias.toLowerCase().includes(search)
                 );
-
 
             const categoryMatch =
                 category === "all" ||
                 item.category === category;
 
-
             const rarityMatch =
                 rarity === "all" ||
                 item.rarity === rarity;
 
-
             return (
-                (nameMatch || aliasMatch)
-                &&
-                categoryMatch
-                &&
+                (nameMatch || aliasMatch) &&
+                categoryMatch &&
                 rarityMatch
             );
-
         });
 
 
-    /* TRI RARETÉ */
+    if(sort !== "none"){
 
-    const rarityOrder = {
+        filtered.sort((a,b) => {
 
-        "Commun":1,
-        "Peu commun":2,
-        "Rare":3,
-        "Épique":4,
-        "Légendaire":5,
-        "Unique":6
+            const difference =
+                rarityOrder[a.rarity] -
+                rarityOrder[b.rarity];
 
-    };
-
-
-    if(raritySort === "asc"){
-
-        filtered.sort(
-            (a,b) =>
-                rarityOrder[a.rarity]
-                -
-                rarityOrder[b.rarity]
-        );
-
+            return sort === "asc"
+                ? difference
+                : -difference;
+        });
     }
 
 
-    if(raritySort === "desc"){
-
-        filtered.sort(
-            (a,b) =>
-                rarityOrder[b.rarity]
-                -
-                rarityOrder[a.rarity]
-        );
-
-    }
-
-
-    count.textContent =
-        filtered.length;
+    document.getElementById("count")
+        .textContent = filtered.length;
 
 
     if(filtered.length === 0){
 
         container.innerHTML = `
-
             <div class="empty">
-
                 😅 Aucun item trouvé.
-
                 <br><br>
-
                 Essaie une autre recherche.
-
             </div>
-
         `;
 
         return;
-
     }
 
 
     container.innerHTML =
-        filtered
-        .map(item => {
+        filtered.map(item => {
 
             const changeClass =
                 item.change.startsWith("-")
@@ -1268,7 +899,6 @@ function renderItems(){
 
 
             return `
-
                 <article
                     class="item"
                     data-item="${encodeURIComponent(item.name)}"
@@ -1278,15 +908,10 @@ function renderItems(){
 
                         <img
                             class="item-image"
-                            src="${item.image}"
+                            src="images/${item.image}"
                             alt="${item.name}"
-                            loading="lazy"
-                            onerror="
-                                this.onerror=null;
-                                this.src='images/default.png';
-                            "
+                            onerror="this.onerror=null;this.src='images/default.png';"
                         >
-
 
                         <div class="category">
                             ${item.category}
@@ -1294,92 +919,58 @@ function renderItems(){
 
                     </div>
 
+                    <h2>${item.name}</h2>
 
-                    <h2>
-                        ${item.name}
-                    </h2>
-
-
-                    <div
-                        class="
-                            rarity
-                            ${getRarityClass(item.rarity)}
-                        "
-                    >
-
+                    <div class="rarity ${getRarityClass(item.rarity)}">
                         ⭐ ${item.rarity}
-
                     </div>
-
 
                     <div class="description">
-
                         Prix communautaire approximatif
-
                     </div>
-
 
                     <div class="price">
-
                         ${money(item.price)}
-
                     </div>
-
 
                     <div class="range">
-
                         ${
                             item.price === 0
-                            ?
-                            "Prix à déterminer"
-                            :
-                            "Fourchette : "
-                            +
-                            money(item.min)
-                            +
-                            " → "
-                            +
-                            money(item.max)
+                            ? "Prix à déterminer"
+                            : "Fourchette : " +
+                              money(item.min) +
+                              " → " +
+                              money(item.max)
                         }
-
                     </div>
 
-
                     <div class="change ${changeClass}">
-
-                        📈 Variation :
-                        ${item.change}
-
+                        📈 Variation : ${item.change}
                     </div>
 
                 </article>
-
             `;
 
-        })
-        .join("");
+        }).join("");
 
 
     container
-    .querySelectorAll(".item")
-    .forEach(card => {
+        .querySelectorAll(".item")
+        .forEach(card => {
 
-        card.addEventListener(
-            "click",
-            function(){
+            card.addEventListener(
+                "click",
+                () => {
 
-                const name =
-                    decodeURIComponent(
-                        card.dataset.item
-                    );
+                    const name =
+                        decodeURIComponent(
+                            card.dataset.item
+                        );
 
-                openItem(name);
-
-            }
-        );
-
-    });
-
+                    openItem(name);
+                }
+            );
+        });
 }
 
 
@@ -1388,35 +979,20 @@ function renderItems(){
 ===================================================== */
 
 document
-.getElementById("search")
-.addEventListener(
-    "input",
-    renderItems
-);
-
+    .getElementById("search")
+    .addEventListener("input",renderItems);
 
 document
-.getElementById("category")
-.addEventListener(
-    "change",
-    renderItems
-);
-
+    .getElementById("category")
+    .addEventListener("change",renderItems);
 
 document
-.getElementById("rarity")
-.addEventListener(
-    "change",
-    renderItems
-);
-
+    .getElementById("rarity")
+    .addEventListener("change",renderItems);
 
 document
-.getElementById("raritySort")
-.addEventListener(
-    "change",
-    renderItems
-);
+    .getElementById("raritySort")
+    .addEventListener("change",renderItems);
 
 
 /* =====================================================
@@ -1427,52 +1003,33 @@ renderItems();
 
 
 /* =====================================================
-   RESTAURATION POSITION
+   RETOUR À LA POSITION
 ===================================================== */
 
-window.addEventListener(
-    "pageshow",
-    function(){
+window.addEventListener("pageshow",function(){
 
-        const shouldReturn =
-            sessionStorage.getItem(
-                "pricecheckReturn"
-            );
+    if(
+        sessionStorage.getItem("pricecheckReturn") === "true"
+    ){
 
+        sessionStorage.removeItem("pricecheckReturn");
 
-        const savedScroll =
-            sessionStorage.getItem(
-                "pricecheckScroll"
-            );
+        const savedPosition =
+            Number(
+                sessionStorage.getItem("pricecheckScroll")
+            ) || 0;
 
+        setTimeout(() => {
 
-        if(
-            shouldReturn === "true"
-            &&
-            savedScroll !== null
-        ){
+            window.scrollTo({
+                top:savedPosition,
+                behavior:"instant"
+            });
 
-            sessionStorage.removeItem(
-                "pricecheckReturn"
-            );
-
-
-            setTimeout(
-                function(){
-
-                    window.scrollTo(
-                        0,
-                        Number(savedScroll)
-                    );
-
-                },
-                50
-            );
-
-        }
-
+        },100);
     }
-);
+
+});
 
 </script>
 
