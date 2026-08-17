@@ -30,443 +30,244 @@
 body{
     margin:0;
     min-height:100vh;
-
     color:var(--text);
-
-    font-family:
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+    font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 
     background:
-
-        radial-gradient(
-            circle at 20% 10%,
-            rgba(139,92,246,.30),
-            transparent 35%
-        ),
-
-        radial-gradient(
-            circle at 80% 40%,
-            rgba(34,211,238,.20),
-            transparent 35%
-        ),
-
+        radial-gradient(circle at 20% 10%,rgba(139,92,246,.30),transparent 35%),
+        radial-gradient(circle at 80% 40%,rgba(34,211,238,.20),transparent 35%),
         #080b12;
-
 }
 
 .container{
-
-    width:
-        min(
-            900px,
-            calc(100% - 30px)
-        );
-
+    width:min(900px,calc(100% - 30px));
     margin:auto;
-
-    padding:
-        25px 0 60px;
-
+    padding:25px 0 60px;
 }
 
 .back{
-
     display:inline-block;
-
     margin-bottom:20px;
+    padding:10px 14px;
 
-    padding:
-        10px 14px;
-
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:12px;
 
     background:#111827;
-
     color:#c4b5fd;
 
     text-decoration:none;
-
     font-size:14px;
 
     transition:.2s;
-
 }
 
 .back:hover{
-
     border-color:var(--purple);
-
     transform:translateY(-2px);
-
 }
 
 .item-header{
-
     padding:28px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:22px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #151c2c,
-            #0d131e
-        );
+    background:linear-gradient(145deg,#151c2c,#0d131e);
 
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.25);
-
+    box-shadow:0 20px 60px rgba(0,0,0,.25);
 }
 
-.icon{
-
-    width:130px;
-    height:130px;
-
-    display:grid;
-    place-items:center;
-
-    margin-bottom:12px;
-
-}
-
-.icon img{
-
+.item-image{
+    display:block;
     width:120px;
     height:120px;
-
     object-fit:contain;
-
+    margin-bottom:15px;
 }
 
 .category{
-
     display:inline-block;
-
-    padding:
-        6px 10px;
+    padding:6px 10px;
 
     border-radius:99px;
 
     background:#202b3d;
-
     color:#cbd5e1;
 
     font-size:11px;
-
     font-weight:700;
-
 }
 
 h1{
-
-    margin:
-        13px 0 8px;
-
-    font-size:
-        clamp(
-            34px,
-            8vw,
-            55px
-        );
-
+    margin:13px 0 8px;
+    font-size:clamp(34px,8vw,55px);
     line-height:1;
-
 }
 
 .description{
-
     color:var(--muted);
-
     line-height:1.6;
-
     max-width:700px;
-
 }
 
-
-/* RARETÉS */
-
 .rarity{
-
     display:inline-block;
-
     margin-top:13px;
-
-    margin-left:6px;
-
-    padding:
-        7px 11px;
+    padding:7px 11px;
 
     border-radius:999px;
 
     font-size:11px;
-
     font-weight:800;
-
     text-transform:uppercase;
-
 }
 
 .rarity-common{
-
     background:#374151;
     color:#e5e7eb;
-
 }
 
 .rarity-uncommon{
-
     background:#14532d;
     color:#86efac;
-
 }
 
 .rarity-rare{
-
     background:#1e3a8a;
     color:#93c5fd;
-
 }
 
 .rarity-epic{
-
     background:#581c87;
     color:#d8b4fe;
-
 }
 
 .rarity-legendary{
-
     background:#78350f;
     color:#fcd34d;
-
 }
 
 .rarity-unique{
-
     background:#7f1d1d;
     color:#fca5a5;
-
 }
 
-
-/* PRIX */
-
 .section{
-
     margin-top:32px;
-
 }
 
 .section h2{
-
     font-size:25px;
-
     margin-bottom:14px;
-
 }
 
 .price-box{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
-
+    grid-template-columns:repeat(3,1fr);
     gap:12px;
-
 }
 
 .price{
-
     padding:20px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:16px;
 
     background:var(--card);
-
 }
 
 .price span{
-
     display:block;
-
     color:var(--muted);
-
     font-size:12px;
-
 }
 
 .price strong{
-
     display:block;
-
     margin-top:7px;
-
     font-size:23px;
-
 }
 
-
-/* INFORMATIONS */
-
 .info-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(
-                180px,
-                1fr
-            )
-        );
-
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:12px;
-
 }
 
 .info{
-
     padding:17px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:15px;
 
     background:var(--card);
-
 }
 
 .info span{
-
     display:block;
-
     color:var(--muted);
-
     font-size:12px;
-
 }
 
 .info strong{
-
     display:block;
-
     margin-top:7px;
-
     font-size:18px;
-
 }
 
-
-/* ALIAS */
-
 .alias-box{
-
     margin-top:25px;
-
     padding:18px;
 
-    border:
-        1px solid
-        var(--border);
-
+    border:1px solid var(--border);
     border-radius:16px;
 
     background:#0d131f;
-
 }
 
 .alias{
-
     display:inline-block;
 
-    margin:
-        8px 5px 0 0;
-
-    padding:
-        7px 10px;
+    margin:8px 5px 0 0;
+    padding:7px 10px;
 
     border-radius:9px;
 
     background:#202b3d;
-
     color:#cbd5e1;
 
     font-size:12px;
-
 }
-
-
-/* NOT FOUND */
 
 .not-found{
-
     text-align:center;
-
     padding:60px 20px;
-
 }
 
-.not-found .icon{
-
+.not-found-image{
+    width:100px;
+    height:100px;
+    object-fit:contain;
     margin:auto;
-
-    font-size:60px;
-
 }
 
 .not-found h1{
-
     font-size:38px;
-
 }
-
-
-/* MOBILE */
 
 @media(max-width:600px){
 
     .container{
-
         padding-top:15px;
-
     }
 
     .item-header{
-
         padding:20px;
-
     }
 
     .price-box{
-
         grid-template-columns:1fr;
-
     }
 
 }
@@ -475,12 +276,9 @@ h1{
 
 </head>
 
-
 <body>
 
-
 <div class="container">
-
 
 <a
     href="index.html"
@@ -490,7 +288,6 @@ h1{
     ← Retour au PriceCheck
 </a>
 
-
 <div
     id="item"
     class="item-header"
@@ -498,364 +295,344 @@ h1{
     Chargement...
 </div>
 
-
 </div>
-
 
 <script>
 
-/* ==================================================
-   BASE DES ITEMS
-================================================== */
-
 const items = [
 
-    {
-        name:"Pickaxe of the God",
-        aliases:["Pog","POG","Pickaxe of God"],
-        category:"Outils",
-        rarity:"Unique",
-        icon:"⛏️",
-        image:"pog.png",
-        price:0,
-        min:0,
-        max:0,
-        change:"—",
-        damage:"—",
-        durability:"—",
-        speed:"Très rapide",
-        level:"—",
-        material:"Paladium",
-        description:
-            "La célèbre Pickaxe of the God, souvent appelée POG."
-    },
+{
+name:"Pickaxe of the God",
+aliases:["Pog","POG","Pickaxe of God"],
+category:"Outils",
+rarity:"Unique",
+image:"pog.png",
+price:0,
+min:0,
+max:0,
+change:"—",
+damage:"—",
+durability:"—",
+speed:"Très rapide",
+level:"—",
+material:"Paladium",
+description:"La célèbre Pickaxe of the God, souvent appelée POG."
+},
 
-    {
-        name:"Paladium",
-        aliases:["Pala"],
-        category:"Minerais",
-        rarity:"Légendaire",
-        icon:"💜",
-        image:"paladium.png",
-        price:1200,
-        min:900,
-        max:1600,
-        change:"+8%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Un minerai précieux utilisé dans différents crafts."
-    },
+{
+name:"Paladium",
+aliases:["Pala"],
+category:"Minerais",
+rarity:"Légendaire",
+image:"paladium.png",
+price:1200,
+min:900,
+max:1600,
+change:"+8%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Un minerai précieux utilisé dans différents crafts."
+},
 
-    {
-        name:"Titane",
-        aliases:["Titanium"],
-        category:"Minerais",
-        rarity:"Épique",
-        icon:"🔷",
-        image:"titane.png",
-        price:850,
-        min:650,
-        max:1100,
-        change:"+3%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Une ressource minérale importante pour la progression."
-    },
+{
+name:"Titane",
+aliases:["Titanium"],
+category:"Minerais",
+rarity:"Épique",
+image:"titane.png",
+price:850,
+min:650,
+max:1100,
+change:"+3%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Une ressource minérale importante pour la progression."
+},
 
-    {
-        name:"Améthyste",
-        aliases:["Ame","Amé"],
-        category:"Minerais",
-        rarity:"Rare",
-        icon:"💎",
-        image:"amethyste.png",
-        price:500,
-        min:350,
-        max:700,
-        change:"-4%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Une ressource minérale rare."
-    },
+{
+name:"Améthyste",
+aliases:["Ame","Amé"],
+category:"Minerais",
+rarity:"Rare",
+image:"amethyste.png",
+price:500,
+min:350,
+max:700,
+change:"-4%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Une ressource minérale rare."
+},
 
-    {
-        name:"Rubis",
-        aliases:["Ruby"],
-        category:"Minerais",
-        rarity:"Rare",
-        icon:"🔴",
-        image:"rubis.png",
-        price:700,
-        min:500,
-        max:900,
-        change:"+6%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Un minerai précieux de couleur rouge."
-    },
+{
+name:"Rubis",
+aliases:["Ruby"],
+category:"Minerais",
+rarity:"Rare",
+image:"rubis.png",
+price:700,
+min:500,
+max:900,
+change:"+6%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Un minerai précieux de couleur rouge."
+},
 
-    {
-        name:"Saphir",
-        aliases:["Saph"],
-        category:"Minerais",
-        rarity:"Rare",
-        icon:"🔵",
-        image:"saphir.png",
-        price:650,
-        min:450,
-        max:850,
-        change:"-2%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Une ressource minérale bleue."
-    },
+{
+name:"Saphir",
+aliases:["Saph"],
+category:"Minerais",
+rarity:"Rare",
+image:"saphir.png",
+price:650,
+min:450,
+max:850,
+change:"-2%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Une ressource minérale bleue."
+},
 
-    {
-        name:"Émeraude",
-        aliases:["Emerald","Emer"],
-        category:"Minerais",
-        rarity:"Peu commun",
-        icon:"🟢",
-        image:"emeraude.png",
-        price:450,
-        min:300,
-        max:650,
-        change:"+5%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Minerai",
-        description:
-            "Une ressource verte utilisée dans plusieurs crafts."
-    },
+{
+name:"Émeraude",
+aliases:["Emerald","Emer"],
+category:"Minerais",
+rarity:"Peu commun",
+image:"emeraude.png",
+price:450,
+min:300,
+max:650,
+change:"+5%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Minerai",
+description:"Une ressource verte utilisée dans plusieurs crafts."
+},
 
-    {
-        name:"Obsidienne",
-        aliases:["Obsi"],
-        category:"Ressources",
-        rarity:"Peu commun",
-        icon:"⬛",
-        image:"obsidienne.png",
-        price:180,
-        min:120,
-        max:250,
-        change:"+2%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Ressource",
-        description:
-            "Une ressource sombre et résistante."
-    },
+{
+name:"Obsidienne",
+aliases:["Obsi"],
+category:"Ressources",
+rarity:"Peu commun",
+image:"obsidienne.png",
+price:180,
+min:120,
+max:250,
+change:"+2%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Ressource",
+description:"Une ressource sombre et résistante."
+},
 
-    {
-        name:"Perle de l'End",
-        aliases:["Perle","Ender Pearl"],
-        category:"Ressources",
-        rarity:"Rare",
-        icon:"🟣",
-        image:"perle-end.png",
-        price:900,
-        min:650,
-        max:1200,
-        change:"+6%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Ressource",
-        description:
-            "Une perle mystérieuse provenant de l'End."
-    },
+{
+name:"Perle de l'End",
+aliases:["Perle","Ender Pearl"],
+category:"Ressources",
+rarity:"Rare",
+image:"perle-end.png",
+price:900,
+min:650,
+max:1200,
+change:"+6%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Ressource",
+description:"Une perle mystérieuse provenant de l'End."
+},
 
-    {
-        name:"Machine industrielle",
-        aliases:["Machine"],
-        category:"Machines",
-        rarity:"Épique",
-        icon:"⚙️",
-        image:"machine.png",
-        price:25000,
-        min:18000,
-        max:35000,
-        change:"+10%",
-        damage:"—",
-        durability:"Élevée",
-        speed:"Rapide",
-        level:"—",
-        material:"Machine",
-        description:
-            "Une machine destinée à automatiser certaines productions."
-    },
+{
+name:"Machine industrielle",
+aliases:["Machine"],
+category:"Machines",
+rarity:"Épique",
+image:"machine.png",
+price:25000,
+min:18000,
+max:35000,
+change:"+10%",
+damage:"—",
+durability:"Élevée",
+speed:"Rapide",
+level:"—",
+material:"Machine",
+description:"Une machine destinée à automatiser certaines productions."
+},
 
-    {
-        name:"Four amélioré",
-        aliases:["Four"],
-        category:"Machines",
-        rarity:"Rare",
-        icon:"🔥",
-        image:"four.png",
-        price:9000,
-        min:7000,
-        max:12000,
-        change:"+1%",
-        damage:"—",
-        durability:"Élevée",
-        speed:"Rapide",
-        level:"—",
-        material:"Machine",
-        description:
-            "Un four amélioré permettant une production plus efficace."
-    },
+{
+name:"Four amélioré",
+aliases:["Four"],
+category:"Machines",
+rarity:"Rare",
+image:"four.png",
+price:9000,
+min:7000,
+max:12000,
+change:"+1%",
+damage:"—",
+durability:"Élevée",
+speed:"Rapide",
+level:"—",
+material:"Machine",
+description:"Un four amélioré permettant une production plus efficace."
+},
 
-    {
-        name:"Pioche Paladium",
-        aliases:["Pioche Pala"],
-        category:"Outils",
-        rarity:"Légendaire",
-        icon:"⛏️",
-        image:"pioche-paladium.png",
-        price:18000,
-        min:13000,
-        max:25000,
-        change:"+7%",
-        damage:"—",
-        durability:"Élevée",
-        speed:"Très rapide",
-        level:"—",
-        material:"Paladium",
-        description:
-            "Une pioche fabriquée à partir de Paladium."
-    },
+{
+name:"Pioche Paladium",
+aliases:["Pioche Pala"],
+category:"Outils",
+rarity:"Légendaire",
+image:"pioche-paladium.png",
+price:18000,
+min:13000,
+max:25000,
+change:"+7%",
+damage:"—",
+durability:"Élevée",
+speed:"Très rapide",
+level:"—",
+material:"Paladium",
+description:"Une pioche fabriquée à partir de Paladium."
+},
 
-    {
-        name:"Épée Paladium",
-        aliases:["Épée Pala"],
-        category:"Outils",
-        rarity:"Légendaire",
-        icon:"⚔️",
-        image:"epee-paladium.png",
-        price:22000,
-        min:16000,
-        max:30000,
-        change:"+4%",
-        damage:"Élevés",
-        durability:"Élevée",
-        speed:"Rapide",
-        level:"—",
-        material:"Paladium",
-        description:
-            "Une épée puissante fabriquée à partir de Paladium."
-    },
+{
+name:"Épée Paladium",
+aliases:["Épée Pala"],
+category:"Outils",
+rarity:"Légendaire",
+image:"epee-paladium.png",
+price:22000,
+min:16000,
+max:30000,
+change:"+4%",
+damage:"Élevés",
+durability:"Élevée",
+speed:"Rapide",
+level:"—",
+material:"Paladium",
+description:"Une épée puissante fabriquée à partir de Paladium."
+},
 
-    {
-        name:"Casque Paladium",
-        aliases:["Casque Pala"],
-        category:"Armures",
-        rarity:"Légendaire",
-        icon:"🪖",
-        image:"casque-paladium.png",
-        price:16000,
-        min:12000,
-        max:22000,
-        change:"-1%",
-        damage:"—",
-        durability:"Élevée",
-        speed:"—",
-        level:"—",
-        material:"Paladium",
-        description:
-            "Un casque d'armure en Paladium."
-    },
+{
+name:"Casque Paladium",
+aliases:["Casque Pala"],
+category:"Armures",
+rarity:"Légendaire",
+image:"casque-paladium.png",
+price:16000,
+min:12000,
+max:22000,
+change:"-1%",
+damage:"—",
+durability:"Élevée",
+speed:"—",
+level:"—",
+material:"Paladium",
+description:"Un casque d'armure en Paladium."
+},
 
-    {
-        name:"Plastron Paladium",
-        aliases:["Plastron Pala"],
-        category:"Armures",
-        rarity:"Légendaire",
-        icon:"🛡️",
-        image:"plastron-paladium.png",
-        price:30000,
-        min:24000,
-        max:40000,
-        change:"+9%",
-        damage:"—",
-        durability:"Très élevée",
-        speed:"—",
-        level:"—",
-        material:"Paladium",
-        description:
-            "Un plastron puissant en Paladium."
-    },
+{
+name:"Plastron Paladium",
+aliases:["Plastron Pala"],
+category:"Armures",
+rarity:"Légendaire",
+image:"plastron-paladium.png",
+price:30000,
+min:24000,
+max:40000,
+change:"+9%",
+damage:"—",
+durability:"Très élevée",
+speed:"—",
+level:"—",
+material:"Paladium",
+description:"Un plastron puissant en Paladium."
+},
 
-    {
-        name:"Pomme dorée",
-        aliases:["Pomme","Golden Apple"],
-        category:"Nourriture",
-        rarity:"Rare",
-        icon:"🍎",
-        image:"pomme-doree.png",
-        price:2500,
-        min:1800,
-        max:3500,
-        change:"+2%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Nourriture",
-        description:
-            "Une nourriture précieuse aux propriétés spéciales."
-    },
+{
+name:"Pomme dorée",
+aliases:["Pomme","Golden Apple"],
+category:"Nourriture",
+rarity:"Rare",
+image:"pomme-doree.png",
+price:2500,
+min:1800,
+max:3500,
+change:"+2%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Nourriture",
+description:"Une nourriture précieuse aux propriétés spéciales."
+},
 
-    {
-        name:"Pain",
-        aliases:["Bread"],
-        category:"Nourriture",
-        rarity:"Commun",
-        icon:"🍞",
-        image:"pain.png",
-        price:80,
-        min:50,
-        max:120,
-        change:"-3%",
-        damage:"—",
-        durability:"—",
-        speed:"—",
-        level:"—",
-        material:"Nourriture",
-        description:
-            "Un aliment simple et accessible."
-    }
+{
+name:"Pain",
+aliases:["Bread"],
+category:"Nourriture",
+rarity:"Commun",
+image:"pain.png",
+price:80,
+min:50,
+max:120,
+change:"-3%",
+damage:"—",
+durability:"—",
+speed:"—",
+level:"—",
+material:"Nourriture",
+description:"Un aliment simple et accessible."
+}
 
 ];
 
+function normalize(value){
 
-/* ==================================================
-   RARETÉ
-================================================== */
+    return String(value || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g,"")
+        .trim();
+}
+
+function slug(value){
+
+    return normalize(value)
+        .replace(/[^a-z0-9]+/g,"-")
+        .replace(/^-|-$/g,"");
+}
+
+function money(value){
+
+    if(value === 0){
+        return "À déterminer";
+    }
+
+    return value.toLocaleString("fr-FR") + " $";
+}
 
 function getRarityClass(rarity){
 
@@ -878,102 +655,41 @@ function getRarityClass(rarity){
 
         default:
             return "rarity-common";
-
     }
-
 }
-
-
-/* ==================================================
-   PRIX
-================================================== */
-
-function money(value){
-
-    if(value === 0){
-        return "À déterminer";
-    }
-
-    return value.toLocaleString("fr-FR") + " $";
-
-}
-
-
-/* ==================================================
-   NORMALISATION
-================================================== */
-
-function normalize(value){
-
-    return String(value || "")
-        .toLowerCase()
-        .trim()
-        .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g,"");
-
-}
-
-
-/* ==================================================
-   ITEM DEMANDÉ
-================================================== */
 
 const params =
-    new URLSearchParams(
-        window.location.search
-    );
-
+    new URLSearchParams(window.location.search);
 
 const requested =
     params.get("item");
 
-
 const normalizedRequested =
     normalize(requested);
-
-
-/* ==================================================
-   RECHERCHE
-================================================== */
 
 const item =
     items.find(x => {
 
-        const name =
+        const normalizedName =
             normalize(x.name);
 
-        const slug =
-            name.replace(/\s+/g,"-");
+        const normalizedSlug =
+            slug(x.name);
 
-        const aliases =
-            (x.aliases || [])
-            .map(alias =>
-                normalize(alias)
+        const aliasMatch =
+            x.aliases.some(alias =>
+                normalize(alias) === normalizedRequested
             );
 
-
         return (
-
-            normalizedRequested === name ||
-
-            normalizedRequested === slug ||
-
-            aliases.includes(
-                normalizedRequested
-            )
-
+            normalizedRequested === normalizedName ||
+            normalizedRequested === normalizedSlug ||
+            aliasMatch
         );
-
     });
-
-
-/* ==================================================
-   AFFICHAGE
-================================================== */
 
 const container =
     document.getElementById("item");
-
 
 if(!item){
 
@@ -981,12 +697,15 @@ if(!item){
 
         <div class="not-found">
 
-            <div class="icon">
-                ❌
-            </div>
+            <img
+                class="not-found-image"
+                src="images/default.png"
+                alt="Item introuvable"
+                onerror="this.style.display='none';"
+            >
 
             <h1>
-                Item introuvable
+                ❌ Item introuvable
             </h1>
 
             <p class="description">
@@ -1010,53 +729,32 @@ if(!item){
 
 }else{
 
-
     container.innerHTML = `
 
-        <div class="icon">
+        <img
+            class="item-image"
+            src="images/${item.image}"
+            alt="${item.name}"
+            onerror="this.onerror=null;this.src='images/default.png';"
+        >
 
-            <img
-                src="images/${item.image}"
-                alt="${item.name}"
-                onerror="
-                    this.onerror=null;
-                    this.src='images/default.png';
-                "
-            >
+        <span class="category">
+            ${item.category}
+        </span>
 
-        </div>
-
-
-        <div>
-
-            <span class="category">
-                ${item.category}
-            </span>
-
-
-            <span
-                class="
-                    rarity
-                    ${getRarityClass(item.rarity)}
-                "
-            >
-
-                ⭐ ${item.rarity}
-
-            </span>
-
-        </div>
-
+        <span
+            class="rarity ${getRarityClass(item.rarity)}"
+        >
+            ⭐ ${item.rarity}
+        </span>
 
         <h1>
             ${item.name}
         </h1>
 
-
         <p class="description">
             ${item.description}
         </p>
-
 
         <div class="section">
 
@@ -1064,53 +762,26 @@ if(!item){
                 💰 Prix
             </h2>
 
-
             <div class="price-box">
 
-
                 <div class="price">
-
-                    <span>
-                        Prix moyen
-                    </span>
-
-                    <strong>
-                        ${money(item.price)}
-                    </strong>
-
+                    <span>Prix moyen</span>
+                    <strong>${money(item.price)}</strong>
                 </div>
 
-
                 <div class="price">
-
-                    <span>
-                        Prix minimum
-                    </span>
-
-                    <strong>
-                        ${money(item.min)}
-                    </strong>
-
+                    <span>Prix minimum</span>
+                    <strong>${money(item.min)}</strong>
                 </div>
 
-
                 <div class="price">
-
-                    <span>
-                        Prix maximum
-                    </span>
-
-                    <strong>
-                        ${money(item.max)}
-                    </strong>
-
+                    <span>Prix maximum</span>
+                    <strong>${money(item.max)}</strong>
                 </div>
-
 
             </div>
 
         </div>
-
 
         <div class="section">
 
@@ -1118,92 +789,41 @@ if(!item){
                 📊 Informations
             </h2>
 
-
             <div class="info-grid">
 
-
                 <div class="info">
-
-                    <span>
-                        ⚔️ Dégâts
-                    </span>
-
-                    <strong>
-                        ${item.damage}
-                    </strong>
-
+                    <span>⚔️ Dégâts</span>
+                    <strong>${item.damage}</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <span>
-                        🛡️ Durabilité
-                    </span>
-
-                    <strong>
-                        ${item.durability}
-                    </strong>
-
+                    <span>🛡️ Durabilité</span>
+                    <strong>${item.durability}</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <span>
-                        ⚡ Vitesse
-                    </span>
-
-                    <strong>
-                        ${item.speed}
-                    </strong>
-
+                    <span>⚡ Vitesse</span>
+                    <strong>${item.speed}</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <span>
-                        ⭐ Niveau
-                    </span>
-
-                    <strong>
-                        ${item.level}
-                    </strong>
-
+                    <span>⭐ Niveau</span>
+                    <strong>${item.level}</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <span>
-                        🧱 Matériau
-                    </span>
-
-                    <strong>
-                        ${item.material}
-                    </strong>
-
+                    <span>🧱 Matériau</span>
+                    <strong>${item.material}</strong>
                 </div>
 
-
                 <div class="info">
-
-                    <span>
-                        📈 Variation
-                    </span>
-
-                    <strong>
-                        ${item.change}
-                    </strong>
-
+                    <span>📈 Variation</span>
+                    <strong>${item.change}</strong>
                 </div>
-
 
             </div>
 
         </div>
-
 
         <div class="alias-box">
 
@@ -1213,28 +833,20 @@ if(!item){
 
             <br>
 
-
             ${
-                item.aliases
-                .map(alias => `
-
+                item.aliases.map(alias => `
                     <span class="alias">
                         ${alias}
                     </span>
-
-                `)
-                .join("")
+                `).join("")
             }
-
 
         </div>
 
     `;
-
 }
 
 </script>
 
 </body>
-
 </html>
