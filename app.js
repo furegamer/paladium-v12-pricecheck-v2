@@ -13,5 +13,23 @@ function initMarket(){const sel=$('#marketItem'),qty=$('#qty'),dur=$('#durabilit
 function calc(){const x=getItem(sel.value);if(!x)return;const q=Math.max(1,+qty.value||1),d=Math.max(0,Math.min(100,+dur.value||100)),factor=x[8]&&x[8]!=='∞'?d/100:1,value=Math.round(x[5]*factor*q);out.innerHTML=`<b>${money(value)}</b><span>Valeur estimée pour ${q} unité${q>1?'s':''}${x[8]&&x[8]!=='∞'?` à ${d}% de durabilité`:''}.</span><small>Base: ${money(x[5])} • fourchette ${money(x[6])}–${money(x[7])}</small>`}
 function drawHistory(){const h=history()[sel.value]||[];historyBox.innerHTML=h.length?`<div class="history-bars">${h.slice(-10).map(v=>`<div style="height:${Math.max(8,Math.min(100,v.value/Math.max(...h.map(a=>a.value))*100))}%" title="${money(v.value)} • ${v.date}"></div>`).join('')}</div><p class="muted small">Tes observations locales — elles ne sont pas présentées comme des prix officiels.</p>`:'<p class="muted">Aucun historique local. Ajoute tes propres observations de marché.</p>'}
 [sel,qty,dur].forEach(e=>e.addEventListener('input',()=>{calc();drawHistory()}));record.onclick=()=>{const x=getItem(sel.value),v=+observed.value;if(!x||!v||v<0)return;const h=history();h[x[0]]=[...(h[x[0]]||[]),{value:Math.round(v),date:new Date().toLocaleDateString('fr-FR')}].slice(-20);saveHistory(h);observed.value='';drawHistory()};sel.value=ITEMS[0][0];calc();drawHistory();}
-function boot(){initCatalog();initMarket();$('#year').textContent=new Date().getFullYear();}
+function initXp(){
+  const job=$('#jobSelect'),action=$('#xpAction'),minLevel=$('#xpLevel'),xpRows=$('#xpRows'),best=$('#xpBest'),need=$('#jobNeed'),pogLevel=$('#pogLevel'),pogInfo=$('#pogInfo'),pogNext=$('#pogNext');
+  if(!job)return;
+  Object.keys(JOB_XP).forEach(j=>{const o=document.createElement('option');o.value=j;o.textContent=j;job.appendChild(o)});
+  function renderJob(){
+    const j=job.value, rows=jobXpRows(j), a=action.value, level=Math.max(1,Math.min(20,+minLevel.value||1));
+    const filtered=rows.filter(r=>a==='all'||r[1]===a);
+    xpRows.innerHTML=filtered.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><b>${String(r[2]).replace('.',',')} XP</b></td><td>Niv. ${r[3]}+</td></tr>`).join('')||'<tr><td colspan="4">Aucune donnée pour ce filtre.</td></tr>';
+    const top=jobBestRows(j).slice(0,3);best.innerHTML=top.map((r,i)=>`<div class="rank"><b>#${i+1}</b><span>${r[0]}<small>${r[1]} • débloqué niv. ${r[3]}</small></span><strong>${String(r[2]).replace('.',',')} XP</strong></div>`).join('');
+    const target=JOB_LEVEL_XP[Math.min(level-1,JOB_LEVEL_XP.length-1)];need.innerHTML=`<b>Niveau ${level}${level<20?` → ${level+1}`:''}</b><span>${level<20?`XP de passage : ${target.toLocaleString('fr-FR')} XP`:'Niveau 20 atteint'}</span><small>Prérequis indicatif : ${Math.round(target/5).toLocaleString('fr-FR')} XP</small>`;
+  }
+  function renderPog(){
+    const l=Math.max(1,Math.min(100,+pogLevel.value||1)),tier=pogTier(l),next=POG_BLOCKS_TO_NEXT[l];
+    pogInfo.innerHTML=`<b>Niveau ${l}</b><span>${tier.label}</span><small>${tier.blocks.length?tier.blocks.join(' • '):'Aucun bloc OS documenté à ce palier.'}</small>`;
+    pogNext.innerHTML=l<100?`<b>${POG_BLOCKS_TO_NEXT[l].toLocaleString('fr-FR')} blocs</b><span>environ pour passer de ${l} → ${l+1}</span><small>Les blocs conseillés ci-dessus sont ceux que la POG OS à ce niveau.</small>`:'<b>Niveau 100 🎉</b><span>Auto Smelt peut ensuite être ajouté à la POG.</span>';
+  }
+  [job,action,minLevel].forEach(e=>e.addEventListener('input',renderJob));pogLevel.addEventListener('input',renderPog);renderJob();renderPog();
+}
+function boot(){initCatalog();initMarket();initXp();$('#year').textContent=new Date().getFullYear();}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
