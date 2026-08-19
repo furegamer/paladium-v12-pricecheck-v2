@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - '(root)'
-  pull_request:
-    branches:
-      - '(root)'
   workflow_dispatch:
 
 permissions:
@@ -36,7 +33,6 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: check
     runs-on: ubuntu-latest
 
