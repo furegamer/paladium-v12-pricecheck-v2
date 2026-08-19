@@ -36,9 +36,17 @@ const ITEMS = [
 ['Small Ring en Paladium',['Small Ring'],'Ressources','Épique','images/default.png',3000,2000,4500,400,null,null,'Ring pouvant rendre jusqu’à 400 de durabilité.','Palamachine']
 ];
 const RARITY_ORDER={Commun:0,'Peu commun':1,Rare:2,'Épique':3,'Légendaire':4,Unique:5};
-const RARITY_CLASS={Commun:'common','Peu commun':'uncommon',Rare:'rare','Épique':'epic',Légendaire:'legendary',Unique:'unique'};
+const RARITY_CLASS={Commun:'common','Peu commun':'uncommon',Rare:'rare',Épique:'epic',Légendaire:'legendary',Unique:'unique'};
 const CATEGORIES=['Minerais','Ressources','Machines','Outils','Armures','Nourriture'];
 function norm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,' ').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim()}
 function money(v){return Number(v||0).toLocaleString('fr-FR')+' $'}
 function confidence(item){const width=(item[7]-item[6])/Math.max(item[5],1);return width<=.7?['Bonne','good']:width<=1.05?['Moyenne','medium']:['Faible','low']}
 function getItem(name){const n=norm(name);return ITEMS.find(x=>norm(x[0])===n||x[1].some(a=>norm(a)===n))}
+
+/* Charge le polish visuel après la feuille intégrée de V12.2. */
+(function(){
+  const link=document.createElement('link');
+  link.rel='stylesheet';
+  link.href='ui-polish.css?v=12.3';
+  document.head.appendChild(link);
+})();
