@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - '(root)'
+  pull_request:
+    branches:
+      - '(root)'
   workflow_dispatch:
 
 permissions:
@@ -16,7 +19,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check:
+    name: Check PriceCheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify site files
+        shell: bash
+        run: |
+          test -f index.html
+          test -f item.html
+          test -d images
+          echo "PriceCheck files OK"
+
   deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    needs: check
     runs-on: ubuntu-latest
 
     environment:
