@@ -1,7 +1,7 @@
 // PriceCheck authentication configuration.
-// Fill these two public values from your Supabase project before enabling OAuth.
+// The publishable key is safe to use in browser code. Never put a Supabase secret/service_role key here.
 window.PRICECHECK_AUTH = {
-  supabaseUrl: '',
-  supabaseAnonKey: '',
+  supabaseUrl: 'https://ndotuykgdmumessfvtvw.supabase.co',
+  supabaseAnonKey: 'sb_publishable_bDnqyzZEqoHIsy9IWWfdKg_6JVIy0nW',
   adminEmails: []
 };
