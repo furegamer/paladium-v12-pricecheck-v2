@@ -1,1 +1,1 @@
-    # paladium-v12-pricecheck-v2
+# paladium-v12-pricecheck-v2
