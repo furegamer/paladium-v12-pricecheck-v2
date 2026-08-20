@@ -1,80 +1,39 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#090b12">
-<title>Admin • Paladium PriceCheck</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090b12">
+<title>Admin • Paladium PriceCheck V12.1</title>
 <style>
-:root{--bg:#070910;--panel:#0e121c;--panel2:#111724;--line:#222b3d;--text:#f8fafc;--muted:#8d98ab;--accent:#d946ef;--accent2:#8b5cf6;--good:#34d399;--warn:#fbbf24;--bad:#fb7185;--shadow:0 18px 50px rgba(0,0,0,.28)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,rgba(217,70,239,.13),transparent 30%),radial-gradient(circle at 10% 20%,rgba(139,92,246,.10),transparent 28%),var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button{font:inherit}.app{display:flex;min-height:100vh}.side{width:250px;position:fixed;inset:0 auto 0 0;padding:22px 16px;border-right:1px solid var(--line);background:rgba(7,9,16,.88);backdrop-filter:blur(18px);z-index:10}.brand{display:flex;gap:12px;align-items:center;padding:8px 10px 25px}.logo{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent),var(--accent2));font-size:21px;box-shadow:0 10px 30px rgba(217,70,239,.2)}.brand strong{display:block;font-size:14px}.brand span{color:var(--muted);font-size:12px}.nav{display:grid;gap:6px}.nav button{border:0;background:transparent;color:#b8c0cf;text-align:left;padding:12px 13px;border-radius:12px;cursor:pointer;transition:.18s}.nav button:hover,.nav button.active{background:#171c2a;color:#fff}.nav button.active{box-shadow:inset 3px 0 0 var(--accent)}.side-foot{position:absolute;bottom:20px;left:16px;right:16px}.main{margin-left:250px;width:calc(100% - 250px);padding:28px clamp(18px,4vw,48px) 50px}.top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:24px}.eyebrow{font-size:11px;letter-spacing:.16em;color:var(--accent);font-weight:800}.top h1{margin:5px 0 5px;font-size:clamp(25px,4vw,38px)}.top p{margin:0;color:var(--muted)}.actions{display:flex;gap:9px;flex-wrap:wrap}.btn{border:1px solid var(--line);background:var(--panel);color:#fff;border-radius:12px;padding:10px 13px;cursor:pointer}.btn.primary{border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent2));box-shadow:0 10px 30px rgba(139,92,246,.18)}.status{padding:13px 15px;border:1px solid var(--line);border-radius:14px;background:rgba(14,18,28,.75);margin-bottom:18px}.status.ok{border-color:rgba(52,211,153,.3)}.status.warn{border-color:rgba(251,191,36,.3);color:#fde68a}.status.bad{border-color:rgba(251,113,133,.3);color:#fecdd3}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:linear-gradient(180deg,rgba(17,23,36,.94),rgba(11,15,24,.94));border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.stat{min-height:132px}.stat .icon{font-size:22px}.stat .label{color:var(--muted);font-size:12px;margin-top:12px}.stat strong{display:block;font-size:28px;margin-top:3px}.delta{font-size:12px;color:var(--good);margin-top:5px}.section{margin-top:18px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}.section-head h2{font-size:18px;margin:0}.section-head span{color:var(--muted);font-size:12px}.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.module{display:flex;gap:15px;align-items:flex-start}.module-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:#171c2a;font-size:21px;flex:none}.module h3{margin:0 0 5px;font-size:16px}.module p{margin:0;color:var(--muted);font-size:13px;line-height:1.45}.module .tag{display:inline-block;margin-top:10px;padding:5px 8px;border-radius:999px;background:#171c2a;color:#b8c0cf;font-size:11px}.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.quick button{padding:14px;text-align:left;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:#fff;cursor:pointer}.quick small{display:block;color:var(--muted);margin-top:4px}.panel{display:none}.panel.active{display:block}.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;min-width:620px}.table th,.table td{text-align:left;padding:13px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted);font-weight:600}.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;background:#172033;color:#cbd5e1}.mobile-menu{display:none}.empty{padding:28px;text-align:center;color:var(--muted)}@media(max-width:1050px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.modules{grid-template-columns:1fr}.quick{grid-template-columns:1fr 1fr}}@media(max-width:720px){.side{transform:translateX(-105%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;width:100%;padding:18px 14px 35px}.mobile-menu{display:inline-flex}.top{align-items:center}.top p{font-size:13px}.grid{grid-template-columns:1fr 1fr}.quick{grid-template-columns:1fr}.stat{min-height:118px;padding:14px}.stat strong{font-size:23px}.brand{padding-bottom:15px}.side-foot{display:none}}@media(max-width:430px){.grid{grid-template-columns:1fr}.actions{width:100%}.actions .btn{flex:1}.top{align-items:flex-start}}
+:root{--bg:#070910;--panel:#0e121c;--line:#222b3d;--text:#f8fafc;--muted:#8d98ab;--accent:#8b5cf6;--cyan:#22d3ee;--good:#34d399;--bad:#fb7185}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% -10%,#8b5cf622,transparent 30%),radial-gradient(circle at 10% 20%,#22d3ee12,transparent 28%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(1000px,calc(100% - 28px));margin:auto;padding:28px 0 60px}.top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start}.brand{display:flex;gap:12px;align-items:center}.logo{width:45px;height:45px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,var(--accent),var(--cyan));font-weight:900}.version{display:inline-block;margin:20px 0 12px;padding:7px 11px;border:1px solid #8b5cf688;border-radius:99px;background:#8b5cf61a;color:#ddd6fe;font-size:11px;font-weight:800}.muted{color:var(--muted);line-height:1.6}.btn{border:1px solid var(--line);background:var(--panel);color:white;padding:10px 13px;border-radius:11px;cursor:pointer}.btn:hover{border-color:#8b5cf6}.status{margin:20px 0;padding:15px;border:1px solid var(--line);border-radius:15px;background:var(--panel)}.ok{border-color:#34d39955}.bad{border-color:#fb718555}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{padding:20px;border:1px solid var(--line);border-radius:17px;background:var(--panel)}.card b{font-size:24px}.card span{display:block;color:var(--muted);font-size:12px;margin-top:5px}.modules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.module{padding:18px;border:1px solid var(--line);border-radius:16px;background:var(--panel)}a{color:#c4b5fd}@media(max-width:650px){.top{flex-direction:column}.cards,.modules{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="app">
-<aside class="side" id="sidebar">
-  <div class="brand"><div class="logo">P</div><div><strong>Paladium PriceCheck</strong><span>Administration</span></div></div>
-  <nav class="nav">
-    <button class="active" data-panel="dashboard">🏠 Tableau de bord</button>
-    <button data-panel="items">📦 Items</button>
-    <button data-panel="prices">💰 Prix</button>
-    <button data-panel="xp">⚡ XP & POG</button>
-    <button data-panel="media">🎥 Médias</button>
-    <button data-panel="users">👥 Utilisateurs</button>
-    <button data-panel="settings">⚙️ Paramètres</button>
-  </nav>
-</aside>
-<main class="main">
-  <header class="top">
-    <div><div class="eyebrow">ADMIN PANEL</div><h1 id="pageTitle">Tableau de bord</h1><p>Gère Paladium PriceCheck depuis un seul endroit.</p></div>
-    <div class="actions"><button class="btn mobile-menu" id="menu">☰</button><button class="btn" id="refresh">↻ Actualiser</button><button class="btn primary" id="logout">Déconnexion</button></div>
-  </header>
-  <div id="state" class="status">Vérification de la connexion…</div>
-
-  <section class="panel active" id="panel-dashboard">
-    <div class="grid">
-      <article class="card stat"><div class="icon">📦</div><div class="label">ITEMS</div><strong id="statItems">—</strong><div class="delta">Catalogue PriceCheck</div></article>
-      <article class="card stat"><div class="icon">💰</div><div class="label">PRIX</div><strong id="statPrices">—</strong><div class="delta">Données disponibles</div></article>
-      <article class="card stat"><div class="icon">🎥</div><div class="label">MÉDIAS</div><strong id="statMedia">—</strong><div class="delta">Vidéos / streams / rediffs</div></article>
-      <article class="card stat"><div class="icon">🔐</div><div class="label">SESSION</div><strong id="statSession">OK</strong><div class="delta">Compte administrateur</div></article>
-    </div>
-    <div class="section"><div class="section-head"><h2>Modules</h2><span>Centre de contrôle</span></div><div class="modules">
-      <article class="card module"><div class="module-icon">📦</div><div><h3>Items & fiches</h3><p>Prépare la gestion du catalogue, des caractéristiques et des pages items.</p><span class="tag">Gestion du catalogue</span></div></article>
-      <article class="card module"><div class="module-icon">💰</div><div><h3>Prix & historique</h3><p>Centralise les prix et prépare les futures mises à jour automatiques.</p><span class="tag">PriceCheck</span></div></article>
-      <article class="card module"><div class="module-icon">⚡</div><div><h3>Métiers, XP & POG</h3><p>Gère les gains d'XP, les niveaux et les meilleurs blocs par palier.</p><span class="tag">XP + POG</span></div></article>
-      <article class="card module"><div class="module-icon">🎥</div><div><h3>Médias</h3><p>Prépare la publication et le suivi des nouvelles vidéos, streams et rediffusions.</p><span class="tag">Actualisation média</span></div></article>
-    </div></div>
-    <div class="section"><div class="section-head"><h2>Actions rapides</h2><span>Accès direct</span></div><div class="quick">
-      <button data-go="items">📦 Ouvrir les items<small>Catalogue et fiches</small></button>
-      <button data-go="media">🎥 Gérer les médias<small>Vidéos et streams</small></button>
-      <button data-go="xp">⚡ Gérer XP & POG<small>Métiers et niveaux</small></button>
-    </div></div>
-  </section>
-
-  <section class="panel" id="panel-items"><div class="card"><div class="section-head"><h2>📦 Items</h2><span>Catalogue</span></div><div class="empty">Le panneau est prêt pour la gestion des items. Les données seront branchées sur Supabase dès que les tables correspondantes seront créées.</div></div></section>
-  <section class="panel" id="panel-prices"><div class="card"><div class="section-head"><h2>💰 Prix</h2><span>PriceCheck</span></div><div class="empty">Le module prix est prêt. On pourra ensuite ajouter édition, historique, validation et import des prix.</div></div></section>
-  <section class="panel" id="panel-xp"><div class="card"><div class="section-head"><h2>⚡ XP & POG</h2><span>Métiers</span></div><div class="empty">Le module métiers est prêt pour les données XP/POG, les niveaux et le meilleur bloc par niveau.</div></div></section>
-  <section class="panel" id="panel-media"><div class="card"><div class="section-head"><h2>🎥 Médias</h2><span>Vidéos • Streams • Rediffusions</span></div><div class="empty">Le module médias est prêt pour l’actualisation automatique du feed.</div></div></section>
-  <section class="panel" id="panel-users"><div class="card"><div class="section-head"><h2>👥 Utilisateurs</h2><span>Supabase Auth</span></div><div class="empty">Les utilisateurs connectés seront gérés via Supabase Auth. Les comptes administrateurs restent contrôlés par la configuration du site.</div></div></section>
-  <section class="panel" id="panel-settings"><div class="card"><div class="section-head"><h2>⚙️ Paramètres</h2><span>Configuration</span></div><div class="table-wrap"><table class="table"><tr><th>Élément</th><th>État</th></tr><tr><td>Supabase</td><td><span class="pill" id="supabaseState">Vérification…</span></td></tr><tr><td>Authentification</td><td><span class="pill">Google / Microsoft à configurer</span></td></tr><tr><td>GitHub Pages</td><td><span class="pill">Actif</span></td></tr></table></div></div></section>
-</main></div>
+<main class="wrap">
+<header class="top"><div class="brand"><div class="logo">P</div><div><b>Paladium PriceCheck</b><div class="muted">Panneau d’administration</div></div></div><div><button class="btn" id="logout">Déconnexion</button></div></header>
+<div class="version">🚀 VERSION V12.1 • ADMIN SÉCURISÉ PAR SUPABASE</div>
+<div id="status" class="status">🔄 Vérification de la session…</div>
+<section id="panel" hidden>
+<div class="cards"><div class="card"><b>📦</b><span>Catalogue</span><strong>PriceCheck</strong></div><div class="card"><b>💰</b><span>Prix</span><strong>À gérer</strong></div><div class="card"><b>🔐</b><span>Rôle</span><strong>Administrateur</strong></div></div>
+<div class="modules"><div class="module"><h2>📦 Items</h2><p class="muted">Gestion du catalogue, descriptions, niveaux, durabilité, dégâts et crafts.</p></div><div class="module"><h2>💰 Prix</h2><p class="muted">Gestion des estimations et historique des prix.</p></div><div class="module"><h2>⚡ XP & POG</h2><p class="muted">Gestion des métiers, niveaux, XP et gains POG.</p></div><div class="module"><h2>🎥 Médias</h2><p class="muted">Gestion des vidéos, streams et rediffusions.</p></div></div>
+<p class="muted"><a href="index.html">← Retour au PriceCheck</a></p>
+</section>
+</main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="auth-config.js"></script>
 <script>
-const cfg=window.PRICECHECK_AUTH||{};let supa=null;const $=s=>document.querySelector(s);const $$=s=>document.querySelectorAll(s);
-if(cfg.supabaseUrl&&cfg.supabaseAnonKey&&window.supabase)supa=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey);
-function showPanel(name){$$('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.panel===name));$$('.panel').forEach(p=>p.classList.toggle('active',p.id==='panel-'+name));const labels={dashboard:'Tableau de bord',items:'Items',prices:'Prix',xp:'XP & POG',media:'Médias',users:'Utilisateurs',settings:'Paramètres'};$('#pageTitle').textContent=labels[name]||'Tableau de bord';$('#sidebar').classList.remove('open');}
-$$('.nav button').forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.panel)));$$('[data-go]').forEach(b=>b.addEventListener('click',()=>showPanel(b.dataset.go)));$('#menu').addEventListener('click',()=>$('#sidebar').classList.toggle('open'));
-async function boot(){if(!supa){$('#state').className='status warn';$('#state').textContent='⚠️ Supabase n’est pas encore configuré dans auth-config.js.';$('#supabaseState').textContent='Non configuré';return}const {data,error}=await supa.auth.getSession();if(error||!data.session){location.href='login.html';return}const email=(data.session.user.email||'').toLowerCase();const admins=(cfg.adminEmails||[]).map(x=>String(x).toLowerCase());if(!admins.includes(email)){ $('#state').className='status bad';$('#state').textContent='⛔ Accès refusé pour '+email+'.';return}$('#state').className='status ok';$('#state').textContent='✅ Connecté en tant qu’administrateur : '+email;$('#supabaseState').textContent='Connecté';$('#statSession').textContent='OK';}
-$('#logout').addEventListener('click',async()=>{if(supa)await supa.auth.signOut();location.href='index.html'});$('#refresh').addEventListener('click',()=>location.reload());boot();
+const cfg=window.PRICECHECK_AUTH||{};let client=null;const status=document.getElementById('status');const panel=document.getElementById('panel');
+if(window.supabase&&cfg.supabaseUrl&&cfg.supabaseAnonKey){client=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey)}
+async function boot(){
+ if(!client){status.className='status bad';status.textContent='❌ Supabase n’est pas configuré.';return}
+ const {data,error}=await client.auth.getSession();
+ if(error||!data.session){location.replace('login.html');return}
+ const user=data.session.user;
+ const {data:admin,error:adminError}=await client.from('admins').select('user_id').eq('user_id',user.id).maybeSingle();
+ if(adminError){status.className='status bad';status.textContent='❌ Impossible de vérifier les droits administrateur : '+adminError.message;return}
+ if(!admin){status.className='status bad';status.textContent='⛔ Accès refusé. Ce compte Discord n’est pas administrateur.';return}
+ status.className='status ok';status.textContent='✅ Accès administrateur confirmé pour '+(user.email||'ton compte Discord')+'.';panel.hidden=false;
+}
+document.getElementById('logout').addEventListener('click',async()=>{if(client)await client.auth.signOut();location.replace('index.html')});boot();
 </script>
 </body>
 </html>
-window.PRICECHECK_AUTH = {
-  supabaseUrl: "https://ndotuykgdumuessfvtwv.supabase.co",
-  supabaseAnonKey: "TA_PUBLISHABLE_KEY",
-
-  adminEmails: [
-    "mbourblanc@icloud.com"
-  ]
-};
