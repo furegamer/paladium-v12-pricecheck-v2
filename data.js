@@ -33,13 +33,29 @@ const ITEMS = [
 ['Aimant',['Magnet'],'Ressources','Rare','images/aimant.svg',3500,2300,5000,null,null,7,'Attire les objets au sol dans un rayon de 6 blocs.','2 lingots paladium + 5 blocs fer'],
 ['Dollars Stone',['Dollar Stone'],'Ressources','Épique','images/dollars-stone.svg',7000,4500,10000,null,null,8,'Vend automatiquement certains blocs au shop.','1 voidstone + 4 perles End + composants paladium/améthyste'],
 ['Entonnoir en Paladium',['Paladium Hopper'],'Machines','Légendaire','images/hopper-paladium.svg',9000,6000,13000,null,null,9,'Transfère les objets par stack.','1 coffre titane + 5 lingots paladium'],
-['Small Ring en Paladium',['Small Ring'],'Ressources','Épique','images/small-ring.svg',3000,2000,4500,400,null,null,'Ring pouvant rendre jusqu’à 400 de durabilité.','Palamachine']
+['Small Ring en Paladium',['Small Ring'],'Ressources','Épique','images/small-ring.svg',3000,2000,4500,400,null,null,'Ring pouvant rendre jusqu’à 400 de durabilité.','Palamachine'],
+['Findium',['Find'],'Minerais','Légendaire','images/paladium-ore.svg',4200,2800,6000,null,null,12,'Minerai rare utilisé dans plusieurs crafts avancés.','Obtenu en jeu · prix indicatif'],
+['Voidstone',['Void Stone'],'Ressources','Légendaire','images/obsidienne.svg',2600,1700,3800,null,null,12,'Ressource sombre utilisée pour des équipements et machines avancés.','Obtenue en jeu · prix indicatif'],
+['Bloc de Paladium',['Bloc Pala','Paladium Block'],'Blocs','Légendaire','images/paladium-ore.svg',10800,7500,14500,null,null,8,'Bloc compact de minerai de Paladium.','9 Paladium · valeur indicative'],
+['Lingot de Paladium',['Lingot Pala','Paladium Ingot'],'Lingots','Légendaire','images/paladium-ore.svg',1300,900,1900,null,null,8,'Lingot utilisé dans de nombreux crafts avancés.','Fusion / traitement · valeur indicative'],
+['Lingot de Titane',['Lingot Titan','Titanium Ingot'],'Lingots','Épique','images/titane.svg',720,500,1050,null,null,6,'Lingot de titane pour les outils et équipements.','Fusion / traitement · valeur indicative'],
+['Bloc de Titane',['Bloc Titan','Titanium Block'],'Blocs','Épique','images/titane.svg',6000,4200,9000,null,null,6,'Bloc compact de titane.','9 lingots de Titane · valeur indicative'],
+['Bloc d’Améthyste',['Bloc Ame','Amethyst Block'],'Blocs','Rare','images/amethyste.svg',2700,1900,3900,null,null,1,'Bloc d’améthyste décoratif et de stockage.','9 Améthystes · valeur indicative'],
+['Bloc de Rubis',['Bloc Ruby','Ruby Block'],'Blocs','Rare','images/rubis.svg',4500,3200,6300,null,null,null,'Bloc de rubis compact.','9 Rubis · valeur indicative'],
+['Bloc de Saphir',['Bloc Saph','Sapphire Block'],'Blocs','Rare','images/saphir.svg',4050,2850,5700,null,null,null,'Bloc de saphir compact.','9 Saphirs · valeur indicative'],
+['Bloc d’Émeraude',['Bloc Emer','Emerald Block'],'Blocs','Peu commun','images/emeraude.svg',2500,1700,3600,null,null,null,'Bloc d’émeraude compact.','9 Émeraudes · valeur indicative'],
+['Épée Paladium',['Sword Pala','Épée Pala'],'Armes','Légendaire','images/epee-paladium.svg',22000,15000,32000,4999,'+12',10,'Épée en Paladium destinée au combat avancé.','Craft avancé · prix indicatif'],
+['Pioche en Rubis',['Pioche Ruby'],'Outils','Rare','images/pickaxe-amethyste.svg',1400,950,2100,1999,'+5.5',null,'Pioche en rubis, estimation communautaire.','Craft avancé · prix indicatif'],
+['Pioche en Saphir',['Pioche Sapphire'],'Outils','Rare','images/pickaxe-amethyste.svg',1300,900,2000,1999,'+5.5',null,'Pioche en saphir, estimation communautaire.','Craft avancé · prix indicatif'],
+['Pioche en Émeraude',['Pioche Emerald'],'Outils','Peu commun','images/pickaxe-amethyste.svg',900,600,1400,1999,'+5',null,'Pioche en émeraude, estimation communautaire.','Craft avancé · prix indicatif'],
+['Bloc de Fer',['Iron Block'],'Blocs','Commun','images/obsidienne.svg',180,120,260,null,null,null,'Bloc métallique de base utilisé comme composant.','Craft vanilla · icône provisoire'],
+['Coffre en Titane',['Titanium Chest'],'Machines','Épique','images/machine.svg',8500,6000,12000,null,null,null,'Coffre renforcé destiné au stockage avancé.','Craft avancé · prix indicatif']
 ];
 const RARITY_ORDER={Commun:0,'Peu commun':1,Rare:2,'Épique':3,'Légendaire':4,Unique:5};
 const RARITY_CLASS={Commun:'common','Peu commun':'uncommon',Rare:'rare',Épique:'epic',Légendaire:'legendary',Unique:'unique'};
-const CATEGORIES=['Minerais','Ressources','Machines','Outils','Armures','Nourriture'];
+const CATEGORIES=['Minerais','Lingots','Blocs','Ressources','Machines','Outils','Armes','Armures','Nourriture','Cosmétiques'];
 function norm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’']/g,' ').replace(/[-_]/g,' ').replace(/\s+/g,' ').trim()}
 function money(v){return Number(v||0).toLocaleString('fr-FR')+' $'}
 function confidence(item){const width=(item[7]-item[6])/Math.max(item[5],1);return width<=.7?['Bonne','good']:width<=1.05?['Moyenne','medium']:['Faible','low']}
 function getItem(name){const n=norm(name);return ITEMS.find(x=>norm(x[0])===n||x[1].some(a=>norm(a)===n))}
-(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.6';document.head.appendChild(link);})();
+(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.7';document.head.appendChild(link);})();
