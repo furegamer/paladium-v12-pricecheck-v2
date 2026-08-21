@@ -26,10 +26,21 @@ jobs:
       - name: Verify site files
         shell: bash
         run: |
+          set -euo pipefail
           test -f index.html
           test -f item.html
+          test -f item.js
+          test -f app.js
+          test -f data.js
+          test -f changelog.html
           test -d images
-          echo "PriceCheck files OK"
+
+          echo "Checking image references from data.js..."
+          grep -oE "images/[A-Za-z0-9._-]+\\.(svg|png|jpg|jpeg|webp)" data.js | sort -u | while read -r asset; do
+            test -f "$asset" || { echo "Missing image: $asset"; exit 1; }
+          done
+
+          echo "PriceCheck files and image references OK"
 
   deploy:
     name: Deploy to GitHub Pages
