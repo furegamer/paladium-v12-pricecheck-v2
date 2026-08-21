@@ -9,10 +9,10 @@ const ITEMS = [
 ['Obsidienne',['Obsi'],'Ressources','Peu commun','images/obsidienne.svg',100,60,160,null,null,null,'Ressource polyvalente.','Selon la recette'],
 ["Perle de l'End",['Perle','Ender Pearl'],'Ressources','Rare','images/perle-end.svg',550,400,800,null,null,null,'Ressource de l’End.','Obtenue en jeu'],
 ['Machine industrielle',['Machine'],'Machines','Épique','images/crusher.svg',18000,12000,28000,null,null,null,'Machine de production.','Craft machine à confirmer'],
-['Four amélioré',['Four'],'Machines','Rare','images/four.png',6500,4500,9000,null,null,null,'Four amélioré.','Craft machine à confirmer'],
+['Four amélioré',['Four'],'Machines','Rare','images/four.svg',6500,4500,9000,null,null,null,'Four amélioré.','Craft machine à confirmer'],
 ['Pioche Paladium',['Pioche Pala'],'Outils','Légendaire','images/pioche-paladium.svg',18000,13000,25000,4999,'+8',8,'Pioche Paladium : 4 999 de durabilité et +8 dégâts.','Craft via progression/Grinder'],
-['Casque Paladium',['Casque Pala'],'Armures','Légendaire','images/casque-paladium.png',16000,11000,23000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
-['Plastron Paladium',['Plastron Pala'],'Armures','Légendaire','images/plastron-paladium.png',30000,22000,42000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
+['Casque Paladium',['Casque Pala'],'Armures','Légendaire','images/casque-paladium.svg',16000,11000,23000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
+['Plastron Paladium',['Plastron Pala'],'Armures','Légendaire','images/plastron-paladium.svg',30000,22000,42000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
 ['Pomme dorée',['Pomme','Golden Apple'],'Nourriture','Rare','images/pomme-doree.svg',2500,1800,3500,null,null,null,'Nourriture spéciale.','Craft vanilla'],
 ['Pain',['Bread'],'Nourriture','Commun','images/pain.svg',80,50,120,null,null,11,'Nourriture de base.','3 blés'],
 ['Pioche en améthyste',['Pioche Améthyste'],'Outils','Rare','images/pickaxe-amethyste.svg',900,600,1300,1999,'+5',null,'Outil en améthyste.','Table de craft'],
@@ -42,4 +42,4 @@ function norm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/[\
 function money(v){return Number(v||0).toLocaleString('fr-FR')+' $'}
 function confidence(item){const width=(item[7]-item[6])/Math.max(item[5],1);return width<=.7?['Bonne','good']:width<=1.05?['Moyenne','medium']:['Faible','low']}
 function getItem(name){const n=norm(name);return ITEMS.find(x=>norm(x[0])===n||x[1].some(a=>norm(a)===n))}
-(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.5';document.head.appendChild(link);})();
+(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.6';document.head.appendChild(link);})();
