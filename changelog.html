@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090d16">
+<title>Changelog — Paladium V12 PriceCheck</title>
+<style>
+:root{--bg:#080b12;--panel:#101827;--line:#273449;--text:#f8fafc;--muted:#94a3b8;--violet:#8b5cf6;--cyan:#22d3ee;--green:#34d399}
+*{box-sizing:border-box}body{margin:0;color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;background:radial-gradient(circle at 15% 0%,#8b5cf633,transparent 32%),radial-gradient(circle at 90% 20%,#22d3ee22,transparent 30%),var(--bg)}a{color:inherit}.wrap{width:min(900px,calc(100% - 28px));margin:auto}.top{padding:22px 0}.back{display:inline-flex;padding:10px 13px;border:1px solid var(--line);border-radius:11px;text-decoration:none;background:#111a2a}.hero{padding:38px 0 22px}.pill{display:inline-block;padding:7px 11px;border-radius:999px;background:#8b5cf61a;border:1px solid #8b5cf688;color:#ddd6fe;font-size:12px;font-weight:800}.hero h1{font-size:clamp(38px,8vw,64px);line-height:1;margin:16px 0}.muted{color:var(--muted)}.card{margin:14px 0;padding:22px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#111a2a,#0d1420)}.card h2{margin:0 0 8px}.tag{display:inline-block;margin-bottom:12px;padding:5px 9px;border-radius:999px;background:#064e3b;color:#86efac;font-size:11px;font-weight:800}.list{margin:12px 0 0;padding-left:20px;line-height:1.8}.footer{padding:30px 0 50px;text-align:center;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="index.html">← Retour au PriceCheck</a></div>
+  <header class="hero">
+    <span class="pill">📝 Historique public des améliorations</span>
+    <h1>Changelog</h1>
+    <p class="muted">Les changements affichés ici sont uniquement ceux qui ont été vérifiés dans le code du site. Une fonctionnalité incomplète n'est pas annoncée comme terminée.</p>
+  </header>
+
+  <article class="card">
+    <span class="tag">V12.6 · vérifié</span>
+    <h2>🧩 Catalogue et navigation des items</h2>
+    <ul class="list">
+      <li>Recherche par nom et alias conservée.</li>
+      <li>Filtres de catégorie et de rareté conservés.</li>
+      <li>Tri par prix, nom et rareté disponible.</li>
+      <li>La navigation vers la page détaillée d'un item est conservée.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <span class="tag">V12.6 · vérifié</span>
+    <h2>💰 Prix communautaires</h2>
+    <ul class="list">
+      <li>Les utilisateurs peuvent proposer un prix depuis la page d'un item.</li>
+      <li>Les relevés sont regroupés par prix.</li>
+      <li>Le prix conseillé affiché utilise la médiane des derniers relevés.</li>
+      <li>Le niveau de fiabilité dépend du nombre de relevés disponibles.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <span class="tag">V12.6 · vérifié</span>
+    <h2>🛠️ Craft et obtention</h2>
+    <ul class="list">
+      <li>Un bouton dédié ouvre la fenêtre « Craft / obtention ».</li>
+      <li>La recette peut être affichée sous forme de grille 3×3.</li>
+      <li>Les composants d'une recette sont cliquables lorsqu'une recette existe pour eux.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <span class="tag">V12.6 · vérifié</span>
+    <h2>🔧 Informations détaillées</h2>
+    <ul class="list">
+      <li>Durabilité affichée lorsqu'elle est renseignée.</li>
+      <li>Dégâts affichés lorsqu'ils sont renseignés.</li>
+      <li>Niveau métier affiché lorsqu'il est renseigné.</li>
+      <li>Un calcul de valeur selon la durabilité est disponible pour les items concernés.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <span class="tag">Correction · vérifié</span>
+    <h2>🖼️ Priorité des images locales</h2>
+    <p class="muted">Les données distantes Supabase ne remplacent plus automatiquement l'image locale du catalogue lorsqu'une correspondance locale est connue. Cela évite qu'une ancienne URL d'image enregistrée en base fasse apparaître une mauvaise icône.</p>
+  </article>
+
+  <div class="footer">Paladium V12 PriceCheck · Changelog public</div>
+</div>
+</body>
+</html>
