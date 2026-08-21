@@ -1,20 +1,20 @@
 const ITEMS = [
-['Pickaxe of the God',['Pog','POG'],'Outils','Unique','images/pog.png',150000,100000,220000,'∞','Évolutif',100,'Pioche évolutive haut de gamme.','Craft évolutif'],
-['Paladium',['Pala'],'Minerais','Légendaire','images/paladium.png',1200,800,1700,null,null,8,'Minerai avancé de progression.','Minerai obtenu en jeu'],
-['Titane',['Titanium'],'Minerais','Épique','images/titane.png',650,450,900,null,null,6,'Minerai de progression.','Minerai obtenu en jeu'],
-['Améthyste',['Ame','Amé'],'Minerais','Rare','images/amethyste.png',300,200,450,null,null,1,'Minerai spécial de progression.','Minerai obtenu en jeu'],
-['Rubis',['Ruby'],'Minerais','Rare','images/rubis.png',500,350,700,null,null,null,'Ressource précieuse du Palamod.','Selon la recette'],
-['Saphir',['Saph'],'Minerais','Rare','images/saphir.png',450,300,650,null,null,null,'Ressource précieuse du Palamod.','Selon la recette'],
-['Émeraude',['Emerald','Emer'],'Minerais','Peu commun','images/emeraude.png',280,180,400,null,null,null,'Ressource minérale verte.','Selon la recette'],
-['Obsidienne',['Obsi'],'Ressources','Peu commun','images/obsidienne.png',100,60,160,null,null,null,'Ressource polyvalente.','Selon la recette'],
-["Perle de l'End",['Perle','Ender Pearl'],'Ressources','Rare','images/perle-end.png',550,400,800,null,null,null,'Ressource de l’End.','Obtenue en jeu'],
-['Machine industrielle',['Machine'],'Machines','Épique','images/machine.png',18000,12000,28000,null,null,null,'Machine de production.','Craft machine à confirmer'],
+['Pickaxe of the God',['Pog','POG'],'Outils','Unique','images/pog.svg',150000,100000,220000,'∞','Évolutif',100,'Pioche évolutive haut de gamme.','Craft évolutif'],
+['Paladium',['Pala'],'Minerais','Légendaire','images/paladium-ore.svg',1200,800,1700,null,null,8,'Minerai avancé de progression.','Minerai obtenu en jeu'],
+['Titane',['Titanium'],'Minerais','Épique','images/titane.svg',650,450,900,null,null,6,'Minerai de progression.','Minerai obtenu en jeu'],
+['Améthyste',['Ame','Amé'],'Minerais','Rare','images/amethyste.svg',300,200,450,null,null,1,'Minerai spécial de progression.','Minerai obtenu en jeu'],
+['Rubis',['Ruby'],'Minerais','Rare','images/rubis.svg',500,350,700,null,null,null,'Ressource précieuse du Palamod.','Selon la recette'],
+['Saphir',['Saph'],'Minerais','Rare','images/saphir.svg',450,300,650,null,null,null,'Ressource précieuse du Palamod.','Selon la recette'],
+['Émeraude',['Emerald','Emer'],'Minerais','Peu commun','images/emeraude.svg',280,180,400,null,null,null,'Ressource minérale verte.','Selon la recette'],
+['Obsidienne',['Obsi'],'Ressources','Peu commun','images/obsidienne.svg',100,60,160,null,null,null,'Ressource polyvalente.','Selon la recette'],
+["Perle de l'End",['Perle','Ender Pearl'],'Ressources','Rare','images/perle-end.svg',550,400,800,null,null,null,'Ressource de l’End.','Obtenue en jeu'],
+['Machine industrielle',['Machine'],'Machines','Épique','images/crusher.svg',18000,12000,28000,null,null,null,'Machine de production.','Craft machine à confirmer'],
 ['Four amélioré',['Four'],'Machines','Rare','images/four.png',6500,4500,9000,null,null,null,'Four amélioré.','Craft machine à confirmer'],
-['Pioche Paladium',['Pioche Pala'],'Outils','Légendaire','images/pioche-paladium.png',18000,13000,25000,4999,'+8',8,'Pioche Paladium : 4 999 de durabilité et +8 dégâts.','Craft via progression/Grinder'],
+['Pioche Paladium',['Pioche Pala'],'Outils','Légendaire','images/pioche-paladium.svg',18000,13000,25000,4999,'+8',8,'Pioche Paladium : 4 999 de durabilité et +8 dégâts.','Craft via progression/Grinder'],
 ['Casque Paladium',['Casque Pala'],'Armures','Légendaire','images/casque-paladium.png',16000,11000,23000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
 ['Plastron Paladium',['Plastron Pala'],'Armures','Légendaire','images/plastron-paladium.png',30000,22000,42000,4999,null,null,'Pièce d’armure Paladium.','Craft armure'],
-['Pomme dorée',['Pomme','Golden Apple'],'Nourriture','Rare','images/pomme-doree.png',2500,1800,3500,null,null,null,'Nourriture spéciale.','Craft vanilla'],
-['Pain',['Bread'],'Nourriture','Commun','images/pain.png',80,50,120,null,null,11,'Nourriture de base.','3 blés'],
+['Pomme dorée',['Pomme','Golden Apple'],'Nourriture','Rare','images/pomme-doree.svg',2500,1800,3500,null,null,null,'Nourriture spéciale.','Craft vanilla'],
+['Pain',['Bread'],'Nourriture','Commun','images/pain.svg',80,50,120,null,null,11,'Nourriture de base.','3 blés'],
 ['Pioche en améthyste',['Pioche Améthyste'],'Outils','Rare','images/pickaxe-amethyste.svg',900,600,1300,1999,'+5',null,'Outil en améthyste.','Table de craft'],
 ['Pelle en améthyste',['Pelle Améthyste'],'Outils','Rare','images/shovel-amethyste.svg',750,500,1100,1999,'+4',null,'Pelle en améthyste.','Table de craft'],
 ['Hache en améthyste',['Hache Améthyste'],'Outils','Rare','images/axe-amethyste.svg',1000,700,1400,1999,'+6',null,'Hache en améthyste.','Table de craft'],
@@ -25,7 +25,7 @@ const ITEMS = [
 ['Pioche en paladium vert',['Pioche Pala Vert'],'Outils','Légendaire','images/pickaxe-paladium-vert.svg',19000,13000,27000,4999,'+8',null,'Pioche Paladium vert.','Craft avancé'],
 ['Hache en paladium vert',['Hache Pala Vert'],'Outils','Légendaire','images/axe-paladium-vert.svg',21000,15000,30000,4999,'+9',null,'Hache Paladium vert.','Craft avancé'],
 ['Pioche en endium',['Pioche Endium'],'Outils','Unique','images/pickaxe-endium.svg',50000,35000,70000,4999,'+9.3',20,'Pioche Endium, niveau 20 Mineur.','Craft avancé'],
-['Hache en endium',['Hache Endium'],'Outils','Unique','images/axe-paladium-vert.svg',52000,36000,75000,4999,'+10.3',20,'Hache Endium très haut niveau.','Craft avancé'],
+['Hache en endium',['Hache Endium'],'Outils','Unique','images/axe-endium.svg',52000,36000,75000,4999,'+10.3',20,'Hache Endium très haut niveau.','Craft avancé'],
 ['Palaforge',['Forge Paladium'],'Machines','Légendaire','images/palaforge.svg',35000,24000,50000,null,null,14,'Machine de recyclage des outils et armures moddés.','1 findium + 4 palafurnaces + 4 blocs de briques'],
 ['Palafurnace',['Four Paladium'],'Machines','Épique','images/palafurnace.svg',14000,9500,20000,null,null,null,'Four moddé pouvant être amélioré.','Craft machine'],
 ['Crusher',['Broyeur'],'Machines','Épique','images/crusher.svg',12000,8000,18000,null,null,8,'Machine de traitement des fruits de minerais.','Craft machine'],
@@ -42,11 +42,4 @@ function norm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/[\
 function money(v){return Number(v||0).toLocaleString('fr-FR')+' $'}
 function confidence(item){const width=(item[7]-item[6])/Math.max(item[5],1);return width<=.7?['Bonne','good']:width<=1.05?['Moyenne','medium']:['Faible','low']}
 function getItem(name){const n=norm(name);return ITEMS.find(x=>norm(x[0])===n||x[1].some(a=>norm(a)===n))}
-
-/* Charge le polish visuel après la feuille intégrée de V12.2. */
-(function(){
-  const link=document.createElement('link');
-  link.rel='stylesheet';
-  link.href='ui-polish.css?v=12.4';
-  document.head.appendChild(link);
-})();
+(function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.5';document.head.appendChild(link);})();
