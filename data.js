@@ -58,3 +58,4 @@ function money(v){return Number(v||0).toLocaleString('fr-FR')+' $'}
 function confidence(item){const width=(item[7]-item[6])/Math.max(item[5],1);return width<=.7?['Bonne','good']:width<=1.05?['Moyenne','medium']:['Faible','low']}
 function getItem(name){const n=norm(name);return ITEMS.find(x=>norm(x[0])===n||x[1].some(a=>norm(a)===n))}
 (function(){const link=document.createElement('link');link.rel='stylesheet';link.href='ui-polish.css?v=12.7';document.head.appendChild(link);})();
+document.write('<script src="extra-items.js?v=12.7"><\/script>');
