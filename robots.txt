@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://furegamer.github.io/paladium-v12-pricecheck-v2/sitemap.xml
