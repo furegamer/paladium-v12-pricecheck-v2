@@ -4,6 +4,12 @@ window.PRICECHECK_AUTH = {
   loginRedirect: "https://furegamer.github.io/paladium-v12-pricecheck-v2/admin.html"
 };
 
+// Synchronisation communautaire : portefeuille, niveaux et présence en ligne.
+const playerStats = document.createElement('script');
+playerStats.src = 'player-stats.js?v=12.10';
+playerStats.defer = false;
+document.head.appendChild(playerStats);
+
 // Modules de l'interface.
 if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/paladium-v12-pricecheck-v2/') || location.pathname.endsWith('/paladium-v12-pricecheck-v2')) {
   const budget = document.createElement('script');
@@ -24,7 +30,7 @@ if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/pa
 
 if (location.pathname.endsWith('/xp.html')) {
   const xpUpgrade = document.createElement('script');
-  xpUpgrade.src = 'xp-upgrade.js?v=13.1';
+  xpUpgrade.src = 'xp-upgrade.js?v=12.10';
   xpUpgrade.defer = false;
   document.head.appendChild(xpUpgrade);
 }
