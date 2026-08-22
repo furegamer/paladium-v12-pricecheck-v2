@@ -1,71 +1,7 @@
 /* Données XP V12 — sources communautaires/wiki, à vérifier si Paladium modifie les valeurs. */
-const JOB_XP = {
-  Mineur: [
-    ['Roche', 'Casser', 0.5, 1], ['Diorite / andésite', 'Casser', 3, 1], ['Charbon', 'Casser', 4, 1],
-    ['Quartz', 'Casser', 6, 1], ['Obsidienne', 'Casser', 6, 1], ['Lapis-lazuli', 'Casser', 15, 1],
-    ['Redstone', 'Casser', 15, 1], ['Émeraude', 'Casser', 50, 1],
-    ['Fer', 'Particule', 2, 5], ['Or', 'Particule', 4, 5], ['Diamant', 'Particule', 8, 5],
-    ['Améthyste', 'Particule', 12, 5], ['Titane', 'Particule', 16, 5], ['Paladium', 'Particule', 20, 5]
-  ],
-  Fermier: [
-    ['Blé', 'Récolter', 1.5, 1], ['Pain', 'Crafter', 1, 1], ['Pomme de terre', 'Récolter', 2, 2],
-    ['Carotte', 'Récolter', 2.5, 2], ['Pastèque', 'Récolter', 4, 3], ['Citrouille', 'Récolter', 5, 6],
-    ['Eggplant', 'Récolter', 10, 8], ['Eggplant', 'Broyer', 3, 8], ['Chervil', 'Récolter', 20, 12],
-    ['Chervil', 'Broyer', 4.5, 12], ['Kiwano', 'Récolter', 50, 16], ['Kiwano', 'Broyer', 6, 16],
-    ['Tarte à la citrouille', 'Crafter', 4, 11]
-  ],
-  Chasseur: [
-    ['Vache / mouton / cochon / poule / lapin / cheval', 'Chasser', 14, 1], ['Viande cuite', 'Cuire', 10, 1],
-    ['Poulpe', 'Chasser', 10, 1], ['Chèvre', 'Chasser', 20, 1], ['Escargot', 'Chasser', 25, 2],
-    ['Perroquet', 'Chasser', 30, 3], ['Dauphin', 'Chasser', 35, 5], ['Tortue', 'Chasser', 40, 8],
-    ['Panda', 'Chasser', 60, 9], ['Crabe', 'Chasser', 80, 12], ['Serpent', 'Chasser', 120, 15],
-    ['Méduse', 'Chasser', 150, 18], ['Creeper', 'Zigouiller', 40, 1], ['Wither', 'Zigouiller', 1000, 1],
-    ['Zombie', 'Zigouiller', 15, 7], ['Squelette', 'Zigouiller', 20, 11], ['Araignée', 'Zigouiller', 8, 13],
-    ['Blaze', 'Zigouiller', 25, 14], ['Sorcière', 'Zigouiller', 35, 14], ['Poisson', 'Pêcher', 25, 1],
-    ['Saumon', 'Pêcher', 35, 1], ['Poisson-clown', 'Pêcher', 200, 1], ['Poisson-globe', 'Pêcher', 75, 1],
-    ['Carpe', 'Pêcher', 150, 2], ['Bar', 'Pêcher', 225, 2], ['Raie manta', 'Pêcher', 300, 2],
-    ['Thon rouge', 'Pêcher', 450, 2], ['Poisson-lune', 'Pêcher', 550, 2], ['Poisson à XP', 'Pêcher', 750, 3]
-  ],
-  Alchimiste: [
-    ['Fiole modée', 'Créer', 0.2, 1], ['Extracteur', 'Créer', 20, 1], ['Lightning potion', 'Créer', 30, 1],
-    ['Améthyste portail', 'Créer', 6, 3], ['Titane portail', 'Créer', 20, 6],
-    ['Gluball simple', 'Créer', 2, 6]
-  ]
-};
-
-const JOB_LEVEL_XP = [
-  22123,40390,73751,118886,176611,247616,332507,431826,546062,675669,
-  821062,982632,1160743,1355741,1567953,1797690,2045248,2310912,2594953
-];
-
-/* POG : paliers d'OS publiés sur le wiki. Les niveaux correspondent au niveau de la POG,
-   pas au métier Mineur. */
-const POG_TIERS = [
-  {min:1,max:10, label:'Pioche bois → pierre', blocks:[]},
-  {min:11,max:15, label:'Pioche fer', blocks:['Neige','Feuilles']},
-  {min:16,max:20, label:'Pioche diamant', blocks:['Neige','Feuilles']},
-  {min:21,max:25, label:'Pioche or', blocks:['Neige','Feuilles','Roche du Nether','Cactus']},
-  {min:26,max:30, label:'Pioche améthyste', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace']},
-  {min:31,max:35, label:'Pioche titane', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine']},
-  {min:36,max:40, label:'Pioche paladium', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine']},
-  {min:41,max:50, label:'Paladium + Efficacité', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès']},
-  {min:51,max:55, label:'Paladium + Efficacité III', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès','Terres cuites']},
-  {min:56,max:100, label:'Paladium + Efficacité IV→V / Fortune', blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès','Terres cuites','Roche']}
-];
-
-const POG_BLOCKS_TO_NEXT = {
-1:52,2:208,3:404,4:625,5:866,6:1125,7:1398,8:1683,9:1981,10:2289,
-11:2607,12:2935,13:3270,14:3615,15:3967,16:4326,17:4692,18:5065,19:5445,20:5831,
-21:6222,22:6620,23:7023,24:7431,25:7845,26:8264,27:8688,28:9116,29:9550,30:9988,
-31:10430,32:10876,33:11328,34:11783,35:12242,36:12706,37:13173,38:13644,39:14119,40:14597,
-41:15080,42:15565,43:16055,44:16548,45:17044,46:17544,47:18046,48:18553,49:19062,50:19575,
-51:20090,52:20609,53:21131,54:21655,55:22184,56:22714,57:23247,58:23754,59:24322,
-60:24865,61:25049,62:25957,63:26507,64:27059,65:27615,66:28172,67:28733,68:29296,69:29862,
-70:30429,71:31000,72:31573,73:32148,74:32726,75:33305,76:33888,77:34473,78:35060,79:35648,
-80:36241,81:36834,82:37430,83:38028,84:38629,85:39231,86:39836,87:40442,88:41052,89:41662,
-90:42275,91:42891,92:43507,93:44127,94:44748,95:45371,96:45996,97:46624,98:47252,99:47883
-};
-
-function jobXpRows(job){return JOB_XP[job]||[]}
-function jobBestRows(job){return jobXpRows(job).slice().sort((a,b)=>b[2]-a[2])}
-function pogTier(level){return POG_TIERS.find(t=>level>=t.min&&level<=t.max)||POG_TIERS[POG_TIERS.length-1]}
+const JOB_XP={Mineur:[['Roche','Casser',0.5,1],['Diorite / andésite','Casser',3,1],['Charbon','Casser',4,1],['Quartz','Casser',6,1],['Obsidienne','Casser',6,1],['Lapis-lazuli','Casser',15,1],['Redstone','Casser',15,1],['Émeraude','Casser',50,1],['Fer','Particule',2,5],['Or','Particule',4,5],['Diamant','Particule',8,5],['Améthyste','Particule',12,5],['Titane','Particule',16,5],['Paladium','Particule',20,5]],Fermier:[['Blé','Récolter',1.5,1],['Pain','Crafter',1,1],['Pomme de terre','Récolter',2,2],['Carotte','Récolter',2.5,2],['Pastèque','Récolter',4,3],['Citrouille','Récolter',5,6],['Eggplant','Récolter',10,8],['Eggplant','Broyer',3,8],['Chervil','Récolter',20,12],['Chervil','Broyer',4.5,12],['Kiwano','Récolter',50,16],['Kiwano','Broyer',6,16],['Tarte à la citrouille','Crafter',4,11]],Chasseur:[['Vache / mouton / cochon / poule / lapin / cheval','Chasser',14,1],['Viande cuite','Cuire',10,1],['Poulpe','Chasser',10,1],['Chèvre','Chasser',20,1],['Escargot','Chasser',25,2],['Perroquet','Chasser',30,3],['Dauphin','Chasser',35,5],['Tortue','Chasser',40,8],['Panda','Chasser',60,9],['Crabe','Chasser',80,12],['Serpent','Chasser',120,15],['Méduse','Chasser',150,18],['Creeper','Zigouiller',40,1],['Wither','Zigouiller',1000,1],['Zombie','Zigouiller',15,7],['Squelette','Zigouiller',20,11],['Araignée','Zigouiller',8,13],['Blaze','Zigouiller',25,14],['Sorcière','Zigouiller',35,14],['Poisson','Pêcher',25,1],['Saumon','Pêcher',35,1],['Poisson-clown','Pêcher',200,1],['Poisson-globe','Pêcher',75,1],['Carpe','Pêcher',150,2],['Bar','Pêcher',225,2],['Raie manta','Pêcher',300,2],['Thon rouge','Pêcher',450,2],['Poisson-lune','Pêcher',550,2],['Poisson à XP','Pêcher',750,3]],Alchimiste:[['Fiole modée','Créer',0.2,1],['Extracteur','Créer',20,1],['Lightning potion','Créer',30,1],['Améthyste portail','Créer',6,3],['Titane portail','Créer',20,6],['Gluball simple','Créer',2,6]]};
+const JOB_LEVEL_XP=[22123,40390,73751,118886,176611,247616,332507,431826,546062,675669,821062,982632,1160743,1355741,1567953,1797690,2045248,2310912,2594953];
+const POG_TIERS=[{min:1,max:10,label:'Pioche bois → pierre',blocks:['Neige','Feuilles']},{min:11,max:15,label:'Pioche fer',blocks:['Neige','Feuilles']},{min:16,max:20,label:'Pioche diamant',blocks:['Neige','Feuilles']},{min:21,max:25,label:'Pioche or',blocks:['Neige','Feuilles','Roche du Nether','Cactus']},{min:26,max:30,label:'Pioche améthyste',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace']},{min:31,max:35,label:'Pioche titane',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine']},{min:36,max:40,label:'Pioche paladium',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine']},{min:41,max:50,label:'Paladium + Efficacité',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès']},{min:51,max:55,label:'Paladium + Efficacité III',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès','Terres cuites']},{min:56,max:100,label:'Paladium + Efficacité IV→V / Fortune',blocks:['Neige','Feuilles','Roche du Nether','Cactus','Terre','Sable','Sable des âmes','Sable rouge','Gravier','Glace','Laine','Grès','Terres cuites','Roche']}];
+const POG_BLOCKS_TO_NEXT={1:52,2:208,3:404,4:625,5:866,6:1125,7:1398,8:1683,9:1981,10:2289,11:2607,12:2935,13:3270,14:3615,15:3967,16:4326,17:4692,18:5065,19:5445,20:5831,21:6222,22:6620,23:7023,24:7431,25:7845,26:8264,27:8688,28:9116,29:9550,30:9988,31:10430,32:10876,33:11328,34:11783,35:12242,36:12706,37:13173,38:13644,39:14119,40:14597,41:15080,42:15565,43:16055,44:16548,45:17044,46:17544,47:18046,48:18553,49:19062,50:19575,51:20090,52:20609,53:21131,54:21655,55:22184,56:22714,57:23247,58:23754,59:24322,60:24865,61:25049,62:25957,63:26507,64:27059,65:27615,66:28172,67:28733,68:29296,69:29862,70:30429,71:31000,72:31573,73:32148,74:32726,75:33305,76:33888,77:34473,78:35060,79:35648,80:36241,81:36834,82:37430,83:38028,84:38629,85:39231,86:39836,87:40442,88:41052,89:41662,90:42275,91:42891,92:43507,93:44127,94:44748,95:45371,96:45996,97:46624,98:47252,99:47883};
+const POG_BLOCK_HARDNESS={'Neige':0.2,'Feuilles':0.2,'Cactus':0.4,'Terre':0.5,'Sable':0.5,'Sable des âmes':0.5,'Sable rouge':0.5,'Gravier':0.6,'Glace':0.5,'Laine':0.8,'Roche du Nether':0.4,'Grès':0.8,'Terres cuites':1.25,'Roche':1.5};
+function jobXpRows(job){return JOB_XP[job]||[]}function jobBestRows(job){return jobXpRows(job).slice().sort((a,b)=>b[2]-a[2])}function pogTier(level){return POG_TIERS.find(t=>level>=t.min&&level<=t.max)||POG_TIERS[POG_TIERS.length-1]}function easiestPogBlocks(level){const t=pogTier(Number(level)||1);return [...t.blocks].sort((a,b)=>(POG_BLOCK_HARDNESS[a]??999)-(POG_BLOCK_HARDNESS[b]??999))}
