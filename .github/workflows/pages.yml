@@ -23,24 +23,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Verify site files
+      - name: Verify site structure and assets
         shell: bash
         run: |
           set -euo pipefail
-          test -f index.html
-          test -f item.html
-          test -f item.js
-          test -f app.js
-          test -f data.js
-          test -f changelog.html
+
+          required=(index.html item.html item.js app.js data.js changelog.html robots.txt sitemap.xml)
+          for file in "${required[@]}"; do
+            test -f "$file" || { echo "Missing required file: $file"; exit 1; }
+          done
           test -d images
 
-          echo "Checking image references from data.js..."
-          grep -oE "images/[A-Za-z0-9._-]+\\.(svg|png|jpg|jpeg|webp)" data.js | sort -u | while read -r asset; do
-            test -f "$asset" || { echo "Missing image: $asset"; exit 1; }
+          echo "Checking referenced image files..."
+          refs=$(grep -rhoE "images/[A-Za-z0-9._-]+\.(svg|png|jpg|jpeg|webp)" --include='*.js' --include='*.html' . | sort -u || true)
+          if [ -n "$refs" ]; then
+            while read -r asset; do
+              test -f "$asset" || { echo "Missing image: $asset"; exit 1; }
+              size=$(wc -c < "$asset")
+              if [ "$size" -lt 20 ]; then
+                echo "Invalid/empty image: $asset (${size} bytes)"
+                exit 1
+              fi
+              case "$asset" in
+                *.svg) grep -q '<svg' "$asset" || { echo "Invalid SVG: $asset"; exit 1; } ;;
+                *.png|*.jpg|*.jpeg|*.webp) file "$asset" | grep -Eiq 'image|bitmap' || { echo "Invalid raster image: $asset"; exit 1; } ;;
+              esac
+            done <<< "$refs"
+          fi
+
+          echo "Checking internal HTML links..."
+          grep -rhoE 'href="[A-Za-z0-9._/-]+\.html"' --include='*.html' . | sed -E 's/^href="//;s/"$//' | sort -u | while read -r page; do
+            test -f "$page" || { echo "Missing linked page: $page"; exit 1; }
           done
 
-          echo "PriceCheck files and image references OK"
+          echo "PriceCheck validation passed"
 
   deploy:
     name: Deploy to GitHub Pages
