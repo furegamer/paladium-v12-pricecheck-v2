@@ -5,7 +5,7 @@ window.PRICECHECK_AUTH = {
 };
 
 const playerStats = document.createElement('script');
-playerStats.src = 'player-stats.js?v=13.5';
+playerStats.src = 'player-stats.js?v=13.6';
 playerStats.defer = false;
 document.head.appendChild(playerStats);
 
