@@ -1,10 +1,11 @@
 // Système de craft interactif — V12.3
 (function(){
+  const FALLBACK_IMAGE='images/default.svg';
   function esc(v){return String(v??'').replace(/[&<>\"]/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[s]));}
   function normName(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().trim();}
   function imageFor(name){
     const found=(window.ITEMS||[]).find(a=>normName(a[0])===normName(name));
-    return found?.[4]||'images/default.png';
+    return found?.[4]||FALLBACK_IMAGE;
   }
   async function getRecipe(itemName){
     if(!window.supabaseClient && window.supabase && window.PRICECHECK_AUTH?.supabaseUrl && window.PRICECHECK_AUTH?.supabaseAnonKey){
@@ -19,7 +20,7 @@
     if(!c)return '<div class="craft-cell empty">—</div>';
     const name=typeof c==='string'?c:c.name;
     const count=typeof c==='object'?(c.count||c.quantity||1):1;
-    return `<button class="craft-cell ingredient" data-craft-item="${esc(name)}"><img src="${esc(imageFor(name))}" onerror="this.onerror=null;this.src='images/default.png'"><span>${esc(name)}</span><b>×${esc(count)}</b></button>`;
+    return `<button class="craft-cell ingredient" data-craft-item="${esc(name)}"><img src="${esc(imageFor(name))}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"><span>${esc(name)}</span><b>×${esc(count)}</b></button>`;
   }
   function ensureModal(){
     if(document.getElementById('craftModal'))return;
@@ -42,7 +43,7 @@
       const r=await getRecipe(itemName);
       if(!r){content.innerHTML=`<div class="craft-top"><div><span class="pill">🛠️ Craft / obtention</span><h2>${esc(itemName)}</h2></div><button class="btn" onclick="window.closeCraft()">✕</button></div><p class="muted">Aucune recette détaillée n’est encore enregistrée pour cet item.</p>`;return;}
       const grid=Array.isArray(r.grid)?r.grid:Array(9).fill(null);
-      content.innerHTML=`<div class="craft-top"><div><span class="pill">🛠️ ${esc(r.station||'Table de craft')}</span><h2>Comment fabriquer ${esc(itemName)} ?</h2></div><button class="btn" onclick="window.closeCraft()">✕</button></div><div class="craft-grid">${grid.map(ingredientCell).join('')}</div><div class="craft-result"><img src="${esc(imageFor(itemName))}" onerror="this.onerror=null;this.src='images/default.png'"><div><b>Résultat</b><br>${esc(r.result_count||1)} × ${esc(itemName)}</div></div>${r.notes?`<p class="muted">${esc(r.notes)}</p>`:''}<p class="muted small">💡 Clique sur un ingrédient pour voir comment le fabriquer à son tour.</p>`;
+      content.innerHTML=`<div class="craft-top"><div><span class="pill">🛠️ ${esc(r.station||'Table de craft')}</span><h2>Comment fabriquer ${esc(itemName)} ?</h2></div><button class="btn" onclick="window.closeCraft()">✕</button></div><div class="craft-grid">${grid.map(ingredientCell).join('')}</div><div class="craft-result"><img src="${esc(imageFor(itemName))}" onerror="this.onerror=null;this.src='${FALLBACK_IMAGE}'"><div><b>Résultat</b><br>${esc(r.result_count||1)} × ${esc(itemName)}</div></div>${r.notes?`<p class="muted">${esc(r.notes)}</p>`:''}<p class="muted small">💡 Clique sur un ingrédient pour voir comment le fabriquer à son tour.</p>`;
       content.querySelectorAll('[data-craft-item]').forEach(btn=>btn.addEventListener('click',()=>openCraft(btn.dataset.craftItem)));
     }catch(e){console.error(e);content.innerHTML='<p class="muted">❌ Impossible de charger la recette pour le moment.</p><button class="btn" onclick="window.closeCraft()">Fermer</button>'}
   }
