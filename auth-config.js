@@ -28,3 +28,10 @@ if (location.pathname.endsWith('/xp.html')) {
   xpUpgrade.defer = false;
   document.head.appendChild(xpUpgrade);
 }
+
+if (location.pathname.endsWith('/changelog.html')) {
+  const changelog = document.createElement('script');
+  changelog.src = 'changelog-live.js?v=13.1';
+  changelog.defer = false;
+  document.head.appendChild(changelog);
+}
