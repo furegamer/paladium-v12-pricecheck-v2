@@ -55,4 +55,6 @@ const EXTRA_ITEMS=[
 ];
 ITEMS.push(...EXTRA_ITEMS);
 if(typeof CATEGORIES!=='undefined'&&!CATEGORIES.includes('Mobs'))CATEGORIES.push('Mobs');
+// SEO chargé après le catalogue pour améliorer la découverte de la page principale par les moteurs de recherche.
+if(!document.querySelector('script[data-pricecheck-seo]')){const s=document.createElement('script');s.src='seo.js?v=12.7';s.dataset.pricecheckSeo='1';document.head.appendChild(s)}
 console.info('[PriceCheck] Catalogue étendu chargé :',ITEMS.length,'items');
