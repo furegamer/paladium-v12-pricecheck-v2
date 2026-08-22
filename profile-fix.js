@@ -1,0 +1,9 @@
+(() => {
+'use strict';
+const JOB_KEY='pricecheck:job-levels',POG_KEY='pricecheck:pog-level',NAME_KEY='pricecheck:player-name';
+const levels=()=>{try{return JSON.parse(localStorage.getItem(JOB_KEY)||'{}')}catch{return{}}};
+const saveLevels=()=>{const x=levels();[['lvlMiner','Mineur'],['lvlFarmer','Fermier'],['lvlHunter','Chasseur'],['lvlAlchemist','Alchimiste']].forEach(([id,k])=>{const e=document.getElementById(id);if(e)x[k]=Math.max(1,Math.min(100,Math.round(Number(e.value)||1)))});const p=document.getElementById('lvlPog');if(p)localStorage.setItem(POG_KEY,String(Math.max(1,Math.min(100,Math.round(Number(p.value)||1)))));localStorage.setItem(JOB_KEY,JSON.stringify(x));window.PriceCheckPlayers?.upsert?.();updateLabels()};
+const updateLabels=()=>{const x=levels();[['lvlMiner','Mineur'],['lvlFarmer','Fermier'],['lvlHunter','Chasseur'],['lvlAlchemist','Alchimiste']].forEach(([id,k])=>{const e=document.getElementById(id),l=e?.previousElementSibling;if(e){e.value=x[k]||1;if(l)l.textContent=`${l.textContent.replace(/ — Niv\. \d+$/,'')} — Niv. ${e.value}`}});const p=document.getElementById('lvlPog');if(p)p.value=localStorage.getItem(POG_KEY)||1};
+const run=()=>{const name=document.getElementById('name');if(name){name.value=localStorage.getItem(NAME_KEY)||'Furgamer le vrai';name.addEventListener('input',()=>{localStorage.setItem(NAME_KEY,(name.value.trim()||'Furgamer le vrai').slice(0,24));window.PriceCheckPlayers?.upsert?.()})}updateLabels();['lvlMiner','lvlFarmer','lvlHunter','lvlAlchemist','lvlPog'].forEach(id=>document.getElementById(id)?.addEventListener('input',saveLevels));const board=document.getElementById('board');if(board&&!window.PriceCheckPlayers){setTimeout(run,500)}};
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run,{once:true});else run();
+})();
