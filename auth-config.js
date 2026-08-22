@@ -5,7 +5,7 @@ window.PRICECHECK_AUTH = {
 };
 
 const playerStats = document.createElement('script');
-playerStats.src = 'player-stats.js?v=13.3';
+playerStats.src = 'player-stats.js?v=13.4';
 playerStats.defer = false;
 document.head.appendChild(playerStats);
 
@@ -23,7 +23,7 @@ if (location.pathname.endsWith('/xp.html')) {
   const levels = document.createElement('script'); levels.src = 'levels-persistence.js?v=13.3'; levels.defer = false; document.head.appendChild(levels);
 }
 if (location.pathname.endsWith('/profile.html')) {
-  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix.js?v=13.3'; profileFix.defer = false; document.head.appendChild(profileFix);
+  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix.js?v=13.4'; profileFix.defer = false; document.head.appendChild(profileFix);
 }
 if (location.pathname.endsWith('/changelog.html')) {
   const changelog = document.createElement('script'); changelog.src = 'changelog-live.js?v=13.3'; changelog.defer = false; document.head.appendChild(changelog);
