@@ -35,6 +35,13 @@ if (location.pathname.endsWith('/xp.html')) {
   document.head.appendChild(xpUpgrade);
 }
 
+if (location.pathname.endsWith('/profile.html')) {
+  const profile = document.createElement('script');
+  profile.src = 'profile.js?v=12.10';
+  profile.defer = false;
+  document.head.appendChild(profile);
+}
+
 if (location.pathname.endsWith('/changelog.html')) {
   const changelog = document.createElement('script');
   changelog.src = 'changelog-live.js?v=13.1';
