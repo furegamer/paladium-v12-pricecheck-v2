@@ -2,75 +2,19 @@
   'use strict';
   if (window.__PRICECHECK_HUD__) return;
   window.__PRICECHECK_HUD__ = true;
-
-  const STORAGE = 'pricecheck:wallet';
-  const fmt = n => `${Math.max(0, Math.round(Number(n) || 0)).toLocaleString('fr-FR')} P$`;
-  const getWallet = () => Number(localStorage.getItem(STORAGE) || 0);
-  const setWallet = n => localStorage.setItem(STORAGE, String(Math.max(0, Math.round(Number(n) || 0))));
-
-  const style = document.createElement('style');
-  style.textContent = `
-    .pc-hud{position:static;z-index:21;display:flex;align-items:center;pointer-events:none;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;margin-left:auto;flex:0 0 auto}
-    .pc-hud *{box-sizing:border-box}
-    .pc-wallet{pointer-events:auto;position:relative;display:flex;align-items:center;gap:10px;width:226px;min-height:54px;padding:7px 8px 7px 10px;border:1px solid rgba(148,163,184,.24);border-radius:14px;background:linear-gradient(135deg,rgba(10,16,28,.98),rgba(25,18,42,.98));box-shadow:0 8px 24px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.07);color:#fff;overflow:hidden}
-    .pc-wallet:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#8b5cf6,#22d3ee)}
-    .pc-wallet-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#8b5cf6,#06b6d4);color:#fff;font-size:14px;font-weight:1000;box-shadow:0 0 18px rgba(139,92,246,.24)}
-    .pc-wallet-info{min-width:0;display:flex;flex-direction:column;gap:3px}
-    .pc-wallet-label{display:flex;align-items:center;gap:5px;color:#94a3b8;font-size:8px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;line-height:1}
-    .pc-wallet-dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;display:inline-block}
-    .pc-wallet-value{font-size:17px;font-weight:950;line-height:1.05;white-space:nowrap}
-    .pc-wallet-edit{margin-left:auto;flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;border:1px solid rgba(148,163,184,.18);background:#111827;color:#cbd5e1;font-size:14px;border-radius:9px;cursor:pointer;transition:.16s ease}
-    .pc-wallet-edit:hover{background:#1e293b;color:#fff;border-color:#8b5cf688}
-    .pc-wallet-market{position:absolute;right:9px;top:5px;color:#64748b;font-size:6px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
-    .pc-wallet-dialog{position:fixed;inset:0;z-index:10000;display:none;place-items:center;background:rgba(2,6,23,.72);backdrop-filter:blur(7px)}
-    .pc-wallet-dialog.open{display:grid}
-    .pc-wallet-box{width:min(390px,calc(100% - 28px));padding:22px;border:1px solid rgba(139,92,246,.38);border-radius:20px;background:linear-gradient(160deg,#111827,#0b1020);box-shadow:0 25px 80px rgba(0,0,0,.55);color:#fff}
-    .pc-wallet-box h3{margin:0 0 7px;font-size:22px}.pc-wallet-box p{margin:0 0 16px;color:#94a3b8;font-size:13px;line-height:1.5}
-    .pc-wallet-input{width:100%;padding:13px 14px;border:1px solid #334155;border-radius:12px;background:#080d18;color:#fff;outline:0;font-size:16px}.pc-wallet-input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf622}
-    .pc-wallet-actions{display:flex;gap:8px;margin-top:12px}.pc-wallet-actions button{flex:1;padding:11px;border-radius:11px;border:1px solid #334155;background:#111827;color:#fff;cursor:pointer}.pc-wallet-actions .save{border:0;background:linear-gradient(135deg,#7c3aed,#0891b2);font-weight:800}
-    @media(max-width:900px){.pc-wallet{width:205px}}
-    @media(max-width:700px){.pc-hud{width:100%;margin:8px 0 0;justify-content:flex-end}.pc-wallet{width:min(230px,100%);min-height:54px}}
-    @media(max-width:480px){.pc-hud{justify-content:stretch}.pc-wallet{width:100%;min-height:52px}.pc-wallet-icon{width:34px;height:34px;flex-basis:34px}.pc-wallet-value{font-size:16px}.pc-wallet-market{display:none}}
-  `;
-  document.head.appendChild(style);
-
-  const mount = () => {
-    if (document.querySelector('.pc-hud')) return;
-    const hud = document.createElement('div');
-    hud.className = 'pc-hud';
-    hud.innerHTML = `
-      <div class="pc-wallet" title="Solde PriceCheck local">
-        <span class="pc-wallet-market">MARKET</span>
-        <div class="pc-wallet-icon">P$</div>
-        <div class="pc-wallet-info">
-          <div class="pc-wallet-label"><span class="pc-wallet-dot"></span>Solde disponible</div>
-          <div class="pc-wallet-value" data-wallet-value>${fmt(getWallet())}</div>
-        </div>
-        <button class="pc-wallet-edit" type="button" aria-label="Modifier mon solde" title="Modifier le solde">✎</button>
-      </div>`;
-
-    const nav = document.querySelector('.nav-in');
-    if (nav) nav.appendChild(hud);
-    else document.body.appendChild(hud);
-
-    const dialog = document.createElement('div');
-    dialog.className = 'pc-wallet-dialog';
-    dialog.innerHTML = `<div class="pc-wallet-box" role="dialog" aria-modal="true" aria-labelledby="pc-wallet-title"><h3 id="pc-wallet-title">💰 Solde du Market</h3><p>Renseigne ton argent disponible en P$ pour utiliser le calculateur d'achats PriceCheck.</p><input class="pc-wallet-input" inputmode="numeric" type="number" min="0" step="1" placeholder="Ex. 25000"><div class="pc-wallet-actions"><button type="button" data-wallet-cancel>Annuler</button><button type="button" class="save" data-wallet-save>Enregistrer</button></div></div>`;
-    document.body.appendChild(dialog);
-
-    const valueEl = hud.querySelector('[data-wallet-value]');
-    const input = dialog.querySelector('.pc-wallet-input');
-    const open = () => { input.value = getWallet(); dialog.classList.add('open'); setTimeout(() => input.focus(), 30); };
-    const close = () => dialog.classList.remove('open');
-    const refresh = () => { valueEl.textContent = fmt(getWallet()); };
-    hud.querySelector('.pc-wallet-edit').addEventListener('click', open);
-    dialog.querySelector('[data-wallet-cancel]').addEventListener('click', close);
-    dialog.querySelector('[data-wallet-save]').addEventListener('click', () => { setWallet(input.value); refresh(); close(); });
-    dialog.addEventListener('click', e => { if (e.target === dialog) close(); });
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') { setWallet(input.value); refresh(); close(); } if (e.key === 'Escape') close(); });
-    window.addEventListener('storage', refresh);
-  };
-
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount, { once:true });
-  else mount();
+  const STORAGE='pricecheck:wallet';
+  const fmt=n=>`${Math.max(0,Math.round(Number(n)||0)).toLocaleString('fr-FR')} P$`;
+  const getWallet=()=>Number(localStorage.getItem(STORAGE)||0);
+  const setWallet=n=>localStorage.setItem(STORAGE,String(Math.max(0,Math.round(Number(n)||0))));
+  const style=document.createElement('style');style.textContent=`
+  .pc-hud{position:static;z-index:21;display:flex;align-items:center;pointer-events:none;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;margin-left:auto;flex:0 0 auto}.pc-hud *{box-sizing:border-box}
+  .pc-wallet{pointer-events:auto;position:relative;display:flex;align-items:center;gap:10px;width:226px;min-height:54px;padding:7px 8px 7px 10px;border:1px solid rgba(148,163,184,.24);border-radius:14px;background:linear-gradient(135deg,rgba(10,16,28,.98),rgba(25,18,42,.98));box-shadow:0 8px 24px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.07);color:#fff;overflow:hidden;cursor:pointer}.pc-wallet:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#8b5cf6,#22d3ee)}
+  .pc-wallet-icon{width:36px;height:36px;flex:0 0 36px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(145deg,#8b5cf6,#06b6d4);color:#fff;font-size:14px;font-weight:1000;box-shadow:0 0 18px rgba(139,92,246,.24)}.pc-wallet-info{min-width:0;display:flex;flex-direction:column;gap:3px}.pc-wallet-label{display:flex;align-items:center;gap:5px;color:#94a3b8;font-size:8px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;line-height:1}.pc-wallet-dot{width:6px;height:6px;border-radius:50%;background:#34d399;box-shadow:0 0 8px #34d399;display:inline-block}.pc-wallet-value{font-size:17px;font-weight:950;line-height:1.05;white-space:nowrap}.pc-wallet-edit{margin-left:auto;flex:0 0 31px;width:31px;height:31px;display:grid;place-items:center;border:1px solid rgba(148,163,184,.18);background:#111827;color:#cbd5e1;font-size:14px;border-radius:9px;cursor:pointer;transition:.16s ease}.pc-wallet-edit:hover{background:#1e293b;color:#fff;border-color:#8b5cf688}.pc-wallet-market{position:absolute;right:9px;top:5px;color:#64748b;font-size:6px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+  .pc-wallet-dialog{position:fixed;inset:0;z-index:10000;display:none;place-items:center;background:rgba(2,6,23,.72);backdrop-filter:blur(7px)}.pc-wallet-dialog.open{display:grid}.pc-wallet-box{width:min(390px,calc(100% - 28px));padding:22px;border:1px solid rgba(139,92,246,.38);border-radius:20px;background:linear-gradient(160deg,#111827,#0b1020);box-shadow:0 25px 80px rgba(0,0,0,.55);color:#fff}.pc-wallet-box h3{margin:0 0 7px;font-size:22px}.pc-wallet-box p{margin:0 0 16px;color:#94a3b8;font-size:13px;line-height:1.5}.pc-wallet-input{width:100%;padding:13px 14px;border:1px solid #334155;border-radius:12px;background:#080d18;color:#fff;outline:0;font-size:16px}.pc-wallet-input:focus{border-color:#8b5cf6;box-shadow:0 0 0 3px #8b5cf622}.pc-wallet-actions{display:flex;gap:8px;margin-top:12px}.pc-wallet-actions button{flex:1;padding:11px;border-radius:11px;border:1px solid #334155;background:#111827;color:#fff;cursor:pointer}.pc-wallet-actions .save{border:0;background:linear-gradient(135deg,#7c3aed,#0891b2);font-weight:800}
+  @media(max-width:900px){.pc-wallet{width:205px}}@media(max-width:700px){.pc-hud{width:100%;margin:8px 0 0;justify-content:flex-end}.pc-wallet{width:min(230px,100%);min-height:54px}}@media(max-width:480px){.pc-hud{justify-content:stretch}.pc-wallet{width:100%;min-height:52px}.pc-wallet-icon{width:34px;height:34px;flex-basis:34px}.pc-wallet-value{font-size:16px}.pc-wallet-market{display:none}}
+  `;document.head.appendChild(style);
+  const mount=()=>{if(document.querySelector('.pc-hud'))return;const hud=document.createElement('div');hud.className='pc-hud';hud.innerHTML=`<div class="pc-wallet" title="Ouvrir mon budget Market"><span class="pc-wallet-market">MARKET</span><div class="pc-wallet-icon">P$</div><div class="pc-wallet-info"><div class="pc-wallet-label"><span class="pc-wallet-dot"></span>Solde disponible</div><div class="pc-wallet-value" data-wallet-value>${fmt(getWallet())}</div></div><button class="pc-wallet-edit" type="button" aria-label="Modifier mon solde" title="Modifier le solde">✎</button></div>`;const nav=document.querySelector('.nav-in');if(nav)nav.appendChild(hud);else document.body.appendChild(hud);
+  const dialog=document.createElement('div');dialog.className='pc-wallet-dialog';dialog.innerHTML=`<div class="pc-wallet-box" role="dialog" aria-modal="true" aria-labelledby="pc-wallet-title"><h3 id="pc-wallet-title">💰 Solde du Market</h3><p>Renseigne ton argent disponible en P$ pour utiliser le calculateur d'achats PriceCheck.</p><input class="pc-wallet-input" inputmode="numeric" type="number" min="0" step="1" placeholder="Ex. 25000"><div class="pc-wallet-actions"><button type="button" data-wallet-cancel>Annuler</button><button type="button" class="save" data-wallet-save>Enregistrer</button></div></div>`;document.body.appendChild(dialog);
+  const valueEl=hud.querySelector('[data-wallet-value]'),input=dialog.querySelector('.pc-wallet-input'),open=e=>{e.stopPropagation();input.value=getWallet();dialog.classList.add('open');setTimeout(()=>input.focus(),30)},close=()=>dialog.classList.remove('open'),refresh=()=>{valueEl.textContent=fmt(getWallet())};hud.querySelector('.pc-wallet').addEventListener('click',()=>{window.location.href='budget.html'});hud.querySelector('.pc-wallet-edit').addEventListener('click',open);dialog.querySelector('[data-wallet-cancel]').addEventListener('click',close);dialog.querySelector('[data-wallet-save]').addEventListener('click',()=>{setWallet(input.value);refresh();close()});dialog.addEventListener('click',e=>{if(e.target===dialog)close()});input.addEventListener('keydown',e=>{if(e.key==='Enter'){setWallet(input.value);refresh();close()}if(e.key==='Escape')close()});window.addEventListener('storage',refresh)};
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
