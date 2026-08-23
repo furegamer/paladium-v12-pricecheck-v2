@@ -4,7 +4,7 @@ if(window.__PC_PROFILE_FIX_V14__)return;window.__PC_PROFILE_FIX_V14__=true;
 const JOB_KEY='pricecheck:job-levels',POG_KEY='pricecheck:pog-level',NAME_KEY='pricecheck:player-name';
 const levels=()=>{try{return JSON.parse(localStorage.getItem(JOB_KEY)||'{}')}catch{return{}}};
 const clamp=v=>Math.max(1,Math.min(100,Math.round(Number(v)||1)));
-const esc=s=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c));
+const esc=s=>String(s||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
 const map={wallet:'wallet',miner:'miner_level',farmer:'farmer_level',hunter:'hunter_level',alchemist:'alchemist_level',pog:'pog_level'};
 const label=k=>({wallet:'Portefeuille',miner:'Métier Mineur',farmer:'Métier Fermier',hunter:'Métier Chasseur',alchemist:'Métier Alchimiste',pog:'Niveau POG'}[k]||k);
 const updateLabels=()=>{const x=levels();[['lvlMiner','Mineur'],['lvlFarmer','Fermier'],['lvlHunter','Chasseur'],['lvlAlchemist','Alchimiste']].forEach(([id,k])=>{const e=document.getElementById(id),l=e?.previousElementSibling;if(e){e.value=x[k]||1;if(l)l.textContent=`${l.textContent.replace(/ — Niv\. \d+$/,'')} — Niv. ${e.value}`}});const p=document.getElementById('lvlPog');if(p)p.value=localStorage.getItem(POG_KEY)||1};
