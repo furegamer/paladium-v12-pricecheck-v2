@@ -1,5 +1,6 @@
 (() => {
   'use strict';
+  // XP bottle catalog refresh: keep the four 1000 XP professions searchable.
   const add = () => {
     if (!Array.isArray(window.ITEMS)) return false;
     const defs = [
