@@ -10,8 +10,6 @@ playerStats.defer = true;
 document.head.appendChild(playerStats);
 
 if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/paladium-v12-pricecheck-v2/') || location.pathname.endsWith('/paladium-v12-pricecheck-v2')) {
-  // Le portefeuille n'est plus affiché en doublon dans le catalogue.
-  // Il reste disponible sur Budget et Profil.
   const catalogFix = document.createElement('script'); catalogFix.src = 'catalog-fix.js?v=14.0'; catalogFix.defer = true; document.head.appendChild(catalogFix);
   const wood = document.createElement('script'); wood.src = 'wood-items.js?v=14.0'; wood.defer = true; document.head.appendChild(wood);
   const xpBottle = document.createElement('script'); xpBottle.src = 'xp-bottle.js?v=14.0'; xpBottle.defer = true; document.head.appendChild(xpBottle);
@@ -25,7 +23,7 @@ if (location.pathname.endsWith('/xp.html')) {
   const levels = document.createElement('script'); levels.src = 'levels-persistence.js?v=14.0'; levels.defer = true; document.head.appendChild(levels);
 }
 if (location.pathname.endsWith('/profile.html')) {
-  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix.js?v=14.0'; profileFix.defer = true; document.head.appendChild(profileFix);
+  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix-v14.js?v=14.0'; profileFix.defer = true; document.head.appendChild(profileFix);
 }
 if (location.pathname.endsWith('/changelog.html')) {
   const changelog = document.createElement('script'); changelog.src = 'changelog-live.js?v=14.0'; changelog.defer = true; document.head.appendChild(changelog);
