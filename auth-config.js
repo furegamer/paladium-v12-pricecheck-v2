@@ -13,10 +13,12 @@ if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/pa
   const catalogFix = document.createElement('script'); catalogFix.src = 'catalog-fix.js?v=14.0'; catalogFix.defer = true; document.head.appendChild(catalogFix);
   const wood = document.createElement('script'); wood.src = 'wood-items.js?v=14.0'; wood.defer = true; document.head.appendChild(wood);
   const xpBottle = document.createElement('script'); xpBottle.src = 'xp-bottle.js?v=14.0'; xpBottle.defer = true; document.head.appendChild(xpBottle);
+  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=14.0'; assets.defer = true; document.head.appendChild(assets);
 }
 if (location.pathname.endsWith('/budget.html')) {
   const budgetPB = document.createElement('script'); budgetPB.src = 'budget-pb.js?v=14.0'; budgetPB.defer = true; document.head.appendChild(budgetPB);
   const wood = document.createElement('script'); wood.src = 'wood-items.js?v=14.0'; wood.defer = true; document.head.appendChild(wood);
+  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=14.0'; assets.defer = true; document.head.appendChild(assets);
 }
 if (location.pathname.endsWith('/xp.html')) {
   const xpUpgrade = document.createElement('script'); xpUpgrade.src = 'xp-upgrade.js?v=14.0'; xpUpgrade.defer = true; document.head.appendChild(xpUpgrade);
