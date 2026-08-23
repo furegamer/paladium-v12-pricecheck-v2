@@ -6,6 +6,7 @@
   const NAME_KEY = 'pricecheck:player-name';
   const name = () => String(localStorage.getItem(NAME_KEY) || '').trim().slice(0, 24);
   const esc = s => String(s).replace(/[&<>\"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
+  let rendering = false;
 
   const style = document.createElement('style');
   style.id = 'pricecheck-ui-fixes-style';
@@ -22,38 +23,48 @@
   function profileTarget(){
     const current = name();
     const all = [...document.querySelectorAll('body *')];
-    const known = new Set([current,'furegamerlevrai','FureGamer','FureGamer le vrai','FureGamerlevrai']);
+    const known = new Set([current, current ? `👤 ${current}` : '', 'furegamerlevrai','👤 furegamerlevrai','FureGamer','👤 FureGamer','FureGamer le vrai','👤 FureGamer le vrai','FureGamerlevrai']);
     return all.find(el => {
-      if (el.children.length > 2) return false;
+      if (el.classList.contains('pc-profile-slot')) return true;
+      if (el.children.length > 3) return false;
       const t = String(el.textContent || '').trim();
       return t && known.has(t);
     }) || null;
   }
 
   function renderProfile(){
-    if (!document.body) return;
-    const current = name();
-    let target = profileTarget();
-    if (target && target.closest('.pc-profile-slot')) target = target.closest('.pc-profile-slot');
-    if (!target) {
-      const nav = document.querySelector('.nav');
-      if (!nav || document.querySelector('.pc-profile-slot')) return;
-      target = document.createElement('div');
-      target.className = 'pc-profile-slot';
-      nav.insertAdjacentElement('afterend', target);
-    } else {
-      target.classList.add('pc-profile-slot');
+    if (!document.body || rendering) return;
+    rendering = true;
+    try {
+      const current = name();
+      let target = profileTarget();
+      if (target && target.closest('.pc-profile-slot')) target = target.closest('.pc-profile-slot');
+      if (!target) {
+        const nav = document.querySelector('.nav');
+        if (!nav) return;
+        target = document.querySelector('.pc-profile-slot');
+        if (!target) {
+          target = document.createElement('div');
+          target.className = 'pc-profile-slot';
+          nav.insertAdjacentElement('afterend', target);
+        }
+      } else {
+        target.classList.add('pc-profile-slot');
+      }
+      target.dataset.profileSlot = '1';
+      const html = `<span class="pc-profile-slot-main"><span class="pc-profile-slot-avatar">👤</span><span class="pc-profile-slot-copy"><span class="pc-profile-slot-name">${current ? esc(current) : 'Mon profil'}</span><span class="pc-profile-slot-label">${current ? 'Ouvrir mon profil' : 'Choisir ton pseudo et tes niveaux'}</span></span></span><span class="pc-profile-slot-action">Profil →</span>`;
+      if (target.innerHTML !== html) target.innerHTML = html;
+      if (!target.dataset.bound) {
+        target.dataset.bound = '1';
+        target.addEventListener('click', () => { location.href = 'profile.html'; });
+        target.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.href = 'profile.html'; } });
+        target.tabIndex = 0;
+        target.setAttribute('role','link');
+      }
+      document.querySelectorAll('.links a[href="profile.html"]').forEach(a => a.remove());
+    } finally {
+      rendering = false;
     }
-    target.dataset.profileSlot = '1';
-    target.innerHTML = `<span class="pc-profile-slot-main"><span class="pc-profile-slot-avatar">👤</span><span class="pc-profile-slot-copy"><span class="pc-profile-slot-name">${current ? esc(current) : 'Mon profil'}</span><span class="pc-profile-slot-label">${current ? 'Ouvrir mon profil' : 'Choisir ton pseudo et tes niveaux'}</span></span></span><span class="pc-profile-slot-action">Profil →</span>`;
-    if (!target.dataset.bound) {
-      target.dataset.bound = '1';
-      target.addEventListener('click', () => { location.href = 'profile.html'; });
-      target.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); location.href = 'profile.html'; } });
-      target.tabIndex = 0;
-      target.setAttribute('role','link');
-    }
-    document.querySelectorAll('.links a[href="profile.html"]').forEach(a => a.remove());
   }
 
   function fixResetButtons(){
@@ -71,12 +82,9 @@
         img.classList.add('pc-safe-image');
         img.removeAttribute('src');
         img.alt = img.alt || 'Image indisponible';
-        img.innerHTML = '🧱';
+        img.textContent = '🧱';
       }, {once:true});
-      if (!img.getAttribute('src')) {
-        img.classList.add('pc-safe-image');
-        img.alt = img.alt || 'Image indisponible';
-      }
+      if (!img.getAttribute('src')) img.classList.add('pc-safe-image');
     });
   }
 
