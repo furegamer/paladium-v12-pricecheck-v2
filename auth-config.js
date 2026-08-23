@@ -5,9 +5,14 @@ window.PRICECHECK_AUTH = {
 };
 
 const playerStats = document.createElement('script');
-playerStats.src = 'player-stats.js?v=13.6';
+playerStats.src = 'player-stats.js?v=13.7';
 playerStats.defer = false;
 document.head.appendChild(playerStats);
+
+const uiFixes = document.createElement('script');
+uiFixes.src = 'ui-fixes.js?v=13.7';
+uiFixes.defer = false;
+document.head.appendChild(uiFixes);
 
 if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/paladium-v12-pricecheck-v2/') || location.pathname.endsWith('/paladium-v12-pricecheck-v2')) {
   const budget = document.createElement('script'); budget.src = 'budget-planner.js?v=13.3'; budget.defer = false; document.head.appendChild(budget);
@@ -23,7 +28,7 @@ if (location.pathname.endsWith('/xp.html')) {
   const levels = document.createElement('script'); levels.src = 'levels-persistence.js?v=13.3'; levels.defer = false; document.head.appendChild(levels);
 }
 if (location.pathname.endsWith('/profile.html')) {
-  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix.js?v=13.5'; profileFix.defer = false; document.head.appendChild(profileFix);
+  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix.js?v=13.6'; profileFix.defer = false; document.head.appendChild(profileFix);
 }
 if (location.pathname.endsWith('/changelog.html')) {
   const changelog = document.createElement('script'); changelog.src = 'changelog-live.js?v=13.3'; changelog.defer = false; document.head.appendChild(changelog);
