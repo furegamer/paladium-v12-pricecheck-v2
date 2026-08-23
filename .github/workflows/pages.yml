@@ -12,11 +12,11 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: true
+  group: github-pages
+  cancel-in-progress: false
 
 env:
-  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}
 
 jobs:
   check:
@@ -30,46 +30,37 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
           required=(index.html item.html item.js app.js data.js changelog.html robots.txt sitemap.xml)
           for file in "${required[@]}"; do
             test -f "$file" || { echo "Missing required file: $file"; exit 1; }
           done
           test -d images
-
           echo "Checking referenced image files..."
           refs=$(grep -rhoE "images/[A-Za-z0-9._-]+\.(svg|png|jpg|jpeg|webp)" --include='*.js' --include='*.html' . | sort -u || true)
           if [ -n "$refs" ]; then
             while read -r asset; do
               test -f "$asset" || { echo "Missing image: $asset"; exit 1; }
               size=$(wc -c < "$asset")
-              if [ "$size" -lt 20 ]; then
-                echo "Invalid/empty image: $asset (${size} bytes)"
-                exit 1
-              fi
+              if [ "$size" -lt 20 ]; then echo "Invalid/empty image: $asset (${size} bytes)"; exit 1; fi
               case "$asset" in
                 *.svg) grep -q '<svg' "$asset" || { echo "Invalid SVG: $asset"; exit 1; } ;;
                 *.png|*.jpg|*.jpeg|*.webp) file "$asset" | grep -Eiq 'image|bitmap' || { echo "Invalid raster image: $asset"; exit 1; } ;;
               esac
             done <<< "$refs"
           fi
-
           echo "Checking internal HTML links..."
           grep -rhoE 'href="[A-Za-z0-9._/-]+\.html"' --include='*.html' . | sed -E 's/^href="//;s/"$//' | sort -u | while read -r page; do
             test -f "$page" || { echo "Missing linked page: $page"; exit 1; }
           done
-
           echo "PriceCheck validation passed"
 
   deploy:
     name: Deploy to GitHub Pages
     needs: check
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
