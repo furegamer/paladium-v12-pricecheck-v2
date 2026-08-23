@@ -1,0 +1,4 @@
+(() => {
+'use strict';
+const apply=()=>{if(typeof ITEMS==='undefined'||typeof LOCAL_IMAGES==='undefined')return setTimeout(apply,120);const names={'Bouteille d’XP — Fermier — 1000 XP':'images/xp-fermier.svg','Bouteille d’XP — Mineur — 1000 XP':'images/xp-mineur.svg','Bouteille d’XP — Alchimiste — 1000 XP':'images/xp-alchimiste.svg','Bouteille d’XP — Chasseur — 1000 XP':'images/xp-chasseur.svg','Bois de Jacaranda':'images/wood-jacaranda.svg','Bois d’Acajou':'images/wood-acajou.svg','Bois d’Ébène':'images/wood-ebene.svg','Bois de Palmier':'images/wood-palmier.svg','Bois de Baobab':'images/wood-baobab.svg','Bois de Sakura':'images/wood-sakura.svg','Bambou moddé':'images/wood-bambou.svg','Bois d’Acacia':'images/wood-acacia.svg'};Object.assign(LOCAL_IMAGES,names);for(const x of ITEMS){if(names[x[0]])x[4]=names[x[0]]}document.dispatchEvent(new Event('pricecheck:catalog-updated'))};apply();
+})();
