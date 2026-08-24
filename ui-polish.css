@@ -22,3 +22,9 @@ body:after{content:"";position:fixed;inset:0;pointer-events:none;background:radi
 @media(max-width:600px){.nav-in{min-height:54px}.brand small{display:none}.links{gap:2px}.links a{padding:8px 7px;font-size:11px}.hero{padding-top:32px}.stats{gap:7px}.stat{padding:13px}.stat b{font-size:21px}.items{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.item-link{padding:11px}.item-top img{width:50px;height:50px}.item-card h3{font-size:14px}.price{font-size:18px}.desc{height:34px}.fav{width:30px;height:30px;font-size:17px;right:7px;top:7px}}
 @media(max-width:380px){.items{grid-template-columns:1fr}.links a:nth-child(2){display:none}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* History chart fix: keep each observation as a narrow bar instead of a full-width block. */
+.history-bars{height:170px!important;display:flex!important;align-items:flex-end!important;justify-content:flex-start!important;gap:8px!important;padding:14px!important;overflow-x:auto!important;overflow-y:hidden!important}
+.history-bars div{flex:0 0 24px!important;width:24px!important;min-width:24px!important;max-width:24px!important;min-height:8px!important;height:var(--history-bar-height,40%)!important;border-radius:7px 7px 3px 3px!important;background:linear-gradient(180deg,var(--cyan),var(--violet))!important;opacity:.9!important;box-shadow:0 4px 12px #0008,0 0 12px #8b5cf633!important;transition:height .18s ease,transform .15s ease,filter .15s ease!important}
+.history-bars div:hover{transform:translateY(-2px);filter:brightness(1.12)}
+@media(max-width:600px){.history-bars{height:150px!important;gap:6px!important;padding:10px!important}.history-bars div{flex-basis:18px!important;width:18px!important;min-width:18px!important;max-width:18px!important}}
