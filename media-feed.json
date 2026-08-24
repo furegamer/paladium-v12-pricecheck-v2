@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-24T17:05:28.602841+00:00",
+  "updatedAt": "2026-08-24T17:33:14.287403+00:00",
   "items": [
+    {
+      "title": "100 Joueurs Construisent ce qu’il feraient avec 1 Milliard d’Euros",
+      "url": "https://www.youtube.com/watch?v=_iDUaVSD3S8",
+      "thumbnail": "https://i.ytimg.com/vi/_iDUaVSD3S8/hqdefault.jpg",
+      "published": "2026-08-24T17:19:46+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "3 ans plus tard... J'ai enfin installé Create Aeronautics",
       "url": "https://www.youtube.com/watch?v=itJ_tj7wUEk",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
-    },
-    {
-      "title": "J'ai Simulé un Vrai Pays sur Minecraft pendant 1 an (Film)",
-      "url": "https://www.youtube.com/watch?v=UcdXGhpjwbs",
-      "thumbnail": "https://i.ytimg.com/vi/UcdXGhpjwbs/hqdefault.jpg",
-      "published": "2026-06-26T17:36:48+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
     }
   ]
 }
