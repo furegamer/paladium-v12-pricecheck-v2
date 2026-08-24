@@ -3,21 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Connexion • Paladium PriceCheck V12.1</title>
+<title>Connexion • Paladium PriceCheck</title>
 <style>
-:root{--bg:#080b12;--panel:#101827;--line:#273449;--text:#f8fafc;--muted:#94a3b8;--violet:#8b5cf6}
-*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 20% 10%,#8b5cf633,transparent 35%),radial-gradient(circle at 80% 30%,#22d3ee22,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.box{width:min(430px,100%);padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--panel);text-align:center;box-shadow:0 20px 70px #0008}.logo{width:54px;height:54px;margin:auto;display:grid;place-items:center;border-radius:16px;background:linear-gradient(135deg,#8b5cf6,#22d3ee);font-weight:900;font-size:24px}.version{display:inline-block;margin:15px 0 8px;padding:6px 10px;border:1px solid #8b5cf688;border-radius:99px;background:#8b5cf61a;color:#ddd6fe;font-size:11px;font-weight:800}.muted{color:var(--muted);line-height:1.6}.discord{position:relative;isolation:isolate;overflow:hidden;width:100%;margin:18px 0 10px;padding:14px;border:0;border-radius:13px;background:#5865f2;color:#fff;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 0 0 0 #5865f244;animation:loginPulse 1.8s ease-in-out infinite}.discord::before{content:"";position:absolute;z-index:-1;top:-80%;left:-45%;width:28%;height:260%;transform:translateX(-220%) rotate(18deg);background:linear-gradient(90deg,transparent,#ffffff99,transparent);filter:blur(2px);animation:loginShine 1.8s linear infinite;pointer-events:none}.discord:hover{filter:brightness(1.08)}.back{color:#c4b5fd;text-decoration:none;font-size:13px}#msg{min-height:22px;font-size:13px}
-@keyframes loginShine{0%{transform:translateX(-220%) rotate(18deg);opacity:0}8%{opacity:1}42%{opacity:1}55%{transform:translateX(620%) rotate(18deg);opacity:0}100%{transform:translateX(620%) rotate(18deg);opacity:0}}
-@keyframes loginPulse{0%,100%{box-shadow:0 0 0 0 #5865f244}50%{box-shadow:0 0 0 7px #5865f20f}}
-@media (prefers-reduced-motion:reduce){.discord,.discord::before{animation:none}}
+:root{--bg:#080b12;--panel:#101827;--line:#273449;--text:#f8fafc;--muted:#94a3b8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:18px;background:radial-gradient(circle at 20% 10%,#8b5cf633,transparent 35%),radial-gradient(circle at 80% 30%,#22d3ee22,transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}.box{width:min(430px,100%);padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--panel);text-align:center;box-shadow:0 20px 70px #0008}.logo{width:54px;height:54px;margin:auto;display:grid;place-items:center;border-radius:16px;background:linear-gradient(135deg,#8b5cf6,#22d3ee);font-weight:900;font-size:24px}.version{display:inline-block;margin:15px 0 8px;padding:6px 10px;border:1px solid #8b5cf688;border-radius:99px;background:#8b5cf61a;color:#ddd6fe;font-size:11px;font-weight:800}.muted{color:var(--muted);line-height:1.6}.discord{position:relative;isolation:isolate;overflow:hidden;width:100%;margin:18px 0 10px;padding:14px;border:0;border-radius:13px;background:#5865f2;color:#fff;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 0 0 0 #5865f244;animation:loginPulse 1.8s ease-in-out infinite}.discord::before{content:"";position:absolute;z-index:-1;top:-80%;left:-45%;width:28%;height:260%;transform:translateX(-220%) rotate(18deg);background:linear-gradient(90deg,transparent,#ffffff99,transparent);filter:blur(2px);animation:loginShine 1.8s linear infinite;pointer-events:none}.discord:hover{filter:brightness(1.08)}.back{color:#c4b5fd;text-decoration:none;font-size:13px}#msg{min-height:22px;font-size:13px}@keyframes loginShine{0%{transform:translateX(-220%) rotate(18deg);opacity:0}8%{opacity:1}42%{opacity:1}55%{transform:translateX(620%) rotate(18deg);opacity:0}100%{transform:translateX(620%) rotate(18deg);opacity:0}}@keyframes loginPulse{0%,100%{box-shadow:0 0 0 0 #5865f244}50%{box-shadow:0 0 0 7px #5865f20f}}
 </style>
 </head>
 <body>
 <main class="box">
 <div class="logo">P</div>
-<div class="version">🚀 VERSION V12.1</div>
+<div class="version">🚀 PRICECHECK</div>
 <h1>🔐 Connexion</h1>
-<p class="muted">Connecte ton compte Discord à Paladium PriceCheck pour accéder aux fonctions administrateur.</p>
+<p class="muted">Connecte ton propre compte Discord pour retrouver ton profil, ton portefeuille, tes métiers et tes favoris.</p>
 <button class="discord" id="discord">🎮 Continuer avec Discord</button>
 <p id="msg" class="muted">Connexion sécurisée via Supabase Auth.</p>
 <a class="back" href="index.html">← Retour au PriceCheck</a>
@@ -32,7 +29,8 @@ if(window.supabase&&cfg.supabaseUrl&&cfg.supabaseAnonKey){client=window.supabase
 async function startDiscord(){
   if(!client){msg.textContent='⚠️ Configuration Supabase manquante.';return}
   msg.textContent='Ouverture de Discord…';
-  const {error}=await client.auth.signInWithOAuth({provider:'discord',options:{redirectTo:cfg.loginRedirect||location.origin+location.pathname.replace('login.html','admin.html')}});
+  const redirect=cfg.loginRedirect||new URL('index.html',location.href).href;
+  const {error}=await client.auth.signInWithOAuth({provider:'discord',options:{redirectTo:redirect,queryParams:{prompt:'consent'}}});
   if(error)msg.textContent='❌ '+error.message;
 }
 document.getElementById('discord').addEventListener('click',startDiscord);
