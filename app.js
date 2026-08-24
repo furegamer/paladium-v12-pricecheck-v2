@@ -17,3 +17,48 @@ function initMarket(){const sel=$('#marketItem'),qty=$('#qty'),dur=$('#durabilit
 function initXp(){if(typeof JOB_XP==='undefined')return;const job=$('#jobSelect'),action=$('#xpAction'),level=$('#xpLevel'),rows=$('#xpRows'),best=$('#xpBest'),need=$('#jobNeed'),pog=$('#pogLevel'),pogInfo=$('#pogInfo'),pogNext=$('#pogNext');if(!job)return;Object.keys(JOB_XP).forEach(j=>job.insertAdjacentHTML('beforeend',`<option value="${j}">${j}</option>`));const jobRender=()=>{const rs=jobXpRows(job.value),a=action.value,l=Math.max(1,Math.min(20,+level.value||1)),f=rs.filter(r=>a==='all'||r[1]===a);rows.innerHTML=f.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td><b>${String(r[2]).replace('.',',')} XP</b></td><td>Niv. ${r[3]}+</td></tr>`).join('')||'<tr><td colspan="4">Aucune donnée.</td></tr>';best.innerHTML=jobBestRows(job.value).slice(0,5).map((r,i)=>`<div class="rank"><b>#${i+1}</b><span>${r[0]}<small>${r[1]} • niv. ${r[3]}+</small></span><strong>${String(r[2]).replace('.',',')} XP</strong></div>`).join('');const target=JOB_LEVEL_XP[Math.min(l-1,JOB_LEVEL_XP.length-1)];need.innerHTML=`<b>Niveau ${l}${l<20?` → ${l+1}`:''}</b><span>${l<20?`XP de passage : ${target.toLocaleString('fr-FR')} XP`:'Niveau 20 atteint dans les données actuelles'}</span><small>Données communautaires PriceCheck.</small>`};const pogRender=()=>{const l=Math.max(1,Math.min(100,+pog.value||1)),t=pogTier(l),n=POG_BLOCKS_TO_NEXT[l];pogInfo.innerHTML=`<b>Niveau ${l}</b><span>${t.label}</span><small>${t.blocks.length?t.blocks.join(' • '):'Aucun bloc OS documenté à ce palier.'}</small>`;pogNext.innerHTML=l<100?`<b>${n.toLocaleString('fr-FR')} blocs</b><span>pour ${l} → ${l+1}</span>`:'<b>Niveau 100 🎉</b><span>Fin de la progression enregistrée.</span>'};[job,action,level].forEach(e=>e.addEventListener('input',jobRender));pog?.addEventListener('input',pogRender);jobRender();pogRender()}
 function boot(){addCatalogExpansion();updateVersionBadge();addLinks();initCatalog();initMarket();initXp();const y=$('#year');if(y)y.textContent=new Date().getFullYear();setTimeout(async()=>{if(await syncRemoteCatalog())document.dispatchEvent(new Event('pricecheck:catalog-updated'))},0)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+
+/* Correctif d'affichage du graphique "Ton historique".
+   Les anciennes barres prenaient toute la largeur et pouvaient apparaître comme de gros blocs.
+   Ce correctif conserve les données locales et améliore uniquement leur rendu. */
+(function fixHistoryDisplay(){
+  const render=()=>{
+    const sel=document.querySelector('#marketItem'), box=document.querySelector('#historyBox');
+    if(!sel||!box)return;
+    const item=sel.value;
+    const h=(history()[item]||[]).slice(-10);
+    if(!h.length){
+      box.innerHTML='<div class="history-empty"><span>📊</span><b>Aucun prix enregistré</b><small>Ajoute un prix observé pour commencer ton historique.</small></div>';
+      return;
+    }
+    const values=h.map(v=>Number(v.value)||0), max=Math.max(1,...values), min=Math.min(...values);
+    const bars=h.map((v,i)=>{
+      const value=Number(v.value)||0;
+      const pct=Math.max(10,Math.round((value/max)*100));
+      const date=v.date||'';
+      return `<div class="history-point"><div class="history-value">${typeof money==='function'?money(value):value}</div><div class="history-bar-wrap"><div class="history-bar" style="height:${pct}%" title="${typeof money==='function'?money(value):value} • ${date}"></div></div><div class="history-date">${date}</div></div>`;
+    }).join('');
+    box.innerHTML=`<div class="history-summary"><span>📈 ${h.length} observation${h.length>1?'s':''}</span><span>Min. ${typeof money==='function'?money(min):min} • Max. ${typeof money==='function'?money(max):max}</span></div><div class="history-chart">${bars}</div><div class="history-caption">Les valeurs sont enregistrées uniquement sur cet appareil.</div>`;
+  };
+  const style=document.createElement('style');
+  style.textContent=`
+    #historyBox{width:100%;min-width:0;overflow:hidden}
+    .history-empty{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:24px;border:1px dashed var(--line,#273449);border-radius:14px;background:#0b111d;color:#cbd5e1;text-align:center}
+    .history-empty span{font-size:30px}.history-empty b{font-size:15px}.history-empty small{color:var(--muted,#94a3b8);font-size:12px}
+    .history-summary{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;color:#cbd5e1;font-size:12px}
+    .history-chart{height:210px;display:flex;align-items:stretch;gap:8px;padding:14px 10px 8px;border:1px solid var(--line,#273449);border-radius:14px;background:#0b111d;overflow-x:auto;overflow-y:hidden}
+    .history-point{flex:1 0 54px;min-width:54px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}
+    .history-value{font-size:10px;color:#cbd5e1;white-space:nowrap;max-width:70px;overflow:hidden;text-overflow:ellipsis}
+    .history-bar-wrap{width:100%;height:145px;display:flex;align-items:flex-end;justify-content:center}
+    .history-bar{width:min(34px,72%);min-height:10px;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,var(--cyan,#22d3ee),var(--violet,#8b5cf6));box-shadow:0 4px 14px #22d3ee22;transition:height .25s ease}
+    .history-date{width:64px;color:#64748b;font-size:9px;text-align:center;line-height:1.2;white-space:normal;overflow:hidden}
+    .history-caption{margin-top:8px;color:var(--muted,#94a3b8);font-size:11px}
+    @media(max-width:600px){.history-chart{gap:6px}.history-point{flex-basis:48px;min-width:48px}.history-value{font-size:9px}.history-date{font-size:8px;width:52px}}
+  `;
+  document.head.appendChild(style);
+  const sel=document.querySelector('#marketItem'),record=document.querySelector('#recordPrice');
+  if(sel){sel.addEventListener('change',render);sel.addEventListener('input',render)}
+  if(record)record.addEventListener('click',()=>setTimeout(render,0));
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(render,0));else setTimeout(render,0);
+  document.addEventListener('pricecheck:catalog-updated',()=>setTimeout(render,0));
+})();
