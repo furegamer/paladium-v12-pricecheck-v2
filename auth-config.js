@@ -9,6 +9,11 @@ playerStats.src = 'player-stats.js?v=14.3';
 playerStats.defer = true;
 document.head.appendChild(playerStats);
 
+const vanillaItems = document.createElement('script');
+vanillaItems.src = 'vanilla-items.js?v=14.5';
+vanillaItems.defer = true;
+document.head.appendChild(vanillaItems);
+
 if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/paladium-v12-pricecheck-v2/') || location.pathname.endsWith('/paladium-v12-pricecheck-v2')) {
   const catalogFix = document.createElement('script'); catalogFix.src = 'catalog-fix.js?v=14.3'; catalogFix.defer = true; document.head.appendChild(catalogFix);
   const wood = document.createElement('script'); wood.src = 'wood-items.js?v=14.3'; wood.defer = true; document.head.appendChild(wood);
@@ -69,6 +74,7 @@ if (location.pathname.endsWith('/admin.html')) {
     updateContext(nameInput.value);
   };
   const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=14.4'; priceReports.defer = true; document.head.appendChild(priceReports);
+  const creatorAdmin = document.createElement('script'); creatorAdmin.src = 'creator-admin.js?v=14.5'; creatorAdmin.defer = true; document.head.appendChild(creatorAdmin);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAdminPriceContext, {once:true});
   else setupAdminPriceContext();
 }
