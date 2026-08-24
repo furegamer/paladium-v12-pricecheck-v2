@@ -14,6 +14,7 @@ if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/pa
   const wood = document.createElement('script'); wood.src = 'wood-items.js?v=14.3'; wood.defer = true; document.head.appendChild(wood);
   const xpBottle = document.createElement('script'); xpBottle.src = 'xp-bottle.js?v=14.3'; xpBottle.defer = true; document.head.appendChild(xpBottle);
   const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=14.3'; assets.defer = true; document.head.appendChild(assets);
+  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=14.4'; priceReports.defer = true; document.head.appendChild(priceReports);
 }
 if (location.pathname.endsWith('/budget.html')) {
   const budgetPB = document.createElement('script'); budgetPB.src = 'budget-pb.js?v=14.3'; budgetPB.defer = true; document.head.appendChild(budgetPB);
@@ -67,6 +68,7 @@ if (location.pathname.endsWith('/admin.html')) {
     });
     updateContext(nameInput.value);
   };
+  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=14.4'; priceReports.defer = true; document.head.appendChild(priceReports);
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAdminPriceContext, {once:true});
   else setupAdminPriceContext();
 }
