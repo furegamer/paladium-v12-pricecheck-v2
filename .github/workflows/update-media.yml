@@ -16,18 +16,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Update media feed
         run: python3 scripts/update_media.py
 
       - name: Commit feed when changed
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add media-feed.json
           if git diff --cached --quiet; then
             echo "No media changes."
-          else
-            git commit -m "chore: refresh Paladium videos and VODs"
-            git push
+            exit 0
           fi
+          git commit -m "chore: refresh Paladium videos and VODs"
+          for attempt in 1 2 3; do
+            git fetch origin '(root)'
+            git rebase 'origin/(root)'
+            if git push origin HEAD:'(root)'; then
+              echo "Media feed pushed successfully."
+              exit 0
+            fi
+            echo "Push race detected, retrying ($attempt/3)..."
+            sleep 2
+          done
+          echo "Unable to push media feed after 3 attempts."
+          exit 1
