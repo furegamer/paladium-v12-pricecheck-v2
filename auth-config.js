@@ -4,42 +4,33 @@ window.PRICECHECK_AUTH = {
   loginRedirect: "https://furegamer.github.io/paladium-v12-pricecheck-v2/index.html"
 };
 
-const playerStats = document.createElement('script');
-playerStats.src = 'player-stats.js?v=15.0';
-playerStats.defer = true;
-document.head.appendChild(playerStats);
-
-const siteFixes = document.createElement('script');
-siteFixes.src = 'site-fixes-v15.js?v=15.0';
-siteFixes.defer = true;
-document.head.appendChild(siteFixes);
-
-const vanillaItems = document.createElement('script');
-vanillaItems.src = 'vanilla-items.js?v=15.0';
-vanillaItems.defer = true;
-document.head.appendChild(vanillaItems);
+const visual = document.createElement('script'); visual.src = 'site-visual-v16.js?v=16.0'; visual.defer = true; document.head.appendChild(visual);
+const playerStats = document.createElement('script'); playerStats.src = 'player-stats.js?v=16.0'; playerStats.defer = true; document.head.appendChild(playerStats);
+const siteFixes = document.createElement('script'); siteFixes.src = 'site-fixes-v15.js?v=16.0'; siteFixes.defer = true; document.head.appendChild(siteFixes);
+const vanillaItems = document.createElement('script'); vanillaItems.src = 'vanilla-items.js?v=16.0'; vanillaItems.defer = true; document.head.appendChild(vanillaItems);
 
 if (location.pathname.endsWith('/index.html') || location.pathname.endsWith('/paladium-v12-pricecheck-v2/') || location.pathname.endsWith('/paladium-v12-pricecheck-v2')) {
-  const catalogFix = document.createElement('script'); catalogFix.src = 'catalog-fix.js?v=15.0'; catalogFix.defer = true; document.head.appendChild(catalogFix);
-  const wood = document.createElement('script'); wood.src = 'wood-items.js?v=15.0'; wood.defer = true; document.head.appendChild(wood);
-  const xpBottle = document.createElement('script'); xpBottle.src = 'xp-bottle.js?v=15.0'; xpBottle.defer = true; document.head.appendChild(xpBottle);
-  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=15.0'; assets.defer = true; document.head.appendChild(assets);
-  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=15.0'; priceReports.defer = true; document.head.appendChild(priceReports);
+  const catalogFix = document.createElement('script'); catalogFix.src = 'catalog-fix.js?v=16.0'; catalogFix.defer = true; document.head.appendChild(catalogFix);
+  const wood = document.createElement('script'); wood.src = 'wood-items.js?v=16.0'; wood.defer = true; document.head.appendChild(wood);
+  const xpBottle = document.createElement('script'); xpBottle.src = 'xp-bottle.js?v=16.0'; xpBottle.defer = true; document.head.appendChild(xpBottle);
+  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=16.0'; assets.defer = true; document.head.appendChild(assets);
+  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=16.0'; priceReports.defer = true; document.head.appendChild(priceReports);
 }
 if (location.pathname.endsWith('/budget.html')) {
-  const budgetPB = document.createElement('script'); budgetPB.src = 'budget-pb.js?v=15.0'; budgetPB.defer = true; document.head.appendChild(budgetPB);
-  const wood = document.createElement('script'); wood.src = 'wood-items.js?v=15.0'; wood.defer = true; document.head.appendChild(wood);
-  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=15.0'; assets.defer = true; document.head.appendChild(assets);
+  const budgetPB = document.createElement('script'); budgetPB.src = 'budget-pb.js?v=16.0'; budgetPB.defer = true; document.head.appendChild(budgetPB);
+  const wood = document.createElement('script'); wood.src = 'wood-items.js?v=16.0'; wood.defer = true; document.head.appendChild(wood);
+  const assets = document.createElement('script'); assets.src = 'catalog-assets-v14.js?v=16.0'; assets.defer = true; document.head.appendChild(assets);
 }
 if (location.pathname.endsWith('/xp.html')) {
-  const xpUpgrade = document.createElement('script'); xpUpgrade.src = 'xp-upgrade.js?v=15.0'; xpUpgrade.defer = true; document.head.appendChild(xpUpgrade);
-  const levels = document.createElement('script'); levels.src = 'levels-persistence.js?v=15.0'; levels.defer = true; document.head.appendChild(levels);
+  const xpUpgrade = document.createElement('script'); xpUpgrade.src = 'xp-upgrade.js?v=16.0'; xpUpgrade.defer = true; document.head.appendChild(xpUpgrade);
+  const levels = document.createElement('script'); levels.src = 'levels-persistence.js?v=16.0'; levels.defer = true; document.head.appendChild(levels);
 }
 if (location.pathname.endsWith('/profile.html')) {
-  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix-v14.js?v=15.0'; profileFix.defer = true; document.head.appendChild(profileFix);
+  const profileFix = document.createElement('script'); profileFix.src = 'profile-fix-v14.js?v=16.0'; profileFix.defer = true; document.head.appendChild(profileFix);
+  const profileSync = document.createElement('script'); profileSync.src = 'profile-fix-v16.js?v=16.0'; profileSync.defer = true; document.head.appendChild(profileSync);
 }
 if (location.pathname.endsWith('/changelog.html')) {
-  const changelog = document.createElement('script'); changelog.src = 'changelog-live.js?v=15.0'; changelog.defer = true; document.head.appendChild(changelog);
+  const changelog = document.createElement('script'); changelog.src = 'changelog-live.js?v=16.0'; changelog.defer = true; document.head.appendChild(changelog);
 }
 
 if (location.pathname.endsWith('/admin.html')) {
@@ -78,8 +69,7 @@ if (location.pathname.endsWith('/admin.html')) {
     });
     updateContext(nameInput.value);
   };
-  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=15.0'; priceReports.defer = true; document.head.appendChild(priceReports);
-  const creatorAdmin = document.createElement('script'); creatorAdmin.src = 'creator-admin.js?v=15.0'; creatorAdmin.defer = true; document.head.appendChild(creatorAdmin);
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAdminPriceContext, {once:true});
-  else setupAdminPriceContext();
+  const priceReports = document.createElement('script'); priceReports.src = 'price-reports.js?v=16.0'; priceReports.defer = true; document.head.appendChild(priceReports);
+  const creatorAdmin = document.createElement('script'); creatorAdmin.src = 'creator-admin.js?v=16.0'; creatorAdmin.defer = true; document.head.appendChild(creatorAdmin);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setupAdminPriceContext, {once:true}); else setupAdminPriceContext();
 }
