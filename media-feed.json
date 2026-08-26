@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-08-26T14:53:26.013644+00:00",
+  "updatedAt": "2026-08-26T16:19:47.211501+00:00",
   "items": [
+    {
+      "title": "J'ai racheté un petit Serveur Minecraft pour voir si je peux le Relancer ! (je vous montre)",
+      "url": "https://www.youtube.com/watch?v=0n6uCZKUBi0",
+      "thumbnail": "https://i.ytimg.com/vi/0n6uCZKUBi0/hqdefault.jpg",
+      "published": "2026-08-26T14:49:17+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "100 Joueurs Construisent ce qu’il feraient avec 1 Milliard d’Euros",
       "url": "https://www.youtube.com/watch?v=_iDUaVSD3S8",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "Il a Constuit sa Base à 100 Blocs du Spawn... Pourquoi ?! - Episode 02 | Paladium S12",
-      "url": "https://www.youtube.com/watch?v=rciPd19LrsQ",
-      "thumbnail": "https://i.ytimg.com/vi/rciPd19LrsQ/hqdefault.jpg",
-      "published": "2026-06-28T18:00:30+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
