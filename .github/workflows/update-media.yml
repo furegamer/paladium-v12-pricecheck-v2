@@ -4,11 +4,13 @@ on:
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
-  push:
-    branches: ['(root)']
 
 permissions:
   contents: write
+
+concurrency:
+  group: paladium-media-update
+  cancel-in-progress: false
 
 jobs:
   update-media:
@@ -18,6 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: '(root)'
 
       - name: Update media feed
         run: python3 scripts/update_media.py
@@ -35,13 +38,25 @@ jobs:
           git commit -m "chore: refresh Paladium videos and VODs"
           for attempt in 1 2 3; do
             git fetch origin '(root)'
-            git rebase 'origin/(root)'
-            if git push origin HEAD:'(root)'; then
-              echo "Media feed pushed successfully."
-              exit 0
+            if git rebase 'origin/(root)'; then
+              if git push origin HEAD:'(root)'; then
+                echo "Media feed pushed successfully."
+                exit 0
+              fi
+            else
+              echo "Rebase conflict detected; rebuilding from the latest root."
+              git rebase --abort || true
+              git reset --hard 'origin/(root)'
+              python3 scripts/update_media.py
+              git add media-feed.json
+              if git diff --cached --quiet; then
+                echo "Media feed is already current after refresh."
+                exit 0
+              fi
+              git commit -m "chore: refresh Paladium videos and VODs"
             fi
             echo "Push race detected, retrying ($attempt/3)..."
-            sleep 2
+            sleep 3
           done
           echo "Unable to push media feed after 3 attempts."
           exit 1
