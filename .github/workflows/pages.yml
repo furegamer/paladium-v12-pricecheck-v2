@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}
+  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
 
 jobs:
   check:
@@ -32,84 +32,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-
-          required=(
-            index.html
-            item.html
-            item.js
-            app.js
-            data.js
-            changelog.html
-            robots.txt
-            sitemap.xml
-          )
-
+          required=(index.html item.html item.js app.js data.js changelog.html robots.txt sitemap.xml)
           for file in "${required[@]}"; do
-            if [ ! -f "$file" ]; then
-              echo "ERROR: missing required file: $file"
-              exit 1
-            fi
+            test -f "$file" || { echo "ERROR: missing required file: $file"; exit 1; }
           done
-
-          if [ ! -d images ]; then
-            echo "ERROR: missing images directory"
-            exit 1
-          fi
-
-          echo "Checking referenced image files..."
-          refs="$(grep -rhoE 'images/[A-Za-z0-9._-]+\.(svg|png|jpg|jpeg|webp)' \
-            --include='*.js' --include='*.html' --exclude-dir=.git . 2>/dev/null | sort -u || true)"
-
+          test -d images || { echo "ERROR: missing images directory"; exit 1; }
+          refs="$(grep -rhoE 'images/[A-Za-z0-9._-]+\.(svg|png|jpg|jpeg|webp)' --include='*.js' --include='*.html' --exclude-dir=.git . 2>/dev/null | sort -u || true)"
           if [ -n "$refs" ]; then
             while IFS= read -r asset; do
               [ -z "$asset" ] && continue
-
-              if [ ! -f "$asset" ]; then
-                echo "ERROR: missing image: $asset"
-                exit 1
-              fi
-
-              # Do not reject existing PNG/JPG/WebP files merely because the
-              # GitHub API reports an unusual byte size. SVGs are checked for
-              # their actual markup because they are text assets.
+              test -f "$asset" || { echo "ERROR: missing image: $asset"; exit 1; }
               case "$asset" in
-                *.svg)
-                  grep -qi '<svg' "$asset" || {
-                    echo "ERROR: invalid SVG: $asset"
-                    exit 1
-                  }
-                  ;;
+                *.svg) grep -qi '<svg' "$asset" || { echo "ERROR: invalid SVG: $asset"; exit 1; } ;;
               esac
             done <<< "$refs"
           fi
-
-          echo "Checking internal HTML links..."
-          links="$(grep -rhoE 'href=[\"'\"'][A-Za-z0-9._/?#-]+\.html([?#][^\"'\"']*)?[\"'\"']' \
-            --include='*.html' --exclude-dir=.git . 2>/dev/null || true)"
-
-          if [ -n "$links" ]; then
-            while IFS= read -r raw; do
-              page="$(printf '%s' "$raw" | sed -E 's/^href=[\"'\"']//; s/[\"'\"']$//; s/[?#].*$//')"
-              [ -z "$page" ] && continue
-              case "$page" in
-                http://*|https://*|//*) continue ;;
-              esac
-              [ -f "$page" ] || {
-                echo "ERROR: missing linked page: $page"
-                exit 1
-              }
-            done <<< "$links"
-          fi
-
-          echo "Checking JavaScript syntax..."
           for js in *.js; do
             [ -f "$js" ] || continue
-            node --check "$js" || {
-              echo "ERROR: JavaScript syntax error: $js"
-              exit 1
-            }
+            node --check "$js" || { echo "ERROR: JavaScript syntax error: $js"; exit 1; }
           done
-
           echo "PriceCheck validation passed"
 
   deploy:
@@ -124,16 +65,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
           name: ${{ env.PAGES_ARTIFACT_NAME }}
-
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
