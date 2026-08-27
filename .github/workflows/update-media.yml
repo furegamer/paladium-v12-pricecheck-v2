@@ -16,37 +16,45 @@ jobs:
   update-media:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout latest root
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: '(root)'
+          persist-credentials: true
+
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Update media feed
         run: python3 scripts/update_media.py
 
       - name: Commit feed when changed
+        shell: bash
         run: |
           set -euo pipefail
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add media-feed.json
           if git diff --cached --quiet; then
             echo "No media changes."
             exit 0
           fi
           git commit -m "chore: refresh Paladium videos and VODs"
-          for attempt in 1 2 3; do
+
+          # The branch can receive normal site commits while this scheduled job runs.
+          # Never rebase the generated commit. Refresh the branch, regenerate the feed,
+          # and retry the fast-forward push so unrelated changes are preserved.
+          for attempt in 1 2 3 4 5; do
             git fetch origin '(root)'
-            if git rebase 'origin/(root)'; then
+            if git merge-base --is-ancestor origin/'(root)' HEAD; then
               if git push origin HEAD:'(root)'; then
                 echo "Media feed pushed successfully."
                 exit 0
               fi
             else
-              echo "Rebase conflict detected; rebuilding from the latest root."
-              git rebase --abort || true
-              git reset --hard 'origin/(root)'
+              echo "Root changed; rebuilding media feed from the latest root."
+              git reset --hard origin/'(root)'
               python3 scripts/update_media.py
               git add media-feed.json
               if git diff --cached --quiet; then
@@ -54,9 +62,13 @@ jobs:
                 exit 0
               fi
               git commit -m "chore: refresh Paladium videos and VODs"
+              if git push origin HEAD:'(root)'; then
+                echo "Media feed pushed successfully after refresh."
+                exit 0
+              fi
             fi
-            echo "Push race detected, retrying ($attempt/3)..."
-            sleep 3
+            echo "Push race detected, retrying ($attempt/5)..."
+            sleep 5
           done
-          echo "Unable to push media feed after 3 attempts."
+          echo "Unable to push media feed after 5 attempts."
           exit 1
