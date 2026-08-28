@@ -74,6 +74,7 @@ jobs:
           name: ${{ env.PAGES_ARTIFACT_NAME }}
       - name: Deploy
         id: deployment
+        timeout-minutes: 20
         uses: actions/deploy-pages@v4
         with:
           artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
