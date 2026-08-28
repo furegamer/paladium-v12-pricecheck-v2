@@ -18,47 +18,49 @@ function initXp(){if(typeof JOB_XP==='undefined')return;const job=$('#jobSelect'
 function boot(){addCatalogExpansion();updateVersionBadge();addLinks();initCatalog();initMarket();initXp();const y=$('#year');if(y)y.textContent=new Date().getFullYear();setTimeout(async()=>{if(await syncRemoteCatalog())document.dispatchEvent(new Event('pricecheck:catalog-updated'))},0)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
 
-/* Correctif d'affichage du graphique "Ton historique".
-   Les anciennes barres prenaient toute la largeur et pouvaient apparaître comme de gros blocs.
-   Ce correctif conserve les données locales et améliore uniquement leur rendu. */
-(function fixHistoryDisplay(){
-  const render=()=>{
-    const sel=document.querySelector('#marketItem'), box=document.querySelector('#historyBox');
-    if(!sel||!box)return;
-    const item=sel.value;
-    const h=(history()[item]||[]).slice(-10);
-    if(!h.length){
-      box.innerHTML='<div class="history-empty"><span>📊</span><b>Aucun prix enregistré</b><small>Ajoute un prix observé pour commencer ton historique.</small></div>';
-      return;
-    }
-    const values=h.map(v=>Number(v.value)||0), max=Math.max(1,...values), min=Math.min(...values);
-    const bars=h.map((v,i)=>{
-      const value=Number(v.value)||0;
-      const pct=Math.max(10,Math.round((value/max)*100));
-      const date=v.date||'';
-      return `<div class="history-point"><div class="history-value">${typeof money==='function'?money(value):value}</div><div class="history-bar-wrap"><div class="history-bar" style="height:${pct}%" title="${typeof money==='function'?money(value):value} • ${date}"></div></div><div class="history-date">${date}</div></div>`;
-    }).join('');
-    box.innerHTML=`<div class="history-summary"><span>📈 ${h.length} observation${h.length>1?'s':''}</span><span>Min. ${typeof money==='function'?money(min):min} • Max. ${typeof money==='function'?money(max):max}</span></div><div class="history-chart">${bars}</div><div class="history-caption">Les valeurs sont enregistrées uniquement sur cet appareil.</div>`;
+(function fixHistoryDisplay(){const render=()=>{const sel=document.querySelector('#marketItem'),box=document.querySelector('#historyBox');if(!sel||!box)return;const item=sel.value,h=(history()[item]||[]).slice(-10);if(!h.length){box.innerHTML='<div class="history-empty"><span>📊</span><b>Aucun prix enregistré</b><small>Ajoute un prix observé pour commencer ton historique.</small></div>';return}const values=h.map(v=>Number(v.value)||0),max=Math.max(1,...values),min=Math.min(...values),bars=h.map(v=>{const value=Number(v.value)||0,pct=Math.max(10,Math.round(value/max*100)),date=v.date||'';return `<div class="history-point"><div class="history-value">${typeof money==='function'?money(value):value}</div><div class="history-bar-wrap"><div class="history-bar" style="height:${pct}%" title="${typeof money==='function'?money(value):value} • ${date}"></div></div><div class="history-date">${date}</div></div>`}).join('');box.innerHTML=`<div class="history-summary"><span>📈 ${h.length} observation${h.length>1?'s':''}</span><span>Min. ${typeof money==='function'?money(min):min} • Max. ${typeof money==='function'?money(max):max}</span></div><div class="history-chart">${bars}</div><div class="history-caption">Les valeurs sont enregistrées uniquement sur cet appareil.</div>`};const style=document.createElement('style');style.textContent='#historyBox{width:100%;min-width:0;overflow:hidden}.history-empty{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:24px;border:1px dashed var(--line,#273449);border-radius:14px;background:#0b111d;color:#cbd5e1;text-align:center}.history-empty span{font-size:30px}.history-empty b{font-size:15px}.history-empty small{color:var(--muted,#94a3b8);font-size:12px}.history-summary{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;color:#cbd5e1;font-size:12px}.history-chart{height:210px;display:flex;align-items:stretch;gap:8px;padding:14px 10px 8px;border:1px solid var(--line,#273449);border-radius:14px;background:#0b111d;overflow-x:auto;overflow-y:hidden}.history-point{flex:1 0 54px;min-width:54px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}.history-value{font-size:10px;color:#cbd5e1;white-space:nowrap;max-width:70px;overflow:hidden;text-overflow:ellipsis}.history-bar-wrap{width:100%;height:145px;display:flex;align-items:flex-end;justify-content:center}.history-bar{width:min(34px,72%);min-height:10px;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,var(--cyan,#22d3ee),var(--violet,#8b5cf6));box-shadow:0 4px 14px #22d3ee22;transition:height .25s ease}.history-date{width:64px;color:#64748b;font-size:9px;text-align:center;line-height:1.2;white-space:normal;overflow:hidden}.history-caption{margin-top:8px;color:var(--muted,#94a3b8);font-size:11px}@media(max-width:600px){.history-chart{gap:6px}.history-point{flex-basis:48px;min-width:48px}.history-value{font-size:9px}.history-date{font-size:8px;width:52px}}';document.head.appendChild(style);const sel=document.querySelector('#marketItem'),record=document.querySelector('#recordPrice');if(sel){sel.addEventListener('change',render);sel.addEventListener('input',render)}if(record)record.addEventListener('click',()=>setTimeout(render,0));if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(render,0));else setTimeout(render,0);document.addEventListener('pricecheck:catalog-updated',()=>setTimeout(render,0))})();
+
+/* Polish visuel et navigation: conserve les pages existantes, mais rend l'en-tête plus clair. */
+(function enhanceNavigation(){
+  const setup=()=>{
+    const links=document.querySelector('.links');
+    if(!links)return;
+    const removeByText=['Accueil'];
+    [...links.querySelectorAll('a')].forEach(a=>{if(removeByText.includes(a.textContent.trim()))a.remove()});
+    const add=(href,label)=>{if(!links.querySelector(`a[href="${href}"]`)){const a=document.createElement('a');a.href=href;a.textContent=label;links.appendChild(a)}return links.querySelector(`a[href="${href}"]`)};
+    const wiki=add('wiki.html','📚 Wiki');
+    const commands=add('commands.html','⌨️ Commandes');
+    const info=[...links.querySelectorAll('a')].find(a=>/Infos/i.test(a.textContent));
+    const changelog=links.querySelector('a[href="changelog.html"]');
+    if(info&&wiki)info.insertAdjacentElement('afterend',wiki);
+    if(changelog&&commands)changelog.insertAdjacentElement('afterend',commands);
+    links.querySelectorAll('a').forEach(a=>a.classList.add('pc-nav-link'));
   };
   const style=document.createElement('style');
-  style.textContent=`
-    #historyBox{width:100%;min-width:0;overflow:hidden}
-    .history-empty{min-height:150px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;padding:24px;border:1px dashed var(--line,#273449);border-radius:14px;background:#0b111d;color:#cbd5e1;text-align:center}
-    .history-empty span{font-size:30px}.history-empty b{font-size:15px}.history-empty small{color:var(--muted,#94a3b8);font-size:12px}
-    .history-summary{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;color:#cbd5e1;font-size:12px}
-    .history-chart{height:210px;display:flex;align-items:stretch;gap:8px;padding:14px 10px 8px;border:1px solid var(--line,#273449);border-radius:14px;background:#0b111d;overflow-x:auto;overflow-y:hidden}
-    .history-point{flex:1 0 54px;min-width:54px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:5px}
-    .history-value{font-size:10px;color:#cbd5e1;white-space:nowrap;max-width:70px;overflow:hidden;text-overflow:ellipsis}
-    .history-bar-wrap{width:100%;height:145px;display:flex;align-items:flex-end;justify-content:center}
-    .history-bar{width:min(34px,72%);min-height:10px;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,var(--cyan,#22d3ee),var(--violet,#8b5cf6));box-shadow:0 4px 14px #22d3ee22;transition:height .25s ease}
-    .history-date{width:64px;color:#64748b;font-size:9px;text-align:center;line-height:1.2;white-space:normal;overflow:hidden}
-    .history-caption{margin-top:8px;color:var(--muted,#94a3b8);font-size:11px}
-    @media(max-width:600px){.history-chart{gap:6px}.history-point{flex-basis:48px;min-width:48px}.history-value{font-size:9px}.history-date{font-size:8px;width:52px}}
-  `;
+  style.textContent=`.pc-nav-link{position:relative}.pc-nav-link::after{content:"";position:absolute;left:11px;right:11px;bottom:4px;height:2px;border-radius:999px;background:linear-gradient(90deg,var(--violet,#8b5cf6),var(--cyan,#22d3ee));transform:scaleX(0);transform-origin:center;transition:transform .18s ease}.pc-nav-link:hover::after{transform:scaleX(1)}.links{row-gap:5px}.links a{white-space:nowrap}`;
   document.head.appendChild(style);
-  const sel=document.querySelector('#marketItem'),record=document.querySelector('#recordPrice');
-  if(sel){sel.addEventListener('change',render);sel.addEventListener('input',render)}
-  if(record)record.addEventListener('click',()=>setTimeout(render,0));
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(render,0));else setTimeout(render,0);
-  document.addEventListener('pricecheck:catalog-updated',()=>setTimeout(render,0));
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
+})();
+
+/* Musique d'ambiance: lecteur discret, lien audio direct configurable et volume mémorisé. */
+(function ambientMusic(){
+  const KEY='pricecheck:ambient-music';
+  const load=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch{return{}}};
+  const save=s=>localStorage.setItem(KEY,JSON.stringify(s));
+  const setup=()=>{
+    if(document.querySelector('#pcAmbientMusic'))return;
+    const state=load();
+    const audio=document.createElement('audio'); audio.id='pcAmbientMusic'; audio.loop=true; audio.preload='none'; audio.volume=Math.max(0,Math.min(1,Number(state.volume??0.18)));
+    if(state.url)audio.src=state.url;
+    document.body.appendChild(audio);
+    const panel=document.createElement('div');panel.id='pcMusicPanel';panel.innerHTML='<button type="button" id="pcMusicToggle" aria-label="Musique d’ambiance">🎵</button><div class="pcMusicMenu"><b>Musique d’ambiance</b><input id="pcMusicUrl" type="url" placeholder="Lien direct vers un fichier audio…"><div class="pcMusicRow"><button type="button" id="pcMusicSave">Enregistrer</button><button type="button" id="pcMusicPlay">▶︎ Lecture</button></div><label>Volume <input id="pcMusicVolume" type="range" min="0" max="1" step="0.01" value="${audio.volume}"></label><small>Le navigateur peut demander une première action avant de lancer la musique.</small></div>';
+    document.body.appendChild(panel);
+    const url=panel.querySelector('#pcMusicUrl');url.value=state.url||'';
+    panel.querySelector('#pcMusicToggle').onclick=()=>panel.classList.toggle('open');
+    panel.querySelector('#pcMusicSave').onclick=()=>{const u=url.value.trim();if(!u)return;audio.src=u;save({url:u,volume:audio.volume});audio.play().catch(()=>{});};
+    panel.querySelector('#pcMusicPlay').onclick=()=>{if(audio.paused)audio.play().catch(()=>{});else audio.pause()};
+    panel.querySelector('#pcMusicVolume').oninput=e=>{audio.volume=Number(e.target.value);save({url:audio.src||url.value.trim(),volume:audio.volume});};
+    const css=document.createElement('style');css.textContent=`#pcMusicPanel{position:fixed;right:16px;bottom:16px;z-index:1000;font-family:inherit}#pcMusicToggle{width:48px;height:48px;border:1px solid #334155;border-radius:50%;background:#101827ee;color:#fff;box-shadow:0 10px 30px #0006;font-size:20px}#pcMusicPanel .pcMusicMenu{display:none;position:absolute;right:0;bottom:58px;width:min(330px,calc(100vw - 32px));padding:16px;border:1px solid #334155;border-radius:16px;background:#0b111df2;backdrop-filter:blur(14px);box-shadow:0 18px 45px #0008}#pcMusicPanel.open .pcMusicMenu{display:block}#pcMusicPanel input[type=url]{width:100%;margin:10px 0;padding:10px;border:1px solid #334155;border-radius:10px;background:#101827;color:#fff}#pcMusicPanel label{display:block;margin-top:10px;color:#cbd5e1;font-size:12px}#pcMusicPanel input[type=range]{width:100%}.pcMusicRow{display:flex;gap:7px}.pcMusicRow button{flex:1;padding:9px;border:1px solid #334155;border-radius:10px;background:#172033;color:#fff}.pcMusicRow button:first-child{background:linear-gradient(135deg,#7c3aed,#0891b2);border:0}#pcMusicPanel small{display:block;color:#94a3b8;font-size:10px;line-height:1.4;margin-top:10px}`;document.head.appendChild(css);
+  };
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
 })();
