@@ -15,9 +15,6 @@ concurrency:
   group: github-pages
   cancel-in-progress: true
 
-env:
-  PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
-
 jobs:
   check:
     name: Check PriceCheck
@@ -67,14 +64,16 @@ jobs:
           fetch-depth: 1
       - name: Setup Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload site
         uses: actions/upload-pages-artifact@v3
         with:
           path: .
-          name: ${{ env.PAGES_ARTIFACT_NAME }}
+          name: github-pages
       - name: Deploy
         id: deployment
-        timeout-minutes: 20
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
+          artifact_name: github-pages
+          timeout: 600000
