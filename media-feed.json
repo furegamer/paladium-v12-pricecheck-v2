@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-01T12:25:55.108897+00:00",
+  "updatedAt": "2026-09-01T16:50:34.041158+00:00",
   "items": [
+    {
+      "title": "4 IA doivent construire la Meilleure ville (elles font n'imp)",
+      "url": "https://www.youtube.com/watch?v=DQ6CzWictUc",
+      "thumbnail": "https://i.ytimg.com/vi/DQ6CzWictUc/hqdefault.jpg",
+      "published": "2026-09-01T16:43:59+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai racheté un petit Serveur Minecraft pour voir si je peux le Relancer ! (je vous montre)",
       "url": "https://www.youtube.com/watch?v=0n6uCZKUBi0",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
-    },
-    {
-      "title": "J'ai Hacké un Petit Serveur avec une Faille... Voilà ce qui s'est passé...",
-      "url": "https://www.youtube.com/watch?v=GW5m7M993jQ",
-      "thumbnail": "https://i.ytimg.com/vi/GW5m7M993jQ/hqdefault.jpg",
-      "published": "2026-07-01T15:50:49+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
     }
   ]
 }
