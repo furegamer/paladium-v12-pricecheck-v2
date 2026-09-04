@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-04T13:15:56.804355+00:00",
+  "updatedAt": "2026-09-04T16:57:48.767619+00:00",
   "items": [
+    {
+      "title": "Un jeu où tu Fais un Chateau de Sable Contre un Tsunami",
+      "url": "https://www.youtube.com/watch?v=HeRkSCaddk4",
+      "thumbnail": "https://i.ytimg.com/vi/HeRkSCaddk4/hqdefault.jpg",
+      "published": "2026-09-04T14:57:19+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "4 IA doivent construire la Meilleure ville (elles font n'imp)",
       "url": "https://www.youtube.com/watch?v=DQ6CzWictUc",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai réussi à rendre ma base 100% Indétectable - Episode 03 | Paladium S12",
-      "url": "https://www.youtube.com/watch?v=AgzQ9oDjjOw",
-      "thumbnail": "https://i.ytimg.com/vi/AgzQ9oDjjOw/hqdefault.jpg",
-      "published": "2026-07-08T18:49:22+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
