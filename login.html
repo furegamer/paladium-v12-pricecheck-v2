@@ -21,14 +21,14 @@
 <a class="back" href="index.html">← Retour au PriceCheck</a>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="auth-config.js"></script>
+<script src="auth-config.js?v=24.0"></script>
 <script>
 const cfg=window.PRICECHECK_AUTH||{};
 const msg=document.getElementById('msg');
 const loginBtn=document.getElementById('discord');
 const switchBtn=document.getElementById('switchAccount');
 let client=null;
-if(window.supabase&&cfg.supabaseUrl&&cfg.supabaseAnonKey){client=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey)}
+if(window.supabase&&cfg.supabaseUrl&&cfg.supabaseAnonKey){client=window.supabase.createClient(cfg.supabaseUrl,cfg.supabaseAnonKey,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}})}
 function setBusy(text){msg.textContent=text;loginBtn.disabled=true;switchBtn.disabled=true}
 function unlock(){loginBtn.disabled=false;switchBtn.disabled=false}
 async function startDiscord(changeAccount=false){
@@ -44,7 +44,11 @@ async function startDiscord(changeAccount=false){
     const redirect=cfg.loginRedirect||new URL('index.html',location.href).href;
     const {error}=await client.auth.signInWithOAuth({
       provider:'discord',
-      options:{redirectTo:redirect,queryParams:{prompt:changeAccount?'login':'consent'}}
+      options:{
+        redirectTo:redirect,
+        scopes:'identify email',
+        queryParams:{prompt:changeAccount?'login':'consent'}
+      }
     });
     if(error)throw error;
   }catch(error){
