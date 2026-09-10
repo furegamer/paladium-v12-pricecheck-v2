@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-10T13:23:40.776733+00:00",
+  "updatedAt": "2026-09-10T17:05:21.242690+00:00",
   "items": [
+    {
+      "title": "J'ai appris à Jouer à Minecraft à une Mouche (oui vraiment)",
+      "url": "https://www.youtube.com/watch?v=n8zUDS2FGts",
+      "thumbnail": "https://i.ytimg.com/vi/n8zUDS2FGts/hqdefault.jpg",
+      "published": "2026-09-10T16:36:11+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "Il se passe quoi si j'aplatis le Soleil ?!",
       "url": "https://www.youtube.com/watch?v=ubdfLI-U-AI",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=UK8o3dyb5d0",
       "thumbnail": "https://i.ytimg.com/vi/UK8o3dyb5d0/hqdefault.jpg",
       "published": "2026-07-18T13:00:28+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "L'IA Simule le Monde s'il ne Réstait qu'un Seul Homme (et 4 Milliards de Femmes)",
-      "url": "https://www.youtube.com/watch?v=FLfjWQ-BjvM",
-      "thumbnail": "https://i.ytimg.com/vi/FLfjWQ-BjvM/hqdefault.jpg",
-      "published": "2026-07-15T14:41:25+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
