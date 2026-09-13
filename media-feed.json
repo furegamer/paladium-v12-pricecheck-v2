@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-13T14:50:28.334610+00:00",
+  "updatedAt": "2026-09-13T17:59:00.416549+00:00",
   "items": [
+    {
+      "title": "J'ai racheté un petit Serveur Minecraft à l'Abandon (c'est rentable ?)",
+      "url": "https://www.youtube.com/watch?v=vnsl5rCaaP0",
+      "thumbnail": "https://i.ytimg.com/vi/vnsl5rCaaP0/hqdefault.jpg",
+      "published": "2026-09-13T15:33:52+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai appris à Jouer à Minecraft à une Mouche (oui vraiment)",
       "url": "https://www.youtube.com/watch?v=n8zUDS2FGts",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=zG3ZGrye_9A",
       "thumbnail": "https://i.ytimg.com/vi/zG3ZGrye_9A/hqdefault.jpg",
       "published": "2026-07-21T16:25:41+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "Un jeu où tu dois Construire une Bombe Nucléaire dans ton Jardin",
-      "url": "https://www.youtube.com/watch?v=UK8o3dyb5d0",
-      "thumbnail": "https://i.ytimg.com/vi/UK8o3dyb5d0/hqdefault.jpg",
-      "published": "2026-07-18T13:00:28+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
