@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-18T14:21:31.804938+00:00",
+  "updatedAt": "2026-09-18T17:47:05.978305+00:00",
   "items": [
+    {
+      "title": "Ce Joueur à construit une Ville qui va être Détruite... - Episode 05 | Paladium S12",
+      "url": "https://www.youtube.com/watch?v=JsShQ8VKYaI",
+      "thumbnail": "https://i.ytimg.com/vi/JsShQ8VKYaI/hqdefault.jpg",
+      "published": "2026-09-18T17:35:43+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Paladium"
+    },
     {
       "title": "J'ai racheté un petit Serveur Minecraft à l'Abandon (c'est rentable ?)",
       "url": "https://www.youtube.com/watch?v=vnsl5rCaaP0",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=3eN_7zhxL-8",
       "thumbnail": "https://i.ytimg.com/vi/3eN_7zhxL-8/hqdefault.jpg",
       "published": "2026-07-26T14:22:31+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai construit la Ville la plus Polluée Possible sur Cities Skylines (c'est un Enfer)",
-      "url": "https://www.youtube.com/watch?v=zG3ZGrye_9A",
-      "thumbnail": "https://i.ytimg.com/vi/zG3ZGrye_9A/hqdefault.jpg",
-      "published": "2026-07-21T16:25:41+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
