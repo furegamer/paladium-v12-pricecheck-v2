@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-22T12:27:08.000302+00:00",
+  "updatedAt": "2026-09-22T17:12:04.315198+00:00",
   "items": [
+    {
+      "title": "Il se passe quoi si l'Humanité habitait au même endroit ? (Simulé par l'IA)",
+      "url": "https://www.youtube.com/watch?v=O3dC8TNQxL4",
+      "thumbnail": "https://i.ytimg.com/vi/O3dC8TNQxL4/hqdefault.jpg",
+      "published": "2026-09-22T16:12:38+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "Ce Joueur à construit une Ville qui va être Détruite... - Episode 05 | Paladium S12",
       "url": "https://www.youtube.com/watch?v=JsShQ8VKYaI",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
-    },
-    {
-      "title": "100 Joueurs doivent me retrouver, mais je peux me peindre",
-      "url": "https://www.youtube.com/watch?v=3eN_7zhxL-8",
-      "thumbnail": "https://i.ytimg.com/vi/3eN_7zhxL-8/hqdefault.jpg",
-      "published": "2026-07-26T14:22:31+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
     }
   ]
 }
