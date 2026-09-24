@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-09-24T14:20:01.330483+00:00",
+  "updatedAt": "2026-09-24T18:35:37.164552+00:00",
   "items": [
+    {
+      "title": "Un jeu où je dois trouver une Aiguille dans un Tas de Foin (ça m'a prit 4 jours...)",
+      "url": "https://www.youtube.com/watch?v=mMi0WRH10FY",
+      "thumbnail": "https://i.ytimg.com/vi/mMi0WRH10FY/hqdefault.jpg",
+      "published": "2026-09-24T16:48:15+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "Il se passe quoi si l'Humanité habitait au même endroit ? (Simulé par l'IA)",
       "url": "https://www.youtube.com/watch?v=O3dC8TNQxL4",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai découvert un Bug avec ma Monture (c'est cheat) - Episode 04 | Paladium S12",
-      "url": "https://www.youtube.com/watch?v=gS7mcfunZPs",
-      "thumbnail": "https://i.ytimg.com/vi/gS7mcfunZPs/hqdefault.jpg",
-      "published": "2026-08-04T13:30:36+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
