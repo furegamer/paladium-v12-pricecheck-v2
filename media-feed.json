@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-16T13:48:19.275374+00:00",
+  "updatedAt": "2026-10-16T17:51:05.764740+00:00",
   "items": [
+    {
+      "title": "On teste l'Event d'Halloween de Paladium (la pré-v13)",
+      "url": "https://www.youtube.com/watch?v=djxvLWiQCLg",
+      "thumbnail": "https://i.ytimg.com/vi/djxvLWiQCLg/hqdefault.jpg",
+      "published": "2026-10-16T15:12:52+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Paladium"
+    },
     {
       "title": "J'ai fais Crash le serveur avec 3.743 ânes... - Episode 07 | Paladium S12",
       "url": "https://www.youtube.com/watch?v=RAp9cJxeDk8",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=HeRkSCaddk4",
       "thumbnail": "https://i.ytimg.com/vi/HeRkSCaddk4/hqdefault.jpg",
       "published": "2026-09-04T14:57:19+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "4 IA doivent construire la Meilleure ville (elles font n'imp)",
-      "url": "https://www.youtube.com/watch?v=DQ6CzWictUc",
-      "thumbnail": "https://i.ytimg.com/vi/DQ6CzWictUc/hqdefault.jpg",
-      "published": "2026-09-01T16:43:59+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
