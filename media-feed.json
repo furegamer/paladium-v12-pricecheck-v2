@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-17T17:27:06.116199+00:00",
+  "updatedAt": "2026-10-17T19:39:19.627252+00:00",
   "items": [
+    {
+      "title": "J'ai 72h pour finir de construire cette Base sinon... - Episode 08 | Paladium S12",
+      "url": "https://www.youtube.com/watch?v=5j8HmWdkXEo",
+      "thumbnail": "https://i.ytimg.com/vi/5j8HmWdkXEo/hqdefault.jpg",
+      "published": "2026-10-17T17:37:48+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Paladium"
+    },
     {
       "title": "On teste l'Event d'Halloween de Paladium (la pré-v13)",
       "url": "https://www.youtube.com/watch?v=djxvLWiQCLg",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=ubdfLI-U-AI",
       "thumbnail": "https://i.ytimg.com/vi/ubdfLI-U-AI/hqdefault.jpg",
       "published": "2026-09-06T15:46:21+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "Un jeu où tu Fais un Chateau de Sable Contre un Tsunami",
-      "url": "https://www.youtube.com/watch?v=HeRkSCaddk4",
-      "thumbnail": "https://i.ytimg.com/vi/HeRkSCaddk4/hqdefault.jpg",
-      "published": "2026-09-04T14:57:19+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
