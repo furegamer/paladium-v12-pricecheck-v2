@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-19T17:05:28.146333+00:00",
+  "updatedAt": "2026-10-19T21:40:43.916618+00:00",
   "items": [
+    {
+      "title": "Un jeu où je dois ramasser 1 Millions de Pièces",
+      "url": "https://www.youtube.com/watch?v=NWW96t3987M",
+      "thumbnail": "https://i.ytimg.com/vi/NWW96t3987M/hqdefault.jpg",
+      "published": "2026-10-19T18:06:00+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai Simulé un Vrai Pays dans Minecraft ! - Episode 1 | EarthNG S4",
       "url": "https://www.youtube.com/watch?v=unERRyuuBPU",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=vnsl5rCaaP0",
       "thumbnail": "https://i.ytimg.com/vi/vnsl5rCaaP0/hqdefault.jpg",
       "published": "2026-09-13T15:33:52+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai appris à Jouer à Minecraft à une Mouche (oui vraiment)",
-      "url": "https://www.youtube.com/watch?v=n8zUDS2FGts",
-      "thumbnail": "https://i.ytimg.com/vi/n8zUDS2FGts/hqdefault.jpg",
-      "published": "2026-09-10T16:36:11+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
