@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-23T07:09:58.955745+00:00",
+  "updatedAt": "2026-10-23T12:46:05.398496+00:00",
   "items": [
+    {
+      "title": "On regarde la Mise à Jour de Paladium Bedrock !",
+      "url": "https://www.youtube.com/watch?v=GsqJRqfTi5I",
+      "thumbnail": "https://i.ytimg.com/vi/GsqJRqfTi5I/hqdefault.jpg",
+      "published": "2026-10-23T12:10:41+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Paladium"
+    },
     {
       "title": "Ce jeu te fais vivre la vie Aléatoire d'un Humain",
       "url": "https://www.youtube.com/watch?v=hJ5iYFrWgCU",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=CEitmRdEv-Y",
       "thumbnail": "https://i.ytimg.com/vi/CEitmRdEv-Y/hqdefault.jpg",
       "published": "2026-09-30T16:52:16+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "Un jeu où je dois trouver une Aiguille dans un Tas de Foin (ça m'a prit 4 jours...)",
-      "url": "https://www.youtube.com/watch?v=mMi0WRH10FY",
-      "thumbnail": "https://i.ytimg.com/vi/mMi0WRH10FY/hqdefault.jpg",
-      "published": "2026-09-24T16:48:15+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
