@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-27T16:15:25.403221+00:00",
+  "updatedAt": "2026-10-27T20:50:44.970489+00:00",
   "items": [
+    {
+      "title": "La Corée du Sud a Construit ce Mur extrêmement Dangereux... - Episode 2 | EarthNG S4",
+      "url": "https://www.youtube.com/watch?v=oZj-oAZXPYY",
+      "thumbnail": "https://i.ytimg.com/vi/oZj-oAZXPYY/hqdefault.jpg",
+      "published": "2026-10-27T19:24:52+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "Le Fuze Tournament 2 c'est Aujourd'hui !",
       "url": "https://www.youtube.com/watch?v=_h3Zf3eOWp0",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai capturé 5.362 ânes pour que personne trouve ma Base... - Episode 06 | Paladium S12",
-      "url": "https://www.youtube.com/watch?v=n1c1rKwD-To",
-      "thumbnail": "https://i.ytimg.com/vi/n1c1rKwD-To/hqdefault.jpg",
-      "published": "2026-10-02T17:53:59+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
