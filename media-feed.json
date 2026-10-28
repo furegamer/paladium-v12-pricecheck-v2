@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-10-28T13:22:54.561358+00:00",
+  "updatedAt": "2026-10-28T18:59:43.466284+00:00",
   "items": [
+    {
+      "title": "100 Jours pour construire l'Entreprise de Fusée qui Domine le Monde",
+      "url": "https://www.youtube.com/watch?v=06RucLvc_L4",
+      "thumbnail": "https://i.ytimg.com/vi/06RucLvc_L4/hqdefault.jpg",
+      "published": "2026-10-28T18:25:52+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "La Corée du Sud a Construit ce Mur extrêmement Dangereux... - Episode 2 | EarthNG S4",
       "url": "https://www.youtube.com/watch?v=oZj-oAZXPYY",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
-    },
-    {
-      "title": "J'ai combiné GTA avec Minecraft (c'est pas un Mod)",
-      "url": "https://www.youtube.com/watch?v=8J8S1c9kvBQ",
-      "thumbnail": "https://i.ytimg.com/vi/8J8S1c9kvBQ/hqdefault.jpg",
-      "published": "2026-10-08T16:28:04+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
     }
   ]
 }
