@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-06T13:55:36.458887+00:00",
+  "updatedAt": "2026-11-06T20:17:37.065831+00:00",
   "items": [
+    {
+      "title": "J'ai Construit un Sous-Marin Nucléaire (pour fumer la Corée du Sud) - Episode 3 | EarthNG S4",
+      "url": "https://www.youtube.com/watch?v=w3mGMm_hUjk",
+      "thumbnail": "https://i.ytimg.com/vi/w3mGMm_hUjk/hqdefault.jpg",
+      "published": "2026-11-06T17:34:04+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai forcé 4 IA à Développer le Meilleur Mod Minecraft",
       "url": "https://www.youtube.com/watch?v=TWs-zr4oKFY",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=5j8HmWdkXEo",
       "thumbnail": "https://i.ytimg.com/vi/5j8HmWdkXEo/hqdefault.jpg",
       "published": "2026-10-17T17:37:48+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
-    },
-    {
-      "title": "On teste l'Event d'Halloween de Paladium (la pré-v13)",
-      "url": "https://www.youtube.com/watch?v=djxvLWiQCLg",
-      "thumbnail": "https://i.ytimg.com/vi/djxvLWiQCLg/hqdefault.jpg",
-      "published": "2026-10-16T19:05:57+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
