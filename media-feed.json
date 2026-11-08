@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-08T15:50:59.254521+00:00",
+  "updatedAt": "2026-11-08T20:16:04.989615+00:00",
   "items": [
+    {
+      "title": "Un jeu Horrible où tu dois nettoyer la Lune à la brosse à dent...",
+      "url": "https://www.youtube.com/watch?v=SYAME9SHGcM",
+      "thumbnail": "https://i.ytimg.com/vi/SYAME9SHGcM/hqdefault.jpg",
+      "published": "2026-11-08T18:08:50+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai Construit un Sous-Marin Nucléaire (pour fumer la Corée du Sud) - Episode 3 | EarthNG S4",
       "url": "https://www.youtube.com/watch?v=w3mGMm_hUjk",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "J'ai 72h pour finir de construire cette Base sinon... - Episode 08 | Paladium S12",
-      "url": "https://www.youtube.com/watch?v=5j8HmWdkXEo",
-      "thumbnail": "https://i.ytimg.com/vi/5j8HmWdkXEo/hqdefault.jpg",
-      "published": "2026-10-17T17:37:48+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
