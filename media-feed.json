@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-15T15:47:42.297743+00:00",
+  "updatedAt": "2026-11-15T20:53:03.547926+00:00",
   "items": [
+    {
+      "title": "J'ai organisé un Tournoi Minecraft... Tout s'est pas passé comme prévu...",
+      "url": "https://www.youtube.com/watch?v=BWNJQ5q3yEA",
+      "thumbnail": "https://i.ytimg.com/vi/BWNJQ5q3yEA/hqdefault.jpg",
+      "published": "2026-11-15T18:20:13+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "Un jeu qui te force à éplucher des Patates en URSS...",
       "url": "https://www.youtube.com/watch?v=-jOfE8Ifn18",
@@ -96,15 +105,6 @@
       "url": "https://www.youtube.com/watch?v=Ihes8EN3VDY",
       "thumbnail": "https://i.ytimg.com/vi/Ihes8EN3VDY/hqdefault.jpg",
       "published": "2026-10-20T15:54:47+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
-    },
-    {
-      "title": "Un jeu où je dois ramasser 1 Millions de Pièces",
-      "url": "https://www.youtube.com/watch?v=NWW96t3987M",
-      "thumbnail": "https://i.ytimg.com/vi/NWW96t3987M/hqdefault.jpg",
-      "published": "2026-10-19T18:06:00+00:00",
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
