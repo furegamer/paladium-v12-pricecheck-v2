@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-26T15:36:56.962302+00:00",
+  "updatedAt": "2026-11-27T00:22:54.741667+00:00",
   "items": [
+    {
+      "title": "Un jeu où tu fais Passer Toute l'Humanité à travers une Porte",
+      "url": "https://www.youtube.com/watch?v=VswiccIKDwY",
+      "thumbnail": "https://i.ytimg.com/vi/VswiccIKDwY/hqdefault.jpg",
+      "published": "2026-11-26T17:46:36+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Vidéo"
+    },
     {
       "title": "J'ai risqué le Bannissement pour détruire leur Drapeau... - Episode 4 | EarthNG S4",
       "url": "https://www.youtube.com/watch?v=4dJkZp7J0Ko",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Paladium"
-    },
-    {
-      "title": "Ce jeu te fais vivre la vie Aléatoire d'un Humain",
-      "url": "https://www.youtube.com/watch?v=hJ5iYFrWgCU",
-      "thumbnail": "https://i.ytimg.com/vi/hJ5iYFrWgCU/hqdefault.jpg",
-      "published": "2026-10-22T17:27:41+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Vidéo"
     }
   ]
 }
