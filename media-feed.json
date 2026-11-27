@@ -1,6 +1,15 @@
 {
-  "updatedAt": "2026-11-27T08:56:40.868004+00:00",
+  "updatedAt": "2026-11-27T18:47:47.451035+00:00",
   "items": [
+    {
+      "title": "On découvre la Nouvelle Version de Paladium ! (V13: Badlands)",
+      "url": "https://www.youtube.com/watch?v=Mfbe6F5Dluc",
+      "thumbnail": "https://i.ytimg.com/vi/Mfbe6F5Dluc/hqdefault.jpg",
+      "published": "2026-11-27T13:22:26+00:00",
+      "channel": "FuzeIII",
+      "sourceType": "Créateur",
+      "kind": "Paladium"
+    },
     {
       "title": "Un jeu où tu fais Passer Toute l'Humanité à travers une Porte",
       "url": "https://www.youtube.com/watch?v=VswiccIKDwY",
@@ -99,15 +108,6 @@
       "channel": "FuzeIII",
       "sourceType": "Créateur",
       "kind": "Vidéo"
-    },
-    {
-      "title": "On regarde la Mise à Jour de Paladium Bedrock !",
-      "url": "https://www.youtube.com/watch?v=GsqJRqfTi5I",
-      "thumbnail": "https://i.ytimg.com/vi/GsqJRqfTi5I/hqdefault.jpg",
-      "published": "2026-10-23T19:58:56+00:00",
-      "channel": "FuzeIII",
-      "sourceType": "Créateur",
-      "kind": "Paladium"
     }
   ]
 }
